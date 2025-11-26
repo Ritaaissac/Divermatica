@@ -6,7 +6,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Linguagem-Python-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Linguagem-Python%20%2F%20JS-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Front--End-HTML%20%2F%20CSS-green?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Banco%20de%20Dados-MySQL-red?style=for-the-badge"/>
 </p>
