@@ -13,12 +13,6 @@
 
 ---
 
-<p align="center">
-  <img src="https://img.icons8.com/external-flatart-icons-solid-flatarticons/512/external-math-back-to-school-flatart-icons-solid-flatarticons.png" width="220"/>
-</p>
-
----
-
 ## 📘 **Sobre o Projeto**
 
 **DIVERMÁTICA** é uma plataforma digital criada para ajudar crianças do Ensino Fundamental I a aprender Matemática de forma **lúdica, envolvente e visualmente atrativa**.
