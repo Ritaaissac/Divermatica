@@ -59,9 +59,10 @@ Por meio de jogos, desafios e elementos de gamificação, o sistema torna o apre
 
 ```
 📦 divermatica
-├── 📂 src/          # Código-fonte da plataforma
-├── 📂 assets/       # Imagens, ícones e mídias
-├── 📂 docs/         # Arquivos do TCC
+├── 📂 docs/         # Documentos do projeto
+├── 📂 static/       # Imagens, ícones, mídias e códigos dos jogos
+├── 📂 templates/    # Páginas html 
+├── app.py           # Código-fonte da plataforma
 └── README.md
 ```
 
