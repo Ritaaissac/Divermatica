@@ -70,6 +70,13 @@ def logout():
 def jogo_memoria():
     return render_template('jogo_memoria.html')
 
+@app.route('/jogo-divisao')
+@login_required
+def jogo_divisao():
+    return render_template('jogo_divisao.html')
+
+
+
 if __name__ == '__main__':
     if not os.path.exists('usuarios.db'):
         with app.app_context():
