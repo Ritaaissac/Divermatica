@@ -1,6 +1,6 @@
 /* ===== ESTILOS GERAIS ===== */
 body {
-    background: #ffe3a7;
+    background: #85aaff;
     font-family: Arial, sans-serif;
     margin: 0;
     min-height: 100vh;
@@ -10,7 +10,7 @@ body {
 
 /* ===== HEADER E NAVEGAÇÃO ===== */
 header {
-    background: #4a4c7a;
+    background: white;
     color: #fff;
     margin: 0;
     padding: 0;
@@ -22,7 +22,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0 40px;
-    height: 80px;
+    height: 120px;
     overflow: visible;
     position: relative;
 }
@@ -33,7 +33,7 @@ header {
     margin-right: 30px;
     cursor: default;
     position: relative;
-    top: 0;
+    top: 5px;
 }
 
 .logo-btn {
@@ -99,35 +99,53 @@ footer {
 
 .btn2:hover {
     background: #ffcd50;
+    
 }
 
 /* ===== PÁGINA INICIAL ===== */
+.nuvens{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
 .logo-img-index {
     width: 500px;
     height: auto;
-    margin-bottom: -150px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: -250px;
+    cursor: default;
+    position: relative;
+    top: 0;
 }
 
 .botoes-box {
     background: #fff;
     border: 2px solid #e0e0e0;
-    border-radius: 10px;
+    border-radius: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 30px 20px;
-    max-width: 300px;
     margin: 10px auto 0 auto;
     box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    position: relative;
+    bottom: -350px;
+    width: 400px;
+    height: 200px;
 }
 
 .botoes-box .btn1,
 .botoes-box .btn2 {
-    width: 200px;
+    width: 250px;
+    height: 50px;
     margin: 10px 0;
+    border-radius: 50px;
+    font-family: 'Lilita One', cursive;
+    font-size: 28px;
+    position: relative;
+    font-weight: normal;
 }
 
 /* ===== JOGO DA MEMÓRIA ===== */
@@ -238,37 +256,6 @@ form button {
 
 form button:hover {
     background: #6563FF;
-}
-
-/* ===== CADASTRO ===== */
-.cadastro-flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 150px;
-}
-
-.branco {
-    background: #fff;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    width: 660px;
-    height: 440px;
-}
-
-.mascote-img-cadastro {
-    position: absolute;
-    width: 800px;
-    bottom: 0;
-    right: 0px;
-    z-index: 1000;
-    transform: translateY(30%);
-    pointer-events: none;
 }
 
 /* ===== MENU DE JOGOS ===== */

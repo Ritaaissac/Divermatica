@@ -6,35 +6,73 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+
+    {% if current_user.is_authenticated %}
+    <style>
+        .nav-links a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+
+            padding: 8px 16px;
+            border-radius: 50px;
+
+            transition:
+                background .3s ease,
+                transform .2s ease,
+                box-shadow .2s ease;
+        }
+
+        /* CORES INDIVIDUAIS */
+        #btn_azul {
+            background: #0c41ac;
+        }
+
+        #btn_amarelo {
+            background: #e8424f;
+        }
+
+        #btn_verde {
+            background: #94b823;
+        }
+
+        /* Hover — mantém o efeito para todas as cores */
+        .nav-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Active */
+        .nav-links a:active {
+            transform: scale(0.97);
+        }
+
+
+    </style>
     <header>
         <nav class="header-nav">
-            {% if current_user.is_authenticated %}
-                <a href="{{ url_for('index') }}">
-                    <img src="{{ url_for('static', filename='D-removebg-preview.png') }}" alt="Logo Divermatica" class="logo-img logo-btn">
-                </a>
-            {% else %}
-                <img src="{{ url_for('static', filename='D-removebg-preview.png') }}" alt="Logo Divermatica" class="logo-img">
-            {% endif %}
+
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='logo_inicio.png') }}"
+                     alt="Logo Divermatica"
+                     class="logo-img logo-btn">
+            </a>
+
             <div class="nav-links">
-                {% if current_user.is_authenticated %}
-                    <!-- Links para usuários LOGADOS -->
-                    <a href="{{ url_for('index') }}">Início</a>
-                    <a href="{{ url_for('jogo_memoria') }}">Jogo da Memória</a>
-                    <a href="{{ url_for('logout') }}">Sair</a>
-                {% else %}
-                    <!-- Links para usuários NÃO logados -->
-                    <a href="/">Início</a>
-                    <a href="/cadastro">Cadastrar</a>
-                    <a href="/login">Login</a>
-                {% endif %}
+                <a href="{{ url_for('index') }}" id="btn_azul">Início</a>
+                <a href="{{ url_for('jogo_memoria') }}" id="btn_amarelo">Jogo da Memória</a>
+                <a href="{{ url_for('logout') }}" id="btn_verde">Sair</a>
             </div>
+
         </nav>
     </header>
+    {% endif %}
+
     <main>
         {% block content %}{% endblock %}
     </main>
-    <footer>
-        <p>&copy; 2025 Divermatica. Todos os direitos reservados.</p>
-    </footer>
+
+
 </body>
 </html>

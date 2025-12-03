@@ -4,6 +4,8 @@
 
 {% block content %}
     {% if current_user.is_authenticated %}
+
+        <!-- SE ESTIVER LOGADO: MOSTRA MENU DE JOGOS -->
         <div class="menu-jogos">
             <h1>Escolha um Jogo</h1>
             <div class="jogos-grid">
@@ -12,6 +14,7 @@
                     <h3>Jogo da Memória</h3>
                     <p>Teste sua memória com este jogo clássico</p>
                 </a>
+                <!-- Adicione mais jogos aqui no futuro -->
                 <a href="#" class="jogo-card">
                     <div class="jogo-icon">🎮</div>
                     <h3>Em Breve</h3>
@@ -20,8 +23,10 @@
             </div>
         </div>
     {% else %}
+        <!-- SE NÃO ESTIVER LOGADO: MOSTRA PÁGINA INICIAL NORMAL -->
         <section class="inicio">
-            <img src="{{ url_for('static', filename='D-removebg-preview.png') }}" alt="Logo Divermatica" class="logo-img-index">
+            <img src="{{ url_for('static', filename='cena.png') }}" alt="" class="nuvens">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Divermatica" class="logo-img-index">
             <div class="botoes-box">
                 <a href="/cadastro" class="btn1">Cadastrar</a>
                 <a href="/login" class="btn2">Login</a>
