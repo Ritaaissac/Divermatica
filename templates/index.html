@@ -1,10 +1,12 @@
 {% extends "base.html" %}
-
 {% block title %}Página Inicial - Divermatica{% endblock %}
+
+{% block extra_css %}
+
+{% endblock %}
 
 {% block content %}
     {% if current_user.is_authenticated %}
-
         <!-- SE ESTIVER LOGADO: MOSTRA MENU DE JOGOS -->
         <div class="menu-jogos">
             <h1>Escolha um Jogo</h1>
@@ -24,14 +26,24 @@
             </div>
         </div>
     {% else %}
-        <!-- SE NÃO ESTIVER LOGADO: MOSTRA PÁGINA INICIAL NORMAL -->
+        <!-- SE NÃO ESTIVER LOGADO: MOSTRA PÁGINA INICIAL COM TEXTO -->
         <section class="inicio">
             <img src="{{ url_for('static', filename='cena.png') }}" alt="" class="nuvens">
             <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Divermatica" class="logo-img-index">
-            <div class="botoes-box">
-                <a href="{{ url_for('auth_register') }}" class="btn1">Cadastrar</a>
-                <a href="{{ url_for('auth_login') }}" class= "btn2">Login</a>
+            
+            <!-- Texto alinhado à esquerda -->
+            <div class="texto-apresentacao">
+                <h2>Bem-vindo ao <br> Divermatica!</h2>
+                <p>Aprenda matemática de forma divertida e <br> interativa através de jogos educativos.</p>
+                <p>Desenvolva suas habilidades matemáticas enquanto se diverte com desafios e atividades criativas.</p>
+                <p>Clique no botão para assistir nosso vídeo de apresentação!</p>
             </div>
+
+            <!-- Botão de cadastro visível -->
+            <a href="{{ url_for('auth_register') }}" class="btn-cadastro">Cadastre-se Agora</a>
+
+            <!-- Botão invisível sobre a joaninha para redirecionar ao vídeo -->
+            <a href="https://youtu.be/0JkSpPZJDkE?si=RqtDPsO-NbvqyUwS" target="_blank" class="btn-video-invisivel" title="Assistir vídeo"></a>
         </section>
     {% endif %}
 {% endblock %}
