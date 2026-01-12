@@ -44,7 +44,7 @@ def init_app(app):
 
     app.add_url_rule('/politica-privacidade', endpoint='politica_privacidade', view_func=politica_privacidade, methods=['GET'])
 
-    @login_required
+
     def jogo_multiplicacao():
         return render_template('jogo_multiplicacao.html')
 
