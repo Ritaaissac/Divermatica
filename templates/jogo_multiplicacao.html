@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo do Trenzinho</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/trem.css') }}">
+</head>
+
+<body>
+
+  <div id="pergunta"></div>
+
+  <div id="cenario">
+    <div id="bolinha"></div>
+    <div id="trem">
+      <div class="vagao" data-valor="">
+        <div class="rodas">
+          <span></span><span></span>
+        </div>
+      </div>
+      <div class="vagao" data-valor="">
+        <div class="rodas">
+          <span></span><span></span>
+        </div>
+      </div>
+      <div class="vagao" data-valor="">
+        <div class="rodas">
+          <span></span><span></span>
+        </div>
+      </div>
+    </div>
+
+    <div id="trilhos"></div>
+  </div>
+
+  <div id="mensagem"></div>
+
+  <script src="{{ url_for('static', filename='trem.js') }}"></script>
+</body>
+</html>
