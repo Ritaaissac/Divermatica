@@ -1,0 +1,209 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', Arial, sans-serif;
+  background: linear-gradient(#87ceeb, #e0f7fa);
+  text-align: center;
+}
+
+/* PERGUNTA */
+#pergunta {
+  font-size: 34px;
+  font-weight: bold;
+  margin: 20px;
+  color: #0d47a1;
+}
+
+/* CENÁRIO */
+#cenario {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+}
+
+/* CHÃO */
+#chao {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(#4caf50, #2e7d32);
+}
+
+/* BOLINHA */
+#bolinha {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, #ff5252, #c62828);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  cursor: pointer;
+}
+
+/* TREM */
+#trem {
+  position: absolute;
+  bottom: 60px;
+  left: -700px;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* LOCOMOTIVA */
+.locomotiva {
+  width: 150px;
+  height: 80px;
+  background: #d32f2f;
+  border-radius: 12px;
+  position: relative;
+  margin-right: 12px;
+}
+
+.locomotiva .cabine {
+  width: 70px;
+  height: 55px;
+  background: #b71c1c;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 8px;
+}
+
+.locomotiva .janela {
+  width: 28px;
+  height: 28px;
+  background: #bbdefb;
+  border-radius: 5px;
+  margin: 12px auto;
+}
+
+.locomotiva .chamine {
+  width: 22px;
+  height: 40px;
+  background: #424242;
+  position: absolute;
+  top: -30px;
+  right: 25px;
+  border-radius: 5px;
+}
+
+.vagao {
+  width: 130px;
+  height: 75px;
+  background: linear-gradient(#ffeb3b, #fbc02d);
+  border-radius: 12px;
+  margin: 0 5px;
+  border: 3px solid #f57f17;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #4e342e;
+  position: relative;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.15),
+              0 4px 6px rgba(0,0,0,0.2);
+}
+
+
+/* RESPOSTA */
+.vagao .resposta {
+  z-index: 2;
+}
+
+.rodas {
+  position: absolute;
+  bottom: -18px;
+  left: 18px;
+  display: flex;
+  gap: 22px;
+}
+
+.rodas span {
+  width: 26px;
+  height: 26px;
+  background: radial-gradient(circle, #555, #222);
+  border-radius: 50%;
+  border: 2px solid #000;
+  animation: girar 1s linear infinite;
+}
+
+.vagao::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 8px;
+  right: 8px;
+  height: 6px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 3px;
+}
+
+/* TRILHOS */
+#trilhos {
+  position: absolute;
+  bottom: 40px; /* Ajuste para o trem passar sobre os trilhos */
+  width: 100%;
+  height: 20px;
+  background: repeating-linear-gradient(
+    to right,
+    #616161 0px,
+    #616161 10px,
+    #424242 10px,
+    #424242 20px
+  );
+  background-size: 20px 100%;
+}
+
+
+
+/* MENSAGEM */
+#mensagem {
+  font-size: 28px;
+  margin-top: 15px;
+  min-height: 36px;
+  font-weight: bold;
+}
+
+.vagao::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 35px;
+  width: 16px;
+  height: 6px;
+  background: #555;
+  border-radius: 3px;
+}
+
+
+/* ANIMAÇÕES */
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* FEEDBACK VISUAL */
+.vagao.acerto {
+  background: #81c784;
+  border-color: #2e7d32;
+}
+
+.vagao.erro {
+  background: #e57373;
+  border-color: #c62828;
+}
