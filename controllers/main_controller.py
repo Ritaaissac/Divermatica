@@ -1,4 +1,6 @@
+
 from flask import render_template
+from flask_login import login_required
 
 
 def init_app(app):
@@ -9,16 +11,19 @@ def init_app(app):
     app.add_url_rule('/', endpoint='index', view_func=index, methods=['GET'])
 
     # Jogos list (placeholder)
+    @login_required
     def jogos_index():
         return render_template('jogos.html')
 
     app.add_url_rule('/jogos', endpoint='jogos_index', view_func=jogos_index, methods=['GET'])
 
+    @login_required
     def jogo_memoria():
         return render_template('jogo_memoria.html')
 
     app.add_url_rule('/jogo-memoria', endpoint='jogo_memoria', view_func=jogo_memoria, methods=['GET'])
 
+    @login_required
     def jogo_divisao():
         return render_template('jogo_divisao.html')
 
@@ -38,3 +43,14 @@ def init_app(app):
         return render_template('politica_privacidade.html')
 
     app.add_url_rule('/politica-privacidade', endpoint='politica_privacidade', view_func=politica_privacidade, methods=['GET'])
+
+    @login_required
+    def jogo_multiplicacao():
+        return render_template('jogo_multiplicacao.html')
+
+    app.add_url_rule(
+        '/jogo_multiplicacao',
+        endpoint='jogo_multiplicacao',
+        view_func=jogo_multiplicacao,
+        methods=['GET']
+    )
