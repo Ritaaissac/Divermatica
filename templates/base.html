@@ -7,7 +7,6 @@
 </head>
 <body>
 
-    {% if current_user.is_authenticated %}
     <style>
         .nav-links a {
             text-decoration: none;
@@ -62,12 +61,10 @@
             <div class="nav-links">
                 <a href="{{ url_for('index') }}" id="btn_azul">Início</a>
                 <a href="{{ url_for('jogo_memoria') }}" id="btn_amarelo">Jogo da Memória</a>
-                <a href="{{ url_for('logout') }}" id="btn_verde">Sair</a>
             </div>
 
         </nav>
     </header>
-    {% endif %}
 
     <main>
         {% block content %}{% endblock %}

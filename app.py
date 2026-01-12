@@ -4,8 +4,7 @@ from config import Config
 from extensions import init_app, db
 
 # import route modules
-from auth import routes as auth_routes
-from controllers import main_controller, user_controller, product_controller
+from controllers import main_controller, product_controller
 
 
 def create_app():
@@ -16,9 +15,7 @@ def create_app():
     init_app(app)
 
     # register routes from modules
-    auth_routes.init_app(app)
     main_controller.init_app(app)
-    user_controller.init_app(app)
     product_controller.init_app(app)
 
     # create database file if it doesn't exist

@@ -6,42 +6,26 @@
 {% endblock %}
 
 {% block content %}
-    {% if current_user.is_authenticated %}
-        <!-- SE ESTIVER LOGADO: MOSTRA MENU DE JOGOS -->
-        <div class="menu-jogos">
-            <h1>Escolha um Jogo</h1>
-            <div class="jogos-grid">
-                <a href="{{ url_for('jogo_memoria') }}" class="jogo-card">
-                    <div class="jogo-icon">🧠</div>
-                    <h3>Jogo da Memória</h3>
-                    <p>Teste sua memória com este jogo clássico</p>
-                </a>
-                <!-- Adicione mais jogos aqui no futuro -->
-                <a href="#" class="jogo-card">
-                    <div class="jogo-icon">🎮</div>
-                     <a href="{{ url_for('jogo_divisao') }}" class="jogo-card"></a>
-                    <h3>Em Breve</h3>
-                    <p>Mais jogos em desenvolvimento</p>
-                </a>
-            </div>
+    <!-- MOSTRA MENU DE JOGOS PARA TODOS -->
+    <div class="menu-jogos">
+        <h1>Escolha um Jogo</h1>
+        <div class="jogos-grid">
+            <a href="{{ url_for('jogo_memoria') }}" class="jogo-card">
+                <div class="jogo-icon">🧠</div>
+                <h3>Jogo da Memória</h3>
+                <p>Teste sua memória com este jogo clássico</p>
+            </a>
+            <a href="{{ url_for('jogo_divisao') }}" class="jogo-card">
+                <div class="jogo-icon">➗</div>
+                <h3>Jogo da Divisão</h3>
+                <p>Pratique divisão de forma divertida</p>
+            </a>
+            <!-- Adicione mais jogos aqui no futuro -->
+            <a href="#" class="jogo-card">
+                <div class="jogo-icon">🎮</div>
+                <h3>Em Breve</h3>
+                <p>Mais jogos em desenvolvimento</p>
+            </a>
         </div>
-    {% else %}
-        <!-- SE NÃO ESTIVER LOGADO: MOSTRA PÁGINA INICIAL COM TEXTO -->
-        <section class="inicio">
-            <img src="{{ url_for('static', filename='cena.png') }}" alt="" class="nuvens">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Divermatica" class="logo-img-index">
-            
-            <!-- Texto alinhado à esquerda -->
-            <div class="texto-apresentacao">
-                <h2>Bem-vindo ao <br> Divermatica!</h2>
-                <p>Aprenda matemática de forma divertida e <br> interativa através de jogos educativos.</p>
-                <p>Desenvolva suas habilidades matemáticas enquanto se diverte com desafios e atividades criativas.</p>
-                <p>Clique no botão para assistir nosso vídeo de apresentação!</p>
-            </div>
-
-
-            <!-- Botão invisível sobre a joaninha para redirecionar ao vídeo -->
-            <a href="https://youtu.be/0JkSpPZJDkE?si=RqtDPsO-NbvqyUwS" target="_blank" class="btn-video-invisivel" title="Assistir vídeo"></a>
-        </section>
-    {% endif %}
+    </div>
 {% endblock %}
