@@ -1,0 +1,53 @@
+/* Estilo para a página inicial */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #85aafe;
+    margin: 0;
+    padding: 0;
+}
+
+.circulo {
+    background: #df0106;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.triangulo {
+    width: 0;
+    height: 0;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 100px solid #ffffff;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    transform: translate(-45%, -50%);
+}
+button {
+    background-color: #a90c0c;
+    border: none;
+    color: #ffffff;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}

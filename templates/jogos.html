@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Página Inicial - Divermatica{% endblock %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+{% block content %}
+    <!-- MOSTRA MENU DE JOGOS PARA TODOS -->
+    <div class="menu-jogos">
+        <h1>Escolha um Jogo</h1>
+        <div class="jogos-grid">
+            <a href="{{ url_for('jogo_memoria') }}" class="jogo-card">
+                <div class="jogo-icon">🧠</div>
+                <h3>Jogo da Memória</h3>
+                <p>Teste sua memória com este jogo clássico</p>
+            </a>
+            <a href="{{ url_for('jogo_divisao') }}" class="jogo-card">
+                <div class="jogo-icon">➗</div>
+                <h3>Jogo da Divisão</h3>
+                <p>Pratique divisão de forma divertida</p>
+            </a>
+            <a href="{{ url_for('jogo_multiplicacao') }}" class="jogo-card">
+                <div class="jogo-icon">✖️</div>
+                <h3>Jogo da Multiplicação</h3>
+                <p>Pratique Multiplicação de forma divertida</p>
+            </a>
+            <!-- Adicione mais jogos aqui no futuro -->
+            <a href="#" class="jogo-card">
+                <div class="jogo-icon">🎮</div>
+                <h3>Em Breve</h3>
+                <p>Mais jogos em desenvolvimento</p>
+            </a>
+        </div>
+    </div>
+{% endblock %}
