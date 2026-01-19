@@ -36,6 +36,14 @@
             background: #94b823;
         }
 
+        #btn_roxo {
+            background: #7b2cbf;
+        }
+
+        #btn_laranja {
+            background: #ff8c42;
+        }
+
         /* Hover — mantém o efeito para todas as cores */
         .nav-links a:hover {
             transform: translateY(-3px);
@@ -59,8 +67,10 @@
             </a>
 
             <div class="nav-links">
-                <a href="{{ url_for('index') }}" id="btn_azul">Início</a>
+                <a href="{{ url_for('jogos_index') }}" id="btn_azul">Início</a>
                 <a href="{{ url_for('jogo_memoria') }}" id="btn_amarelo">Jogo da Memória</a>
+                <a href="{{ url_for('jogo_divisao') }}" id="btn_verde">Jogo da Divisão</a>
+                <a href="{{ url_for('jogo_multiplicacao') }}" id="btn_roxo">Jogo da Multiplicação</a>
             </div>
 
         </nav>

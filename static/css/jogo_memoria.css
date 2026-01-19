@@ -5,6 +5,12 @@
     background: #F8F8F8;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     margin: 20px auto;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
 }
 
 .cards, .card, .view {
