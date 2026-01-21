@@ -7,15 +7,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='/css/index.css') }}">
 </head>
 <body>
-    <img src="{{ url_for('static', filename='static/images/D-removebg-preview.png') }}">
-    <div class="triangulo">
-
+    <a href="{{ url_for('jogos_index') }}"><img src="{{ url_for('static', filename='images/D-removebg-preview.png') }}"></a>
+    <a href="{{ url_for('jogos_index') }}"><div class="triangulo"></div></a>
+    <div class="joaninha">
+        <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='joaninha.png') }}"></a>
     </div>
     <div class="circulo">
         <a href="{{ url_for('jogos_index') }}"><button>Go to Jogos</button></a>
     </div>
-    <div class="triangulo">
-
-    </div>
+    <a href="{{ url_for('jogos_index') }}"><div class="triangulo"></div></a>
 </body>
 </html>

@@ -32,12 +32,28 @@ body {
     transform: translate(-45%, -50%);
 }
 
+.joaninha {
+    position: fixed;
+    top: 44%;
+    left: 50%;
+    transform: translate(-48%, -50%);
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.joaninha img {
+    width: 350px;
+    height: auto;
+}
+
 button {
     background: linear-gradient(135deg, #ff4d4d, #8a0000);
     border: none;
     color: #ffffff;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
