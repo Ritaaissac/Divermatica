@@ -48,7 +48,8 @@ body {
     height: auto;
 }
 
-button {
+/* circular link styled as button on index page */
+.btn-circulo {
     background: linear-gradient(135deg, #ff4d4d, #8a0000);
     border: none;
     color: #ffffff;
@@ -65,5 +66,22 @@ button {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 10;
+    z-index: 30;
+    text-decoration: none;
 }
+
+/* reset for link-like buttons used in templates */
+.link-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+}
+
+.link-btn img { display: block; }
+
+/* fallback for any plain <button> elements elsewhere */
+button { cursor: pointer; }
