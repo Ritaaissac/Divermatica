@@ -1,28 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <title>DivertMática</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="static/css/index.css">
 </head>
 <body>
-    <a href="{{ url_for('jogos_index') }}" class="logo-btn link-btn">
-        <img src="{{ url_for('static', filename='images/D-removebg-preview.png') }}" alt="Logo">
-    </a>
-    
-    <div class="joaninha">
-        <a href="{{ url_for('jogos_index') }}" class="link-btn">
-            <img src="{{ url_for('static', filename='joaninha.png') }}" alt="Joaninha">
-        </a>
-    </div>
-    
-    <div class="circulo">
-        <a href="{{ url_for('jogos_index') }}" class="btn-circulo link-btn"></a>
-    </div>
-    <div class="triangulo">
-        <a href="{{ url_for('jogos_index') }}" class="btn-triangulo link-btn"></a>
-    </div>
-    
+
+    <section class="hero">
+
+        <!-- Nuvens -->
+        <img class="fundo" src="static/fundo.png" alt="">
+
+        <!-- Logo -->
+        <img class="logo" src="static/logo.png" alt="">
+
+        <!-- Texto -->
+        <div class="hero-text">
+            APERTE O BOTÃO<br>
+            AO LADO e acesse<br>nossa plataforma</span>
+        </div>
+
+        <!-- Botão -->
+        <div class="play-button">
+            <a href="{{ url_for('jogos_index') }}"></a>
+        </div>
+         
+        <img class="mascote" src="static/mascote.png" alt="">
+
+
 </body>
 </html>
+
+    
+    
+    
