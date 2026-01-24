@@ -8,73 +8,78 @@
 <body>
 
     <style>
-        .nav-links a {
+       /* HEADER GERAL */
+        .header {
+            background: #ffffff;
+            border-bottom: 4px solid #ffd966;
+        }
+
+        /* CONTAINER */
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 14px 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* LOGO */
+        .logo-area img {
+            height: 80px;
+            right: 30px;
+            position: relative;
+        }
+
+        /* MENU */
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .nav-menu a {
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            color: #ffffff;
+            color: #2b2b2b;
+            padding: 10px 20px;
+        }
 
-            padding: 8px 16px;
+        .nav-menu a:hover {
+            transition: color .0s ease;
+            color: #ffd966;
+            padding: 10px 20px;
+            background-color: #ffffff;
             border-radius: 50px;
-
-            transition:
-                background .3s ease,
-                transform .2s ease,
-                box-shadow .2s ease;
+            border: #ffd966 2px solid;
+            
         }
 
-        /* CORES INDIVIDUAIS */
-        #btn_azul {
-            background: #0c41ac;
-        }
-
-        #btn_amarelo {
-            background: #e8424f;
-        }
-
-        #btn_verde {
-            background: #94b823;
-        }
-
-        #btn_roxo {
-            background: #7b2cbf;
-        }
-
-        #btn_laranja {
-            background: #ff8c42;
-        }
-
-        /* Hover — mantém o efeito para todas as cores */
-        .nav-links a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        /* Active */
-        .nav-links a:active {
-            transform: scale(0.97);
-        }
 
 
     </style>
-    <header>
-        <nav class="header-nav">
+    <header class="header">
+        <nav class="nav-container">
 
-            <a href="{{ url_for('index') }}">
-                <img src="{{ url_for('static', filename='logo_inicio.png') }}"
-                     alt="Logo Divermatica"
-                     class="logo-img logo-btn">
+            <!-- LOGO -->
+            <a href="{{ url_for('index') }}" class="logo-area">
+                <img src="{{ url_for('static', filename='logo_inicio.png') }}" alt="Logo Divermatica">
             </a>
 
-            <div class="nav-links">
-                <a href="{{ url_for('jogos_index') }}" id="btn_azul">Início</a>
-                <a href="{{ url_for('jogo_memoria') }}" id="btn_amarelo">Jogo da Memória</a>
-                <a href="{{ url_for('jogo_divisao') }}" id="btn_verde">Jogo da Divisão</a>
-                <a href="{{ url_for('jogo_multiplicacao') }}" id="btn_roxo">Jogo da Multiplicação</a>
-            </div>
+            <!-- MENU -->
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('jogos_index') }}">Jogos</a></li>
+                <li><a href="{{ url_for('sobre') }}">Sobre</a></li>
+                <li><a href="{{ url_for('quiz') }}">Quiz</a></li>
+                <li><a href="{{ url_for('perfil') }}">Perfil</a></li>
+            </ul>
 
         </nav>
     </header>
+
 
     <main>
         {% block content %}{% endblock %}

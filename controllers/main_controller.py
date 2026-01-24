@@ -10,6 +10,27 @@ def init_app(app):
 
     app.add_url_rule('/', endpoint='index', view_func=index, methods=['GET'])
 
+    def boas_vindas():
+            return render_template('boas_vindas.html')
+    
+    app.add_url_rule('/boas-vindas', endpoint='boas_vindas', view_func=boas_vindas, methods=['GET'])
+
+    def sobre():
+        return render_template('sobre.html')
+    
+    app.add_url_rule('/sobre', endpoint='sobre', view_func=sobre, methods=['GET'])
+
+    def quiz():
+        return render_template('quiz.html')
+    
+    app.add_url_rule('/quiz', endpoint='quiz', view_func=quiz, methods=['GET'])
+
+    def perfil():
+        return render_template('perfil.html')
+    
+    app.add_url_rule('/perfil', endpoint='perfil', view_func=perfil, methods=['GET'])
+
+
     # Jogos list (placeholder)
     
     def jogos_index():
@@ -39,3 +60,5 @@ def init_app(app):
         view_func=jogo_multiplicacao,
         methods=['GET']
     )
+
+    
