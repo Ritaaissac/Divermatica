@@ -1,0 +1,43 @@
+# Ambiente Virtual
+venv/
+env/
+ENV/
+.venv
+
+# Arquivos compilados Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Flask
+instance/
+.webassets-cache
+
+# Testes
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribuição
+dist/
+build/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
