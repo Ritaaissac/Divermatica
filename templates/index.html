@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>DivertMática</title>
+    <title>DiverMática</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/index.css">
 </head>
@@ -19,16 +19,16 @@
         <!-- Texto -->
         <div class="hero-text">
             APERTE O BOTÃO<br>
-            AO LADO e acesse<br>nossa plataforma</span>
+            AO LADO e acesse<br>nossa plataforma
         </div>
 
-        <!-- Botão -->
-        <div class="play-button">
-            <a href="{{ url_for('jogos_index') }}"></a>
-        </div>
-         
-        <img class="mascote" src="static/mascote.png" alt="">
+        <!-- Botão Play -->
+        <a href="{{ url_for('jogos_index') }}" class="play-button"></a>
 
+        <!-- Mascote -->
+        <img class="mascote" src="static/mascote.png" alt="Mascote">
+
+    </section>
 
 </body>
 </html>
