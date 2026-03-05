@@ -95,7 +95,7 @@ python app.py
 
 | Nome                                         | 
 | -------------------------------------------- | 
-| Ezazelly Clara Lopes Feitosa de Morais       | 
+| Ezaelly Clara Lopes Feitosa de Morais       | 
 | Isabelle Vitória Fernandes de Medeiros Silva | 
 | Raissa Kelly Brito de Araújo                 | 
 | Rita de Cássia Saldanha Bezerra              | 
