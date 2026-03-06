@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Jogo de Adição - Divermatica{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/arraste.css') }}">
+<script src="{{ url_for('static', filename='js/arraste.js') }}" defer></script>
+
+<div class="jogo-area">
+    <h1 class="titulo-jogo">Arraste o número certo para completar a soma</h1>
+    <!-- butterfly mascot from homepage -->
+    <img class="borboleta" src="{{ url_for('static', filename='mascote.png') }}" alt="Borboleta">
+    <div class="operacao">
+        <span id="num1"></span> + <span id="num2"></span> = <div class="resposta-drop" id="dropzone">?</div>
+    </div>
+    
+    <div class="numeros-container" id="numeros"></div>
+    
+    <div class="controles">
+        <button id="novo-jogo">Novo Jogo</button>
+        <div class="pontuacao">Pontuação: <span id="score">0</span></div>
+    </div>
+</div>
+{% endblock %}

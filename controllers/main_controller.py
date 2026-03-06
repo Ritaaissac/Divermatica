@@ -62,3 +62,9 @@ def init_app(app):
     )
 
     
+    def jogo_arraste():
+        return render_template('jogo_arraste.html')
+
+    app.add_url_rule('/jogo-arraste', endpoint='jogo_arraste', view_func=jogo_arraste, methods=['GET'])
+
+    
