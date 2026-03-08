@@ -7,27 +7,57 @@
     <link rel="stylesheet" href="static/css/index.css">
 </head>
 <body>
-
     <section class="hero">
 
-        <!-- Nuvens -->
-        <img class="fundo" src="static/fundo.png" alt="">
-
-        <!-- Logo -->
-        <img class="logo" src="static/logo.png" alt="">
-
-        <!-- Texto -->
-        <div class="hero-text">
-            APERTE O BOTÃO<br>
-            AO LADO e acesse<br>nossa plataforma
+        <!-- Círculos decorativos de fundo -->
+        <div class="circle circle-bottom-left"></div>
+        <div class="circle circle-right"></div>
+        <div class="circle-mascote">
+            <img class="mascote" src="static/mascote.png" alt="Mascote">
         </div>
 
-        <!-- Botão Play -->
-        <a href="{{ url_for('jogos_index') }}" class="play-button"></a>
+        <!-- Badges PNG ao redor do círculo do mascote (posicionados externamente) -->
+        <div class="badges-around" aria-hidden="true">
+            <img class="badge-img num4" src="static/num4.png" alt="4">
+            <img class="badge-img num2-amarelo" src="static/num2amarelo.png" alt="2 amarelo">
+            <img class="badge-img numtres" src="static/numtres.png" alt="3">
+            <img class="badge-img nuvemverde" src="static/nuvemverde.png" alt="verde">
+            <img class="badge-img nuvemazul" src="static/nuvemazul.png" alt="azul">
+            <img class="badge-img estrela" src="static/estrela.png" alt="estrela">
+        </div>
 
-        <!-- Mascote -->
-        <img class="mascote" src="static/mascote.png" alt="Mascote">
+        <!-- Favos decorativos - topo central -->
+        <img class="favo favo-top" src="static/favo_de_cima.png" alt="">
 
+        <!-- Favos decorativos - inferior esquerdo -->
+        <img class="favo favo-bottom" src="static/favo_de_baixo.png" alt="">
+
+
+        <!-- Logo -->
+        <img class="logo" src="static/logo.png" alt="Logo DiverMática">
+
+        <!-- Texto principal -->
+        <div class="hero-text">
+            <div class="text-line text-gold">APRENDA</div>
+            <div class="text-line text-pink">BRINCANDO</div>
+        </div>
+
+        <div class="badges">
+            <span class="badge">🎮 Mini-jogos</span>
+            <span class="badge">⭐ Desafios</span>
+            <span class="badge">🏆 Recompensas</span>
+        </div>
+
+        <!-- Botão Jogar -->
+        <a href="{{ url_for('jogos_index') }}" <button class="jogar-button">
+        <span class="play-icon">
+            <svg width="12" height="14" viewBox="0 0 14 16" fill="white"><path d="M2 1.5 L13 8 L2 14.5 Z"/></svg>
+        </span>Jogar</button>
+
+        <!-- Mascote (movido para dentro de circle-mascote) -->
+        <svg class="star-burst" viewBox="0 0 64 64" fill="none" style="top: 20px; right: 20px;">
+            <path d="M32 4 L35 28 L58 20 L40 36 L60 48 L36 42 L34 60 L28 40 L6 52 L22 34 L4 22 L28 30 Z" fill="#FFD93D" opacity=".9"/>
+        </svg>
     </section>
 
 </body>
