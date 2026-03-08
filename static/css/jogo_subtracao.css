@@ -1,0 +1,23 @@
+.butterflies{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  margin-top:40px;
+}
+
+.butterfly{
+  font-size:60px;
+  cursor:pointer;
+  transition: transform 0.2s;
+  text-align:center;
+}
+
+.butterfly span{
+  display:block;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.butterfly:hover{
+  transform: scale(1.2);
+}

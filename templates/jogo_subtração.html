@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Jogo da Subtração - Divermatica{% endblock %}
+
+{% block content %}
+
+<main class="container">
+
+  <header>
+    <h1>🦋 Borboleta da Subtração</h1>
+    <div class="hud">
+      <div id="score">Pontuação: 0</div>
+      <div id="lives">Vidas: ❤️❤️❤️</div>
+      <div id="timer">Tempo: 10s</div>
+    </div>
+  </header>
+
+  <!-- Tela inicial -->
+  <section id="start-screen" class="overlay">
+    <h2>Vamos treinar subtração de forma lúdica?</h2>
+    <p>Escolha a borboleta com a resposta correta.Let's go!</p>
+    <button id="start-btn" class="big">Começar</button>
+  </section>
+
+  <!-- Jogo -->
+  <section id="game" class="game hidden">
+    <div class="question-box">
+      <div id="question" class="question">12 - 3 = ?</div>
+    </div>
+
+    <div id="butterflies" class="butterflies">
+      
+    </div>
+  </section>
+
+  <!-- Tela final -->
+  <section id="game-over" class="overlay hidden">
+    <h2>Final do jogo</h2>
+    <p id="final-score">Sua pontuação: 0</p>
+    <button id="restart-btn" class="big">Jogar novamente</button>
+  </section>
+
+  <footer>
+    <small>Bom jogo!</small>
+  </footer>
+
+</main>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jogo_subtracao.css') }}">
+<script src="{{ url_for('static', filename='/js/jogo_subtracao.js') }}"></script>
+
+{% endblock %}
