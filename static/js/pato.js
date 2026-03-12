@@ -123,10 +123,12 @@
       btn.className = 'duck';
       btn.dataset.value = num;
       btn.innerHTML = `
-        <div class="duck-emoji">🦆</div>
         <div class="num">${num}</div>
       `;
       btn.addEventListener('click', onDuckClick);
+      btn.style.top = Math.random()*240 + 40 + "px";
+      btn.style.left = Math.random()*600 + 20 + "px";
+
       ducksEl.appendChild(btn);
     });
 
@@ -186,5 +188,20 @@
 
   startBtn.addEventListener('click', startGame);
   restartBtn.addEventListener('click', startGame);
+
+
+  document.addEventListener("mousemove",(e)=>{
+
+  const rod=document.querySelector(".rod");
+  if(!rod) return;
+
+  const lake=document.querySelector(".lake");
+  const rect=lake.getBoundingClientRect();
+
+  const x=e.clientX-rect.left;
+
+  rod.style.left=x+"px";
+
+  });
 
 })();

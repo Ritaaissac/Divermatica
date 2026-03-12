@@ -1,5 +1,4 @@
 :root{
-  --bg: linear-gradient(180deg,#bde0fe,#e6f0ff);
   --card: #ffffffdd;
   --accent: #1b9aaa;
   --accent-light: #c7f3ff;
@@ -12,15 +11,8 @@
 }
 
 *{ box-sizing:border-box; }
-html,body{ height:100%; margin:0; }
+html,body{  height:100%; margin:0; }
 
-body{
-  background:var(--bg);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
 
 .container{
   width:100%;
@@ -37,21 +29,6 @@ body{
   to{ opacity:1; transform:translateY(0); }
 }
 
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px;
-}
-
-header h1{
-  color: black;
-  margin:0;
-  font-size:1.5rem;
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
 
 .hud{
   display:flex;
@@ -208,22 +185,7 @@ html, body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== HEADER ===== */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 22px;
-}
 
-header h1 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  white-space: nowrap;
-}
 
 .hud {
   display: flex;
@@ -371,4 +333,87 @@ footer small {
   .duck {
     padding: 18px;
   }
+}
+
+/* ===== LAGO ===== */
+
+.lake{
+  position:relative;
+  height:360px;
+  border-radius:20px;
+  overflow:hidden;
+  background:linear-gradient(#7ec8ff,#2a9df4);
+  box-shadow: inset 0 -40px 80px rgba(0,0,0,0.2);
+}
+
+/* vara de pesca */
+
+.fishing-rod{
+  position:absolute;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:42px;
+}
+
+/* área onde os peixes ficam */
+
+.fish-area{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
+/* peixe */
+
+.duck{
+  position:absolute;
+  background:white;
+  border-radius:16px;
+  padding:10px;
+  width:90px;
+  cursor:pointer;
+  text-align:center;
+  box-shadow:0 6px 14px rgba(0,0,0,0.15);
+  transition:.25s;
+}
+
+.duck:hover{
+  transform:scale(1.08);
+}
+
+/* emoji peixe */
+
+.duck-emoji{
+  font-size:36px;
+}
+
+/* posição aleatória na água */
+
+.duck:nth-child(1){ top:60px; left:90px; }
+.duck:nth-child(2){ top:120px; left:360px; }
+.duck:nth-child(3){ top:210px; left:180px; }
+.duck:nth-child(4){ top:250px; left:460px; }
+
+/* peixe nadando */
+
+.duck{
+  animation:swim 4s ease-in-out infinite alternate;
+}
+
+@keyframes swim{
+  from{ transform:translateX(0); }
+  to{ transform:translateX(12px); }
+}
+
+/* feedback */
+
+.duck.correct{
+  border:3px solid #4CAF50;
+  background:#e9ffe9;
+}
+
+.duck.wrong{
+  border:3px solid #e63946;
+  background:#ffe8e8;
 }

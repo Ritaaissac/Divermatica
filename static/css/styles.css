@@ -1,6 +1,6 @@
 /* ===== ESTILOS GERAIS ===== */
 body {
-    background: #85aaff;
+    background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
     font-family: Arial, sans-serif;
     margin: 0;
     min-height: 100vh;
@@ -369,6 +369,104 @@ form button:hover {
         transform: translateX(50%);
         top: 250px;
     }
+}
+
+
+/* ===== LAGO ===== */
+
+.lake{
+position:relative;
+height:380px;
+border-radius:20px;
+overflow:hidden;
+background:linear-gradient(#7ec8ff,#2a9df4);
+box-shadow:inset 0 -40px 80px rgba(0,0,0,0.2);
+}
+
+/* vara de pesca */
+
+.rod{
+position:absolute;
+top:10px;
+left:50%;
+transform:translateX(-50%);
+font-size:42px;
+pointer-events:none;
+}
+
+.line{
+width:2px;
+height:160px;
+background:#222;
+margin:auto;
+}
+
+/* área dos peixes */
+
+.fish-area{
+position:relative;
+width:100%;
+height:100%;
+}
+
+/* peixe */
+
+.duck{
+position:absolute;
+background:white;
+border-radius:14px;
+padding:10px;
+width:90px;
+text-align:center;
+cursor:pointer;
+box-shadow:0 6px 14px rgba(0,0,0,0.15);
+transition:.25s;
+}
+
+.duck:hover{
+transform:scale(1.08);
+}
+
+.duck-emoji{
+font-size:36px;
+}
+
+/* animação de nadar */
+
+.duck{
+animation:swim 4s ease-in-out infinite alternate;
+}
+
+@keyframes swim{
+from{transform:translateX(-10px);}
+to{transform:translateX(10px);}
+}
+
+/* feedback */
+
+.duck.correct{
+border:3px solid #4CAF50;
+background:#e9ffe9;
+}
+
+.duck.wrong{
+border:3px solid #e63946;
+background:#ffe8e8;
+}
+
+/* balde */
+
+.bucket{
+position:absolute;
+bottom:10px;
+right:14px;
+font-size:40px;
+text-align:center;
+}
+
+#bucket-count{
+font-size:14px;
+font-weight:bold;
 }
 
 

@@ -62,9 +62,13 @@ def init_app(app):
     )
 
     
-    def jogo_arraste():
-        return render_template('jogo_arraste.html')
+    def jogo_adicao():
+        return render_template('jogo_adicao.html')
 
-    app.add_url_rule('/jogo-arraste', endpoint='jogo_arraste', view_func=jogo_arraste, methods=['GET'])
+    app.add_url_rule('/jogo-adicao', endpoint='jogo_adicao', view_func=jogo_adicao, methods=['GET'])
 
+    def jogo_subtracao():
+        return render_template('jogo_subtracao.html')
+
+    app.add_url_rule('/jogo-subtracao', endpoint='jogo_subtracao', view_func=jogo_subtracao, methods=['GET'])
     

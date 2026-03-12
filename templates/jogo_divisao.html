@@ -5,50 +5,64 @@
 
 <main class="container">
 
-  <header>
-    <h1>🦆 Pato da Divisão</h1>
-    <div class="hud">
-      <div id="score">Pontuação: 0</div>
-      <div id="lives">Vidas: ❤️❤️❤️</div>
-      <div id="timer">Tempo: 10s</div>
+<header>
+  <h1>🎣 Pesca da Divisão</h1>
+  <div class="hud">
+    <div id="score">Pontuação: 0 | Combo x0</div>
+    <div id="lives">Vidas: ❤️❤️❤️</div>
+    <div id="timer">Tempo: 10s</div>
+  </div>
+</header>
+
+<!-- Tela inicial -->
+<section id="start-screen" class="overlay">
+  <h2>Hora de pescar respostas!</h2>
+  <p>Clique no peixe com a resposta correta.</p>
+  <button id="start-btn" class="big">Começar</button>
+</section>
+
+<!-- Jogo -->
+<section id="game" class="game hidden">
+
+  <div class="question-box">
+    <div id="question" class="question">12 ÷ 3 = ?</div>
+  </div>
+
+  <div class="lake">
+
+    <div class="rod"> 
+      🎣 
+      <div class="line"></div> 
+    </div> 
+
+    <div id="ducks" class="fish-area"></div> 
+
+    <div class="bucket"> 
+      🪣
+      <div id="bucket-count">0</div> 
     </div>
-  </header>
 
-  <!-- Tela inicial -->
-  <section id="start-screen" class="overlay">
-    <h2>Pronto para treinar divisão?</h2>
-    <p>Escolha o pato que tem a resposta correta.</p>
-    <button id="start-btn" class="big">Começar</button>
-  </section>
-
-  <!-- Jogo -->
-  <section id="game" class="game hidden">
-    <div class="question-box">
-      <div id="question" class="question">12 ÷ 3 = ?</div>
+      <!-- peixes criados pelo JS -->
     </div>
 
-    <div id="ducks" class="ducks">
-      <!-- Opções criadas pelo JS -->
-    </div>
-  </section>
+  </div>
 
-  <!-- Tela de fim -->
-  <section id="game-over" class="overlay hidden">
-    <h2>Fim de jogo</h2>
-    <p id="final-score">Sua pontuação: 0</p>
-    <button id="restart-btn" class="big">Jogar novamente</button>
-  </section>
+</section>
 
-  <footer>
-    <small>Feito com ♥ — versão simples para prática</small>
-  </footer>
+<!-- Tela final -->
+<section id="game-over" class="overlay hidden">
+  <h2>Fim da pescaria!</h2>
+  <p id="final-score">Sua pontuação: 0</p>
+  <button id="restart-btn" class="big">Pescar novamente</button>
+</section>
+
+<footer>
+  <small>Feito com ♥ — versão simples para prática</small>
+</footer>
 
 </main>
 
-<!-- CSS -->
 <link rel="stylesheet" href="{{ url_for('static', filename='/css/pato.css') }}">
-
-<!-- JS -->
 <script src="{{ url_for('static', filename='/js/pato.js') }}"></script>
 
 {% endblock %}
