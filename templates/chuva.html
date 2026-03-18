@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chuva de Contas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/chuva.css') }}">
+</head>
+<body>
+
+<!-- TELA INICIAL -->
+<div id="tela-inicial">
+  <div class="menu">
+    <h1 style="font-family:cursive;">Chuva de Contas</h1>
+    
+    <p style="font-family: cursive;"><b>Como jogar:</b></p>
+    <p style="font-family: cursive;">Resolva as multiplicações</p>
+    <p style="font-family: cursive;">Digite a resposta e pressione ENTER</p>
+    <p style="font-family: cursive;">Acerte para ganhar pontos</p>
+    <p style="font-family: cursive;">Você tem 5 vidas</p>
+    
+    <button onclick="iniciarJogo()">▶ Começar</button>
+  </div>
+</div>
+
+<div class="container">
+  <h1 style="font-family: cursive;">Chuva de Contas</h1>
+
+  <div class="hud" style="font-family: cursive;">
+    <span>⭐ Pontos: <b id="pontos">0</b></span>
+    <span>❤️ Vidas: <b id="vidas">5</b></span>
+  </div>
+
+  <div id="jogo"></div>
+
+  <div class="input-area">
+    <input type="number" id="resposta" placeholder="Digite a resposta">
+    <button onclick="verificar()">Responder</button>
+  </div>
+</div>
+
+
+<script src="{{ url_for('static', filename='js/chuva.js') }}"></script>
+</body>
+</html>
