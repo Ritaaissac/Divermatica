@@ -19,8 +19,8 @@ body {
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
     padding: 60px 80px;
     background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
 }
@@ -126,18 +126,6 @@ body {
 
 
 
-@keyframes animationGradient {
-  0% {
-    background: radial-gradient(circle, #E6F8FF, #AEE3F2, #5BC6E4);
-  }
-  50% {
-    background: radial-gradient(circle, #F2FCFF, #BFEAF6, #6ED0EB);
-  }
-  100% {
-    background: radial-gradient(circle, #E6F8FF, #AEE3F2, #5BC6E4);
-  }
-}
-
 /* Logo */
 .logo {
     width: clamp(400px, 12vw, 180px);
@@ -156,7 +144,7 @@ body {
     z-index: 5;
     line-height: 1.1;
     font-weight: 900;
-    font-size: clamp(32px, 6vw, 72px);
+    font-size: clamp(32px, 6vw, 80px);
     font-family: 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
 }
 
@@ -167,7 +155,7 @@ body {
 
 .text-gold {
     font-family: 'Baloo 2', cursive;
-    font-size: clamp(44px, 6vw, 64px);
+    font-size: clamp(44px, 6vw, 100px);
     font-weight: 800;
     color: white;
     letter-spacing: -1px;
@@ -175,7 +163,7 @@ body {
 
 .text-pink {
     font-family: 'Baloo 2', cursive;
-    font-size: clamp(44px, 6vw, 64px);
+    font-size: clamp(44px, 6vw, 100px);
     font-weight: 800;
     color:#FF4FA3;
     letter-spacing: -1px;
@@ -185,7 +173,7 @@ body {
 .badges {
     position: absolute;
     left: 40px;
-    top: 350px;
+    top: 430px;
     z-index: 10;
     display: flex;
     gap: 10px;
@@ -211,7 +199,7 @@ body {
 .jogar-button {
     position: absolute;
     left: 40px;
-    top: 450px;
+    top: 500px;
     z-index: 10;
 
     display: inline-flex;
@@ -219,11 +207,11 @@ body {
     justify-content: center;
     gap: 12px;
 
-    padding: 16px 36px;
+    padding: 28px 80px;
     background: linear-gradient(135deg, #FF6B9D 0%, #FF4FA3 100%);
     color: white;
     text-decoration: none;
-    font-size: clamp(16px, 2vw, 22px);
+    font-size: clamp(18px, 2vw, 28px);
     font-weight: 800;
     border-radius: 50px;
     cursor: pointer;

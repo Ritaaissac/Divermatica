@@ -162,11 +162,6 @@ footer{
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-  font-family: "Inter", Arial, sans-serif;
-  background: linear-gradient(180deg, #b7d9ff, #d6e8ff);
-}
 
 /* ===== CONTAINER ===== */
 .container {

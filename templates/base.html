@@ -35,14 +35,22 @@
         .nav-container {
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* 👈 muda aqui */
+            justify-content: space-between; /* 👈 muda aqui */
             gap: 30px; /* espaço entre logo e menu */
+            width: 100%;
+            padding: 0 40px;
         }
 
         .nav-logo {
-            height: 70px;
-            margin-right: 20px;
+            height: 80px;
+            margin-right: 0;
+            margin-top: -10px;
             
+        }
+
+        .nav-logo img {
+            height: 120px;
+            width: auto;
         }
 
         /* MENU */
@@ -102,22 +110,22 @@
             <!-- LINKS -->
             <nav class="nav-menu">
                 <a class="nav-item active">
-                    <img src="/static/icons/estrela_jogos_icon.png">
+                    <img src="{{ url_for('static', filename='icons/estrela_jogos_icon.png') }}">
                     Jogos
                 </a>
 
                 <a class="nav-item">
-                    <img src="/static/icons/sobre_icon.png">
+                    <img src="{{ url_for('static', filename='icons/sobre_icon.png') }}">
                     Sobre
                 </a>
 
                 <a class="nav-item">
-                    <img src="/static/icons/quiz_icon.png">
+                    <img src="{{ url_for('static', filename='icons/quiz_icon.png') }}">
                     Quiz
                 </a>
 
                 <a class="nav-item">
-                    <img src="/static/icons/perfil_icon.png">
+                    <img src="{{ url_for('static', filename='icons/perfil_icon.png') }}">
                     Perfil
                 </a>
             </nav>
