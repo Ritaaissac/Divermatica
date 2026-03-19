@@ -13,7 +13,6 @@ function iniciarJogo() {
 }
 
 function criarConta() {
-
   if (!jogoIniciado) return;
   if (contas.length >= LIMITE_CONTAS) return;
 
@@ -70,18 +69,24 @@ function perderVida() {
   document.getElementById("vidas").innerText = vidas;
 
   if (vidas <= 0) {
-    alert("💀 Game Over!");
-    location.reload();
+    mostrarGameOver();
   }
 }
 
-/* Enter para responder */
+function mostrarGameOver() {
+  document.getElementById("pontuacao-final").innerText = pontos;
+  document.getElementById("game-over").style.display = "flex";
+}
+
+function reiniciarJogo() {
+  location.reload();
+}
+
 document.getElementById("resposta").addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
     verificar();
   }
 });
 
-/* Loop */
 setInterval(criarConta, 2200);
 setInterval(atualizar, 40);
