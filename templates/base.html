@@ -26,7 +26,7 @@
             width: 100%;
             background: #7dd9f8;           
             border-bottom: 4px solid #4cbbe6;
-            padding: 12px 0;
+            padding: 20px 0;
             display: flex;
             justify-content: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
@@ -80,51 +80,44 @@
         }
 
         .nav-item img {
-            width: 24px;
-            height: 24px;
+            width: 40px;
+            height: 32px;
         }
 
         /* ITEM ATIVO (JOGOS) — amarelo igual ao da foto */
-        .nav-item.active {
+        .nav-item.active:hover {
             background: linear-gradient(#ffe36a, #ffbe2f);
             color: #804b00;
             box-shadow: inset 0 0 10px rgba(255,255,255,0.7);
         }
-
-        /* hover */
-        .nav-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-        }
-
 
     </style>
    <header class="nav-area">
         <div class="nav-container">
 
             <!-- LOGO -->
-            <a href="{{ url_for('index') }}" class="nav-logo">
+            <a href="{{ url_for('boas_vindas') }}" class="nav-logo">
                 <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Divermatica">
             </a>
 
             <!-- LINKS -->
             <nav class="nav-menu">
-                <a class="nav-item active">
+                <a class="nav-item active" href="{{ url_for('jogos_index') }}">
                     <img src="{{ url_for('static', filename='icons/estrela_jogos_icon.png') }}">
                     Jogos
                 </a>
 
-                <a class="nav-item">
+                <a class="nav-item active" href="{{ url_for('sobre') }}">
                     <img src="{{ url_for('static', filename='icons/sobre_icon.png') }}">
                     Sobre
                 </a>
 
-                <a class="nav-item">
+                <a class="nav-item active" href="{{ url_for('quiz') }}">
                     <img src="{{ url_for('static', filename='icons/quiz_icon.png') }}">
                     Quiz
                 </a>
 
-                <a class="nav-item">
+                <a class="nav-item active" href="{{ url_for('perfil') }}">
                     <img src="{{ url_for('static', filename='icons/perfil_icon.png') }}">
                     Perfil
                 </a>

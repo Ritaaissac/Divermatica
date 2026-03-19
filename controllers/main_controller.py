@@ -61,6 +61,16 @@ def init_app(app):
         methods=['GET']
     )
 
+    def chuva():
+        return render_template('chuva.html')
+
+    app.add_url_rule(
+        '/chuva',
+        endpoint='chuva',
+        view_func=chuva,
+        methods=['GET']
+    )
+
     
     def jogo_adicao():
         return render_template('jogo_adicao.html')
