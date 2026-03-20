@@ -15,16 +15,17 @@
   // ESTADO
   let score = 0;
   let lives = 3;
-  let timeLeft = 10;
+  let timeLeft = 30;
   let timerId = null;
   let correctAnswer = null;
 
   let combo = 0;
   let level = 1;
+  let correctCount = 0;
 
   // CONFIGURAÇÕES
   const POINTS = 10;
-  const TIME_PER_Q = 10;
+  const TIME_PER_Q = 30;
 
   function resetState() {
     score = 0;
@@ -32,7 +33,9 @@
     combo = 0;
     level = 1;
     timeLeft = TIME_PER_Q;
+    correctCount = 0;
     updateHUD();
+    updateBucket();
   }
 
   function updateHUD() {
@@ -42,6 +45,10 @@
 
     if (timeLeft <= 3) timerEl.classList.add('low-time');
     else timerEl.classList.remove('low-time');
+  }
+
+  function updateBucket() {
+    document.getElementById('bucket-count').textContent = correctCount;
   }
 
   function startGame() {
@@ -158,10 +165,12 @@
 
     combo++;
     score += POINTS + combo;
+    correctCount++;
 
     if (combo % 5 === 0) level++;
 
     updateHUD();
+    updateBucket();
 
     setTimeout(nextQuestion, 650);
   }
