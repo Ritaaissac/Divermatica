@@ -6,9 +6,16 @@
 {% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <!-- MOSTRA MENU DE JOGOS PARA TODOS -->
     <div class="menu-jogos">
-        <h1>Escolha um Jogo</h1>
+        <div class="imagens">
+            <img src="{{ url_for('static', filename='mascote_acenando.png') }}" alt="Mascote" class="mascote_acenando">
+            <img src="{{ url_for('static', filename='index/favo_de_baixo.png') }}" alt="favo" class="favobaixo">
+            <img src="{{ url_for('static', filename='index/favo_de_cima.png') }}" alt="favo" class="favocima">
+        </div>
+        
+        <h1 class="texto">Escolha um Jogo</h1>
         <div class="jogos-grid">
             <a href="{{ url_for('jogo_memoria') }}" class="jogo-card">
                 <img class="jogo-icon" src="{{ url_for('static', filename='icons/jogo_memoria_icon.png') }}" alt="Jogo da Memória">

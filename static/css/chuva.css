@@ -177,35 +177,35 @@ button:hover {
   position: absolute;
   z-index: 3;
   object-fit: contain;
-  opacity: 0.9;
+
   
 }
 
 
 
 .nuvem-topo {
-  width: 100px;
-  top: 130px;
-  left: 30px;
+  width: 200px;
+  top: 110px;
+  left: 20px;
 }
 
 .num4-direita {
   width: 110px;
-  top: 48%;
-  right: 20px;
+  top: 180px;
+  left: 450px;
   transform: translateY(-50%);
 }
 
 .numtres-esquerda {
   width: 140px;
-  bottom: 370px;
-  right: 340px;
+  bottom: 150px;
+  left: 20px;
 }
 
 .num2-amarelo-bottom {
   width: 120px;
-  bottom: 90px;
-  right: 180px;
+  bottom: 30px;
+  left: 380px;
 }
 
 .menu {
