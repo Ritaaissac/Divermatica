@@ -5,11 +5,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
+    
+    
 }
 
 body {
-    background-color: #15b1e1;
+    background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 
@@ -22,7 +25,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     padding: 60px 80px;
-    background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
+    
 }
 
 /* Círculos decorativos de fundo */
@@ -291,6 +294,60 @@ body {
     left: -25px;
 }
 
+.boas-vindas {
+    color: white;
+    z-index: 10;
+    text-align: center;
+    font-size: clamp(28px, 5vw, 60px);
+    font-weight: 900;
+    font-family: 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
+    margin-bottom: 30px;
+}
+
+/* Seção de Boas-vindas */
+.welcome-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    background: transparent;
+    z-index: 10;
+    min-height: 50vh;
+}
+
+
+
+
+/* Card de Boas-vindas */
+.card {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card p {
+    color: white;
+    font-size: clamp(16px, 2.5vw, 22px);
+    line-height: 1.8;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
 
 /* Responsivo para tablets */
 @media (max-width: 1024px) {
@@ -338,7 +395,21 @@ body {
         height: 350px;
         right: 50px;
     }
+
+    .welcome-section {
+        padding: 60px 30px;
+    }
+
+    .boas-vindas {
+        margin-bottom: 25px;
+    }
+
+    .card {
+        padding: 30px;
+    }
 }
+
+
 
 /* Responsivo para celulares */
 @media (max-width: 768px) {
@@ -425,5 +496,26 @@ body {
 
     .favo-bottom {
         width: clamp(60px, 12vw, 100px);
+    }
+
+    .welcome-section {
+        position: relative;
+        top: auto;
+        padding: 60px 20px;
+    }
+
+    .boas-vindas {
+        font-size: clamp(24px, 5vw, 40px);
+        margin-bottom: 20px;
+    }
+
+    .card {
+        padding: 25px;
+        border-radius: 20px;
+    }
+
+    .card p {
+        font-size: clamp(14px, 2.5vw, 18px);
+        line-height: 1.6;
     }
 }

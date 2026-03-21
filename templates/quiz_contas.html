@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz de Contas - Divermatica{% endblock %}
+
+{% block content %}
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
+  margin: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+h2 {
+  text-align: center;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.answers label {
+  display: block;
+  padding: 5px;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#finalizar {
+  background: #6ec6ff;
+  color: white;
+}
+
+#resultadoTela {
+  display: none;
+  text-align: center;
+}
+
+.result-box {
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+  text-align: left;
+}
+
+.btn-group button {
+  margin: 10px 0;
+}
+
+.novo {
+  background: #4caf50;
+  color: white;
+}
+
+.sair {
+  background: #e53935;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="quizTela">
+  <h2>Quiz de Contas ➕</h2>
+  <form id="quizForm"></form>
+  <button id="finalizar" onclick="corrigir()">Finalizar</button>
+</div>
+
+<div class="container" id="resultadoTela">
+  <h2 id="pontuacao"></h2>
+
+  <div id="erros" class="result-box"></div>
+
+  <div class="btn-group">
+    <button class="novo" onclick="novoQuiz()">🔁 Novo Quiz</button>
+    <button class="sair" onclick="sair()">🔙 Sair</button>
+  </div>
+</div>
+
+<script>
+const bancoQuestoes = [
+  { q: "5 + 3 =", op: ["6","7","8"], c: "8" },
+  { q: "9 - 4 =", op: ["5","6","4"], c: "5" },
+  { q: "6 x 2 =", op: ["10","12","8"], c: "12" },
+  { q: "12 ÷ 3 =", op: ["2","3","4"], c: "4" },
+  { q: "7 + 6 =", op: ["12","13","14"], c: "13" },
+  { q: "15 - 5 =", op: ["10","9","11"], c: "10" },
+  { q: "3 x 4 =", op: ["7","12","9"], c: "12" },
+  { q: "16 ÷ 4 =", op: ["2","4","6"], c: "4" }
+];
+
+let questoesSelecionadas = [];
+
+function embaralhar(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+function gerarQuiz() {
+  const form = document.getElementById("quizForm");
+  form.innerHTML = "";
+
+  questoesSelecionadas = embaralhar([...bancoQuestoes]).slice(0, 5);
+
+  questoesSelecionadas.forEach((item, index) => {
+    let div = document.createElement("div");
+    div.classList.add("question");
+
+    div.innerHTML = `<p>${index+1}) ${item.q}</p>`;
+
+    let answersDiv = document.createElement("div");
+    answersDiv.classList.add("answers");
+
+    item.op.forEach(opcao => {
+      answersDiv.innerHTML += `
+        <label>
+          <input type="radio" name="q${index}" value="${opcao}">
+          ${opcao}
+        </label>
+      `;
+    });
+
+    div.appendChild(answersDiv);
+    form.appendChild(div);
+  });
+}
+
+function corrigir() {
+  let acertos = 0;
+  let errosHTML = "";
+
+  questoesSelecionadas.forEach((item, index) => {
+    const resposta = document.querySelector(`input[name="q${index}"]:checked`);
+
+    if (resposta && resposta.value === item.c) {
+      acertos++;
+    } else {
+      errosHTML += `<p><b>${item.q}</b><br>
+      Sua resposta: ${resposta ? resposta.value : "Nenhuma"}<br>
+      Correta: ${item.c}</p>`;
+    }
+  });
+
+  document.getElementById("quizTela").style.display = "none";
+  document.getElementById("resultadoTela").style.display = "block";
+
+  document.getElementById("pontuacao").innerText =
+    `Você acertou ${acertos} de ${questoesSelecionadas.length} 🎉`;
+
+  document.getElementById("erros").innerHTML =
+    errosHTML || "Parabéns! Você acertou tudo 😄";
+}
+
+function novoQuiz() {
+  document.getElementById("resultadoTela").style.display = "none";
+  document.getElementById("quizTela").style.display = "block";
+  gerarQuiz();
+}
+
+function sair() {
+  window.location.href = "/quiz";
+}
+
+gerarQuiz();
+</script>
+
+
+
+{% endblock %}

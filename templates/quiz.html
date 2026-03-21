@@ -4,6 +4,59 @@
 
 {% block content %}
 
-    <h1>Em desenvolvimento</h1>
+    <style>
+body {
+  font-family: Arial;
+  background: linear-gradient(135deg, #6ec6ff, #b388ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 15px auto;
+  padding: 15px;
+  width: 250px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #6ec6ff;
+  color: white;
+}
+
+button:hover {
+  background: #42a5f5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Escolha seu Quiz 🎮</h2>
+
+  <a href="{{url_for('quiz_contas')}}">
+    <button>
+      🧮 Quiz de Contas
+    </button>
+  </a>
+
+  <a href="{{url_for('quiz_contexto')}}">
+    <button>
+      🧠 Quiz Contextualizado
+    </button>
+  </a>
+</div>
+
 
 {% endblock %}
