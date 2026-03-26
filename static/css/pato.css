@@ -157,6 +157,7 @@ footer{
 
 /* ===== RESET ===== */
 * {
+  color: #000000;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
