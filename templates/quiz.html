@@ -4,59 +4,100 @@
 
 {% block content %}
 
-    <style>
+<style>
 body {
-  font-family: Arial;
+  font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #6ec6ff, #b388ff);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
 }
 
 .container {
   background: white;
-  padding: 30px;
-  border-radius: 15px;
+  padding: 40px 30px;
+  border-radius: 20px;
   text-align: center;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  width: 320px;
+  animation: aparecer 0.6s ease;
+  
 }
 
-button {
-  display: block;
+h2 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* BOTÕES */
+.quiz-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   margin: 15px auto;
   padding: 15px;
-  width: 250px;
+  width: 100%;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: 16px;
   cursor: pointer;
-  background: #6ec6ff;
   color: white;
+  transition: 0.3s;
+  font-weight: bold;
 }
 
-button:hover {
+/* cores diferentes */
+.contas {
   background: #42a5f5;
 }
+
+.contexto {
+  background: #ff7b9c;
+}
+
+/* hover */
+.quiz-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+/* animação */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* emoji maior */
+.icone {
+  font-size: 20px;
+}
 </style>
-</head>
 
 <body>
 
 <div class="container">
-  <h2>Escolha seu Quiz 🎮</h2>
+  <h2>Escolha seu Quiz</h2>
 
-  <a href="{{url_for('quiz_contas')}}">
-    <button>
-      🧮 Quiz de Contas
+  <a style="text-decoration: none;" href="{{url_for('quiz_contas')}}">
+    <button class="quiz-btn contas">
+      Quiz de Contas
     </button>
   </a>
 
-  <a href="{{url_for('quiz_contexto')}}">
-    <button>
-      🧠 Quiz Contextualizado
+  <a style="text-decoration: none;" href="{{url_for('quiz_contexto')}}">
+    <button class="quiz-btn contexto">
+      Quiz Contextualizado
     </button>
   </a>
 </div>
-
 
 {% endblock %}
