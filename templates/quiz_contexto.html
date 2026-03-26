@@ -26,12 +26,41 @@ h2 {
 
 .question {
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .answers label {
-  display: block;
-  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 15px;
   cursor: pointer;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.answers label:hover {
+  background: #f0f0f0;
+  border-color: #ff7b9c;
+}
+
+.answers input[type="radio"] {
+  margin-right: 10px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
 }
 
 button {
@@ -76,12 +105,11 @@ button {
   color: white;
 }
 </style>
-</head>
 
 <body>
 
 <div class="container" id="quizTela">
-  <h2>Quiz Contextualizado 🧠</h2>
+  <h2>Quiz Contextualizado</h2>
   <form id="quizForm"></form>
   <button id="finalizar" onclick="corrigir()">Finalizar</button>
 </div>
@@ -92,66 +120,82 @@ button {
   <div id="erros" class="result-box"></div>
 
   <div class="btn-group">
-    <button class="novo" onclick="novoQuiz()">🔁 Novo Quiz</button>
-    <button class="sair" onclick="sair()">🔙 Sair</button>
+    <button class="novo" onclick="novoQuiz()">Novo Quiz</button>
+    <button class="sair" onclick="sair()">Sair</button>
   </div>
 </div>
 
 <script>
-const bancoQuestoes = [
-  {
-    q: "Ana tinha 5 maçãs e ganhou mais 3. Quantas ela tem agora?",
-    op: ["7","8","9"],
-    c: "8"
-  },
-  {
-    q: "Um ônibus tinha 10 passageiros. 4 desceram. Quantos ficaram?",
-    op: ["5","6","7"],
-    c: "6"
-  },
-  {
-    q: "João tem 2 caixas com 4 brinquedos cada. Quantos brinquedos ele tem?",
-    op: ["6","8","10"],
-    c: "8"
-  },
-  {
-    q: "Maria dividiu 12 balas entre 3 amigos. Quantas cada um recebeu?",
-    op: ["3","4","5"],
-    c: "4"
-  },
-  {
-    q: "Pedro tinha 7 carrinhos e ganhou mais 2. Quantos ele tem agora?",
-    op: ["8","9","10"],
-    c: "9"
-  },
-  {
-    q: "Uma sala tem 4 mesas com 2 cadeiras cada. Quantas cadeiras ao todo?",
-    op: ["6","8","10"],
-    c: "8"
-  },
-  {
-    q: "Carla tinha 15 doces e comeu 5. Quantos sobraram?",
-    op: ["8","9","10"],
-    c: "10"
-  },
-  {
-    q: "Um fazendeiro tem 3 galinhas que botam 2 ovos cada. Quantos ovos?",
-    op: ["4","5","6"],
-    c: "6"
+
+// 🔥 DADOS DINÂMICOS
+const nomes = ["Ana", "João", "Maria", "Pedro", "Carla", "Lucas"];
+const objetos = ["maçãs", "balas", "brinquedos", "livros", "figurinhas", "doces"];
+
+// 🔥 GERADOR DE QUESTÕES CONTEXTUALIZADAS
+function gerarQuestao() {
+  const tipo = Math.floor(Math.random() * 4);
+
+  let nome = nomes[Math.floor(Math.random() * nomes.length)];
+  let obj = objetos[Math.floor(Math.random() * objetos.length)];
+
+  let n1, n2, pergunta, correta;
+
+  if (tipo === 0) {
+    n1 = Math.floor(Math.random() * 20);
+    n2 = Math.floor(Math.random() * 20);
+    correta = n1 + n2;
+    pergunta = `${nome} tinha ${n1} ${obj} e ganhou mais ${n2}. Quantas tem agora?`;
   }
-];
+
+  if (tipo === 1) {
+    n1 = Math.floor(Math.random() * 20);
+    n2 = Math.floor(Math.random() * n1);
+    correta = n1 - n2;
+    pergunta = `${nome} tinha ${n1} ${obj} e perdeu ${n2}. Quantas sobraram?`;
+  }
+
+  if (tipo === 2) {
+    n1 = Math.floor(Math.random() * 10);
+    n2 = Math.floor(Math.random() * 5);
+    correta = n1 * n2;
+    pergunta = `${nome} tem ${n1} caixas com ${n2} ${obj} cada. Quantos no total?`;
+  }
+
+  if (tipo === 3) {
+    n2 = Math.floor(Math.random() * 5) + 1;
+    correta = Math.floor(Math.random() * 10);
+    n1 = correta * n2;
+    pergunta = `${nome} dividiu ${n1} ${obj} em ${n2} partes iguais. Quantos em cada?`;
+  }
+
+  let opcoes = new Set();
+  opcoes.add(correta.toString());
+
+  while (opcoes.size < 3) {
+    let erro = correta + Math.floor(Math.random() * 5 - 2);
+    if (erro !== correta && erro >= 0) {
+      opcoes.add(erro.toString());
+    }
+  }
+
+  return {
+    q: pergunta,
+    op: Array.from(opcoes).sort(() => Math.random() - 0.5),
+    c: correta.toString()
+  };
+}
 
 let questoesSelecionadas = [];
-
-function embaralhar(array) {
-  return array.sort(() => Math.random() - 0.5);
-}
 
 function gerarQuiz() {
   const form = document.getElementById("quizForm");
   form.innerHTML = "";
 
-  questoesSelecionadas = embaralhar([...bancoQuestoes]).slice(0, 5);
+  questoesSelecionadas = [];
+
+  for (let i = 0; i < 5; i++) {
+    questoesSelecionadas.push(gerarQuestao());
+  }
 
   questoesSelecionadas.forEach((item, index) => {
     let div = document.createElement("div");
@@ -196,10 +240,10 @@ function corrigir() {
   document.getElementById("resultadoTela").style.display = "block";
 
   document.getElementById("pontuacao").innerText =
-    `Você acertou ${acertos} de ${questoesSelecionadas.length} 🎉`;
+    `Você acertou ${acertos} de ${questoesSelecionadas.length}`;
 
   document.getElementById("erros").innerHTML =
-    errosHTML || "Parabéns! Você acertou tudo 😄";
+    errosHTML || "Parabéns! Você acertou tudo!";
 }
 
 function novoQuiz() {
@@ -209,9 +253,11 @@ function novoQuiz() {
 }
 
 function sair() {
-  window.location.href = "/quiz"; // 🔥 ROTA FLASK
+  window.location.href = "/quiz";
 }
 
 gerarQuiz();
+
 </script>
+
 {% endblock %}

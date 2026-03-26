@@ -26,12 +26,41 @@ h2 {
 
 .question {
   margin-bottom: 20px;
+  text-align: center;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .answers label {
-  display: block;
-  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 15px;
   cursor: pointer;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.answers label:hover {
+  background: #f0f0f0;
+  border-color: #6ec6ff;
+}
+
+.answers input[type="radio"] {
+  margin-right: 10px;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
 }
 
 button {
@@ -76,12 +105,11 @@ button {
   color: white;
 }
 </style>
-</head>
 
 <body>
 
 <div class="container" id="quizTela">
-  <h2>Quiz de Contas ➕</h2>
+  <h2>Quiz de Contas</h2>
   <form id="quizForm"></form>
   <button id="finalizar" onclick="corrigir()">Finalizar</button>
 </div>
@@ -92,34 +120,75 @@ button {
   <div id="erros" class="result-box"></div>
 
   <div class="btn-group">
-    <button class="novo" onclick="novoQuiz()">🔁 Novo Quiz</button>
-    <button class="sair" onclick="sair()">🔙 Sair</button>
+    <button class="novo" onclick="novoQuiz()">Novo Quiz</button>
+    <button class="sair" onclick="sair()">Sair</button>
   </div>
 </div>
 
 <script>
-const bancoQuestoes = [
-  { q: "5 + 3 =", op: ["6","7","8"], c: "8" },
-  { q: "9 - 4 =", op: ["5","6","4"], c: "5" },
-  { q: "6 x 2 =", op: ["10","12","8"], c: "12" },
-  { q: "12 ÷ 3 =", op: ["2","3","4"], c: "4" },
-  { q: "7 + 6 =", op: ["12","13","14"], c: "13" },
-  { q: "15 - 5 =", op: ["10","9","11"], c: "10" },
-  { q: "3 x 4 =", op: ["7","12","9"], c: "12" },
-  { q: "16 ÷ 4 =", op: ["2","4","6"], c: "4" }
-];
+
+// 🔥 GERADOR DE QUESTÕES INFINITAS
+function gerarQuestao() {
+  const operacoes = ["+", "-", "x", "÷"];
+  const op = operacoes[Math.floor(Math.random() * operacoes.length)];
+
+  let n1, n2, correta;
+
+  if (op === "+") {
+    n1 = Math.floor(Math.random() * 20);
+    n2 = Math.floor(Math.random() * 20);
+    correta = n1 + n2;
+  }
+
+  if (op === "-") {
+    n1 = Math.floor(Math.random() * 20);
+    n2 = Math.floor(Math.random() * n1);
+    correta = n1 - n2;
+  }
+
+  if (op === "x") {
+    n1 = Math.floor(Math.random() * 10);
+    n2 = Math.floor(Math.random() * 10);
+    correta = n1 * n2;
+  }
+
+  if (op === "÷") {
+    n2 = Math.floor(Math.random() * 9) + 1;
+    correta = Math.floor(Math.random() * 10);
+    n1 = correta * n2;
+  }
+
+  let pergunta = `${n1} ${op} ${n2} =`;
+
+  // gerar alternativas
+  let opcoes = new Set();
+  opcoes.add(correta.toString());
+
+  while (opcoes.size < 3) {
+    let erro = correta + Math.floor(Math.random() * 5 - 2);
+    if (erro !== correta && erro >= 0) {
+      opcoes.add(erro.toString());
+    }
+  }
+
+  return {
+    q: pergunta,
+    op: Array.from(opcoes).sort(() => Math.random() - 0.5),
+    c: correta.toString()
+  };
+}
 
 let questoesSelecionadas = [];
-
-function embaralhar(array) {
-  return array.sort(() => Math.random() - 0.5);
-}
 
 function gerarQuiz() {
   const form = document.getElementById("quizForm");
   form.innerHTML = "";
 
-  questoesSelecionadas = embaralhar([...bancoQuestoes]).slice(0, 5);
+  questoesSelecionadas = [];
+
+  for (let i = 0; i < 5; i++) {
+    questoesSelecionadas.push(gerarQuestao());
+  }
 
   questoesSelecionadas.forEach((item, index) => {
     let div = document.createElement("div");
@@ -164,10 +233,10 @@ function corrigir() {
   document.getElementById("resultadoTela").style.display = "block";
 
   document.getElementById("pontuacao").innerText =
-    `Você acertou ${acertos} de ${questoesSelecionadas.length} 🎉`;
+    `Você acertou ${acertos} de ${questoesSelecionadas.length}`;
 
   document.getElementById("erros").innerHTML =
-    errosHTML || "Parabéns! Você acertou tudo 😄";
+    errosHTML || "Parabéns! Você acertou tudo!";
 }
 
 function novoQuiz() {
@@ -181,8 +250,7 @@ function sair() {
 }
 
 gerarQuiz();
+
 </script>
-
-
 
 {% endblock %}
