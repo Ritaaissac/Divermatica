@@ -1,4 +1,4 @@
-Iimport os
+import os
 from flask import Flask
 from config import Config
 from extensions import init_app, db
