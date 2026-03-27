@@ -72,7 +72,7 @@
 }
 
 .card .front-view img {
-    width: 19px;
+    width: 50px;
 }
 
 .card .back-view img {
@@ -89,4 +89,30 @@
 
 .card.flip .front-view {
     transform: rotateY(180deg);
+}
+.mascote_pensando {
+    position: absolute;
+    top: 420px;
+    right: 2px;
+    width: 350px;
+    height: auto;
+    z-index: 1;
+
+}
+
+.favocima {
+    position: absolute;
+    top: 110px;
+    right: 30px;
+    width: 200px;
+    height: auto;
+    z-index: 1;
+}
+.favobaixo {
+    position: absolute;
+    bottom: -45px;
+    left: -25px;
+    width: clamp(80px, 15vw, 200px);
+    height: auto;
+    z-index: 1;
 }
