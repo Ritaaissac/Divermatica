@@ -12,7 +12,7 @@ body {
 }
 
 .container {
-  max-width: 700px;
+  max-width: 500px;
   margin: 40px auto;
   background: white;
   padding: 25px;
@@ -73,7 +73,7 @@ button {
   font-size: 16px;
 }
 
-#finalizar {
+#proxima {
   background: #ff7b9c;
   color: white;
 }
@@ -111,7 +111,7 @@ button {
 <div class="container" id="quizTela">
   <h2>Quiz Contextualizado</h2>
   <form id="quizForm"></form>
-  <button id="finalizar" onclick="corrigir()">Finalizar</button>
+  <button id="proxima" onclick="proximaQuestao()">Próxima</button>
 </div>
 
 <div class="container" id="resultadoTela">
@@ -127,11 +127,11 @@ button {
 
 <script>
 
-// 🔥 DADOS DINÂMICOS
+// DADOS
 const nomes = ["Ana", "João", "Maria", "Pedro", "Carla", "Lucas"];
 const objetos = ["maçãs", "balas", "brinquedos", "livros", "figurinhas", "doces"];
 
-// 🔥 GERADOR DE QUESTÕES CONTEXTUALIZADAS
+// GERADOR DE QUESTÕES
 function gerarQuestao() {
   const tipo = Math.floor(Math.random() * 4);
 
@@ -186,52 +186,78 @@ function gerarQuestao() {
 }
 
 let questoesSelecionadas = [];
+let questaoAtual = 0;
+let respostasUsuario = [];
 
+// GERAR QUIZ
 function gerarQuiz() {
-  const form = document.getElementById("quizForm");
-  form.innerHTML = "";
-
   questoesSelecionadas = [];
+  respostasUsuario = [];
+  questaoAtual = 0;
 
   for (let i = 0; i < 5; i++) {
     questoesSelecionadas.push(gerarQuestao());
   }
 
-  questoesSelecionadas.forEach((item, index) => {
-    let div = document.createElement("div");
-    div.classList.add("question");
-
-    div.innerHTML = `<p>${index+1}) ${item.q}</p>`;
-
-    let answersDiv = document.createElement("div");
-    answersDiv.classList.add("answers");
-
-    item.op.forEach(opcao => {
-      answersDiv.innerHTML += `
-        <label>
-          <input type="radio" name="q${index}" value="${opcao}">
-          ${opcao}
-        </label>
-      `;
-    });
-
-    div.appendChild(answersDiv);
-    form.appendChild(div);
-  });
+  mostrarQuestao();
 }
 
+// MOSTRAR UMA
+function mostrarQuestao() {
+  const form = document.getElementById("quizForm");
+  form.innerHTML = "";
+
+  const item = questoesSelecionadas[questaoAtual];
+
+  let div = document.createElement("div");
+  div.classList.add("question");
+
+  div.innerHTML = `<p>${questaoAtual + 1}) ${item.q}</p>`;
+
+  let answersDiv = document.createElement("div");
+  answersDiv.classList.add("answers");
+
+  item.op.forEach(opcao => {
+    answersDiv.innerHTML += `
+      <label>
+        <input type="radio" name="resposta" value="${opcao}">
+        ${opcao}
+      </label>
+    `;
+  });
+
+  div.appendChild(answersDiv);
+  form.appendChild(div);
+}
+
+// AVANÇAR
+function proximaQuestao() {
+  const resposta = document.querySelector('input[name="resposta"]:checked');
+
+  respostasUsuario[questaoAtual] = resposta ? resposta.value : null;
+
+  questaoAtual++;
+
+  if (questaoAtual < questoesSelecionadas.length) {
+    mostrarQuestao();
+  } else {
+    corrigir();
+  }
+}
+
+// CORRIGIR
 function corrigir() {
   let acertos = 0;
   let errosHTML = "";
 
   questoesSelecionadas.forEach((item, index) => {
-    const resposta = document.querySelector(`input[name="q${index}"]:checked`);
+    const resposta = respostasUsuario[index];
 
-    if (resposta && resposta.value === item.c) {
+    if (resposta === item.c) {
       acertos++;
     } else {
       errosHTML += `<p><b>${item.q}</b><br>
-      Sua resposta: ${resposta ? resposta.value : "Nenhuma"}<br>
+      Sua resposta: ${resposta || "Nenhuma"}<br>
       Correta: ${item.c}</p>`;
     }
   });
@@ -246,16 +272,19 @@ function corrigir() {
     errosHTML || "Parabéns! Você acertou tudo!";
 }
 
+// NOVO
 function novoQuiz() {
   document.getElementById("resultadoTela").style.display = "none";
   document.getElementById("quizTela").style.display = "block";
   gerarQuiz();
 }
 
+// SAIR
 function sair() {
   window.location.href = "/quiz";
 }
 
+// INICIAR
 gerarQuiz();
 
 </script>
