@@ -1,9 +1,9 @@
 /* ===== JOGO DA MEMÓRIA ===== */
 .wrapper {
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 12px;
     background: #F8F8F8;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12); /* sombra mais suave e elegante */
     margin: 20px auto;
     width: 400px;
     height: 400px;
@@ -13,6 +13,22 @@
     padding-left: 10px;
 }
 
+/* ===== TIPOGRAFIA MELHORADA ===== */
+h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #222;
+    text-shadow: 1px 2px 4px rgba(0,0,0,0.1);
+}
+
+p {
+    font-size: 1.05rem;
+    color: #444;
+    opacity: 0.9;
+}
+
+/* ===== GRID ===== */
 .cards, .card, .view {
     display: flex;
     align-items: center;
@@ -26,6 +42,7 @@
     justify-content: space-between;
 }
 
+/* ===== CARTAS ===== */
 .cards .card {
     cursor: pointer;
     list-style: none;
@@ -35,42 +52,51 @@
     transform-style: preserve-3d;
     height: calc(100% / 4 - 10px);
     width: calc(100% / 4 - 10px);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* hover leve (sem mudar tamanho) */
+.cards .card:hover {
+    transform: translateY(-3px);
+}
+
+/* clique */
+.cards .card:active {
+    transform: scale(0.97);
+}
+
+/* ===== ERRO (shake já tinha, só deixei mais fluido) */
 .card.shake {
     animation: shake 0.35s ease-in-out;
 }
 
 @keyframes shake {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    20% {
-        transform: translateX(-13px);
-    }
-    40% {
-        transform: translateX(13px);
-    }
-    60% {
-        transform: translateX(-8px);
-    }
-    80% {
-        transform: translateX(8px);
-    }
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-6px); }
+    80% { transform: translateX(6px); }
 }
 
+/* ===== FACE DAS CARTAS ===== */
 .card .view {
     width: 100%;
     height: 100%;
     position: absolute;
-    border-radius: 7px;
+    border-radius: 10px;
     background: #fff;
     pointer-events: none;
     backface-visibility: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.25s linear;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease, box-shadow 0.2s ease;
 }
 
+/* brilho leve ao passar */
+.card:hover .view {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* imagens */
 .card .front-view img {
     width: 50px;
 }
@@ -79,6 +105,7 @@
     max-width: 45px;
 }
 
+/* ===== FLIP MAIS BONITO ===== */
 .card .back-view {
     transform: rotateY(-180deg);
 }
@@ -90,15 +117,23 @@
 .card.flip .front-view {
     transform: rotateY(180deg);
 }
+
+/* ===== ACERTO (nova melhoria) ===== */
+.card.match .view {
+    background: #d4f8d4; /* verde suave */
+    box-shadow: 0 0 12px rgba(0, 200, 0, 0.4);
+}
+
+/* ===== DECORAÇÃO (menos distração) ===== */
 .mascote_pensando {
     position: absolute;
-    top: 420px;
+    top: 300px;
     right: 2px;
     width: 350px;
     height: auto;
     z-index: 1;
-
 }
+
 
 .favocima {
     position: absolute;
@@ -108,6 +143,7 @@
     height: auto;
     z-index: 1;
 }
+
 .favobaixo {
     position: absolute;
     bottom: -45px;
@@ -115,4 +151,9 @@
     width: clamp(80px, 15vw, 200px);
     height: auto;
     z-index: 1;
+}
+
+/* ===== FONTE ===== */
+h1, p {
+    font-family:'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
 }

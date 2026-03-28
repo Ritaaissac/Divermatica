@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800;900&display=swap');
+
 /* ===== ESTILOS GERAIS ===== */
 body {
     background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
-    font-family: Arial, sans-serif;
+    font-family:'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
     margin: 0;
     min-height: 100vh;
     display: flex;
@@ -55,7 +57,7 @@ header {
 /* ===== MAIN CONTENT ===== */
 main {
     flex: 1;
-    padding: 40px 20px;
+    padding: 20px 20px;
     text-align: center;
 }
 

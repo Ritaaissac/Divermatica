@@ -85,9 +85,9 @@
   }
 
   function generateDivision() {
-    const maxQ = difficultySettings();
-    const quotient = Math.floor(Math.random() * (maxQ - 1)) + 2;
-    const divisor = Math.floor(Math.random() * 11) + 2;
+    // Limitar à tabuada até 10 (quotient e divisor entre 1 e 10)
+    const quotient = Math.floor(Math.random() * 10) + 1; // 1..10
+    const divisor = Math.floor(Math.random() * 10) + 1;  // 1..10
     return { dividend: quotient * divisor, divisor, quotient };
   }
 
@@ -158,10 +158,95 @@
     }
   }
 
+  function spawnFishToBucket(originEl) {
+  // aceitar balde com id #bucket ou com classe .bucket (template usa .bucket)
+  const bucket = document.querySelector("#bucket") || document.querySelector('.bucket');
+  if (!bucket) return;
+
+  const fish = document.createElement("div");
+  fish.className = "falling-fish";
+  fish.textContent = "🐟";
+
+  const originRect = originEl.getBoundingClientRect();
+  const bucketRect = bucket.getBoundingClientRect();
+
+  // posição inicial: centro do elemento clicado (viewport coordinates)
+  const originX = originRect.left + originRect.width / 2;
+  const originY = originRect.top + originRect.height / 2;
+
+  // posição final: centro do balde
+  const targetX = bucketRect.left + bucketRect.width / 2;
+  const targetY = bucketRect.top + bucketRect.height / 2;
+
+  const dx = Math.round(targetX - originX);
+  const dy = Math.round(targetY - originY);
+
+  // colocar em fixed para animar pela viewport
+  fish.style.position = 'fixed';
+  fish.style.left = originX + 'px';
+  fish.style.top = originY + 'px';
+  fish.style.transform = 'translate(0, 0) rotate(180deg)';
+  fish.style.pointerEvents = 'none';
+  fish.style.zIndex = 9999;
+
+  // definir variáveis CSS usadas pela animação
+  // duração entre 600ms e 950ms
+  const duration = Math.floor(600 + Math.random() * 350);
+  fish.style.setProperty('--dx', dx + 'px');
+  fish.style.setProperty('--dy', dy + 'px');
+  fish.style.setProperty('--fly-duration', duration + 'ms');
+
+  document.body.appendChild(fish);
+
+  // força reflow para garantir que a animação do CSS comece
+  void fish.offsetWidth;
+
+  // remover depois que a animação acabar
+  setTimeout(() => {
+    fish.remove();
+  }, duration + 80);
+}
+
+  // ===== peixes de fundo decorativos =====
+  let bgFishInitialized = false;
+  function initBackgroundFish(count = 10) {
+    if (bgFishInitialized) return;
+    const lake = document.querySelector('.lake');
+    if (!lake) return;
+
+    for (let i = 0; i < count; i++) {
+      const bf = document.createElement('div');
+      bf.className = 'bg-fish';
+      bf.textContent = '🐟';
+
+      // posição vertical aleatória dentro da lagoa
+      const topPct = 8 + Math.random() * 76; // evita bordas
+      // começar levemente fora da tela à esquerda
+      const leftPct = -20 + Math.random() * 30;
+
+      bf.style.top = topPct + '%';
+      bf.style.left = leftPct + '%';
+      bf.style.opacity = (0.12 + Math.random() * 0.38).toFixed(2);
+
+      // animação com duração e delay variados para naturalidade
+      const dur = Math.floor(10000 + Math.random() * 18000); // 10s - 28s
+      const delay = Math.floor(-Math.random() * dur); // faz alguns já estarem em movimento
+      bf.style.animationDuration = dur + 'ms';
+      bf.style.animationDelay = delay + 'ms';
+
+      lake.appendChild(bf);
+    }
+
+    bgFishInitialized = true;
+  }
+
+  // inicializa peixes decorativos imediatamente (existem mesmo com tela oculta)
+  initBackgroundFish(12);
+
   function handleCorrect(btn) {
     clearInterval(timerId);
 
-    btn.classList.add('correct');
+    spawnFishToBucket(btn);
 
     combo++;
     score += POINTS + combo;
