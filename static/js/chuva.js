@@ -2,6 +2,9 @@ let pontos = 0;
 let vidas = 5;
 let contas = [];
 let jogoIniciado = false;
+let alturaJogo;
+let intervaloCriar;
+let intervaloAtualizar;
 
 const LIMITE_CONTAS = 6;
 
@@ -9,7 +12,12 @@ document.getElementById("vidas").innerText = vidas;
 
 function iniciarJogo() {
   document.getElementById("tela-inicial").style.display = "none";
+  document.getElementById("decoracoes-jogo").style.display = "block";
+  document.getElementById("container").style.display = "block";
+  alturaJogo = document.getElementById("jogo").clientHeight;
   jogoIniciado = true;
+  intervaloCriar = setInterval(criarConta, 2200);
+  intervaloAtualizar = setInterval(atualizar, 40);
 }
 
 function criarConta() {
@@ -41,7 +49,7 @@ function atualizar() {
     c.y += c.velocidade;
     c.elemento.style.top = c.y + "px";
 
-    if (c.y > 480) {
+    if (c.y > alturaJogo) {
       c.elemento.remove();
       contas.splice(index, 1);
       perderVida();
@@ -74,6 +82,8 @@ function perderVida() {
 }
 
 function mostrarGameOver() {
+  clearInterval(intervaloCriar);
+  clearInterval(intervaloAtualizar);
   document.getElementById("pontuacao-final").innerText = pontos;
   document.getElementById("game-over").style.display = "flex";
 }
@@ -82,11 +92,27 @@ function reiniciarJogo() {
   location.reload();
 }
 
+function sairJogo() {
+  clearInterval(intervaloCriar);
+  clearInterval(intervaloAtualizar);
+  document.getElementById("decoracoes-jogo").style.display = "none";
+  document.getElementById("tela-inicial").style.display = "flex";
+  document.getElementById("container").style.display = "none";
+  // resetar estado
+  pontos = 0;
+  vidas = 5;
+  contas = [];
+  jogoIniciado = false;
+  document.getElementById("pontos").innerText = pontos;
+  document.getElementById("vidas").innerText = vidas;
+  // remover contas do DOM
+  document.getElementById("jogo").innerHTML = "";
+  // esconder game-over se estiver visível
+  document.getElementById("game-over").style.display = "none";
+}
+
 document.getElementById("resposta").addEventListener("keypress", function(e) {
   if (e.key === "Enter") {
     verificar();
   }
 });
-
-setInterval(criarConta, 2200);
-setInterval(atualizar, 40);

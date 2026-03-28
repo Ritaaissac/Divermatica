@@ -55,8 +55,8 @@ body {
 .circle-bottom-rigth {
     width: 300px;
     height: 300px;
-    bottom: -550px;
-    right: -70px;
+    bottom: 10px;
+    right: 0;
     border-radius: 50%;
 }
 
@@ -83,8 +83,8 @@ body {
 .mascote-welcome {
     width: 400px;
     position: absolute;
-    top: 20px;
-    left: -20px;
+    top: 30px;
+    left: 0;
     z-index: 4;
     object-fit: contain;
 }
@@ -343,7 +343,7 @@ body {
 /* Card de Boas-vindas */
 .card {
     width: 100%;
-    max-width: 800px;
+    max-width: 700px;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
