@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="static/css/cadastro.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="static/logo.png" alt="Logo">
+    </div>
+    <div class="area-cadastro">
+        <h2>Cadastro</h2>
+        <form id="cadastroForm">
+            <div class="form-group">
+                <label for="usuario">Usuário</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha-confirm">Confirmar Senha</label>
+                <input type="password" id="senha-confirm" name="senha-confirm" placeholder="Confirme sua senha" required>
+            </div>
+
+            <button type="submit" class="btn-cadastro">Cadastrar</button>
+            
+            <p class="login-link">Já tem conta? <a href="/login">Faça login</a></p>
+        </form>
+        <div id="mensagem" class="mensagem"></div>
+    </div>
+    <section class="hero">
+        <img class="mascote" src="static/mascote_acenando.png" alt="Mascote">
+    </section>
+
+    <script>
+        document.getElementById('cadastroForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+            const senhaConfirm = document.getElementById('senha-confirm').value;
+            const mensagem = document.getElementById('mensagem');
+            
+            try {
+                const response = await fetch('/cadastro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: usuario,
+                        password: senha,
+                        password_confirm: senhaConfirm
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    mensagem.textContent = 'Cadastro realizado! Redirecionando...';
+                    mensagem.className = 'mensagem sucesso';
+                    setTimeout(() => {
+                        window.location.href = data.redirect;
+                    }, 1500);
+                } else {
+                    mensagem.textContent = data.message || 'Erro ao cadastrar';
+                    mensagem.className = 'mensagem erro';
+                }
+            } catch (error) {
+                mensagem.textContent = 'Erro na requisição: ' + error.message;
+                mensagem.className = 'mensagem erro';
+            }
+        });
+    </script>
+</body>
+</html>

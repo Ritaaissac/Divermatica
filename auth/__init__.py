@@ -1,5 +1,1 @@
-"""Authentication package (routes and helpers)."""
-
-from . import routes, utils
-
-__all__ = ["routes", "utils"]
+# Auth module

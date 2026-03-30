@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="static/css/login.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="static/logo.png" alt="Logo">
+    </div>
+    <div class="area-login">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="usuario">Usuário</label>
+                <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required>
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+            </div>
+
+            <button type="submit" class="btn-login">Fazer Login</button>
+            
+            <p class="cadastro-link">Não tem conta? <a href="/cadastro">Cadastre-se</a></p>
+        </form>
+        <div id="mensagem" class="mensagem"></div>
+    </div>
+    <section class="hero">
+        <img class="mascote" src="static/mascote_acenando.png" alt="Mascote">
+    </section>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const usuario = document.getElementById('usuario').value;
+            const senha = document.getElementById('senha').value;
+            const mensagem = document.getElementById('mensagem');
+            
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: usuario,
+                        password: senha
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    mensagem.textContent = 'Login realizado! Redirecionando...';
+                    mensagem.className = 'mensagem sucesso';
+                    setTimeout(() => {
+                        window.location.href = data.redirect;
+                    }, 1500);
+                } else {
+                    mensagem.textContent = data.message || 'Erro ao fazer login';
+                    mensagem.className = 'mensagem erro';
+                }
+            } catch (error) {
+                mensagem.textContent = 'Erro na requisição: ' + error.message;
+                mensagem.className = 'mensagem erro';
+            }
+        });
+    </script>
+</body>
+</html>

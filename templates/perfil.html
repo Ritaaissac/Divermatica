@@ -4,6 +4,53 @@
 
 {% block content %}
 
-    <h1>Em desenvolvimento</h1>
+    <div id="perfil-container" style="text-align: center;">
+        <h1>Perfil do Usuário</h1>
+        <div id="user-info" style="margin-top: 30px;">
+            <p style="font-size: 24px; margin: 20px 0;">
+                <strong>Usuário: <span id="username"></span></strong>
+            </p>
+            <button id="logout-btn" onclick="logout()" style="padding: 10px 20px; background-color: #ff6b6b; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 16px;">
+                Fazer Logout
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Carrega dados do usuário ao abrir a página
+        async function loadUserProfile() {
+            try {
+                const response = await fetch('/api/user');
+                const data = await response.json();
+                
+                if (data.logged_in) {
+                    document.getElementById('username').textContent = data.username;
+                } else {
+                    // Se não estiver logado, redireciona
+                    window.location.href = '/login';
+                }
+            } catch (error) {
+                console.error('Erro ao carregar perfil:', error);
+            }
+        }
+
+        // Função de logout
+        async function logout() {
+            try {
+                const response = await fetch('/api/logout', {
+                    method: 'POST'
+                });
+                
+                if (response.ok) {
+                    window.location.href = '/';
+                }
+            } catch (error) {
+                console.error('Erro ao fazer logout:', error);
+            }
+        }
+
+        // Carrega o perfil ao abrir a página
+        loadUserProfile();
+    </script>
 
 {% endblock %}

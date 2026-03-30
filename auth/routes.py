@@ -1,57 +1,89 @@
-from flask import request, render_template, redirect, url_for, flash
-from werkzeug.security import generate_password_hash, check_password_hash
+from flask import request, jsonify, session, redirect, url_for, render_template
 from extensions import db
 from models.user import User
-from flask_login import login_user, logout_user, login_required
-
+from auth.utils import hash_password, verify_password
 
 def init_app(app):
-    """Register auth-related routes on the given Flask app."""
-
+    """Inicializa rotas de autenticação"""
+    
+    @app.route('/cadastro', methods=['GET', 'POST'])
     def cadastro():
+        if request.method == 'GET':
+            return render_template('cadastro.html')
+        
         if request.method == 'POST':
-            username = request.form.get('username')
-            password = request.form.get('password')
-
-            if User.query.filter_by(username=username).first():
-                flash('Usuário já existe.')
-                return redirect(url_for('auth_register'))
-
-            hashed_password = generate_password_hash(password)
-            novo_usuario = User(username=username, password=hashed_password)
-            db.session.add(novo_usuario)
+            data = request.get_json()
+            username = data.get('username', '').strip()
+            password = data.get('password', '').strip()
+            password_confirm = data.get('password_confirm', '').strip()
+            
+            # Validações
+            if not username or not password:
+                return jsonify({'success': False, 'message': 'Usuário e senha são obrigatórios'}), 400
+            
+            if password != password_confirm:
+                return jsonify({'success': False, 'message': 'Senhas não conferem'}), 400
+            
+            if len(password) < 6:
+                return jsonify({'success': False, 'message': 'Senha deve ter no mínimo 6 caracteres'}), 400
+            
+            # Verifica se usuário já existe
+            existing_user = User.query.filter_by(username=username).first()
+            if existing_user:
+                return jsonify({'success': False, 'message': 'Usuário já existe'}), 400
+            
+            # Cria novo usuário
+            new_user = User(username=username, password=hash_password(password))
+            db.session.add(new_user)
             db.session.commit()
-
-            flash('Cadastro realizado com sucesso! Faça login.')
-            return redirect(url_for('auth_login'))
-
-        return render_template('cadastro.html')
-
-    app.add_url_rule('/register', endpoint='auth_register', view_func=cadastro, methods=['GET', 'POST'])
-
-    def login():
-        if request.method == 'POST':
-            username = request.form.get('username')
-            password = request.form.get('password')
-
-            user = User.query.filter_by(username=username).first()
-
-            if user and check_password_hash(user.password, password):
-                login_user(user)
-                flash('Login realizado com sucesso!')
-                return redirect(url_for('index'))
-
-            flash('Usuário ou senha incorretos.')
-            return redirect(url_for('auth_login'))
-
-        return render_template('login.html')
-
-    app.add_url_rule('/login', endpoint='auth_login', view_func=login, methods=['GET', 'POST'])
-
-    def _logout():
-        logout_user()
-        flash('Você saiu da sua conta.')
-        return redirect(url_for('index'))
-
-    # protect logout route with login_required wrapper when registering
-    app.add_url_rule('/logout', endpoint='logout', view_func=login_required(_logout), methods=['GET'])
+            
+            # Salva na sessão
+            session['user_id'] = new_user.id
+            session['username'] = new_user.username
+            
+            return jsonify({'success': True, 'message': 'Cadastro realizado com sucesso!', 'redirect': url_for('jogos_index')}), 201
+    
+    
+    @app.route('/api/login', methods=['POST'])
+    def api_login():
+        """Rota de login via API (POST)"""
+        data = request.get_json()
+        username = data.get('username', '').strip()
+        password = data.get('password', '').strip()
+        
+        if not username or not password:
+            return jsonify({'success': False, 'message': 'Usuário e senha são obrigatórios'}), 400
+        
+        # Busca usuário no banco
+        user = User.query.filter_by(username=username).first()
+        
+        if user and verify_password(user.password, password):
+            # Login bem-sucedido
+            session['user_id'] = user.id
+            session['username'] = user.username
+            return jsonify({'success': True, 'message': 'Login realizado!', 'redirect': url_for('jogos_index')}), 200
+        
+        return jsonify({'success': False, 'message': 'Usuário ou senha incorretos'}), 401
+    
+    
+    @app.route('/api/logout', methods=['POST'])
+    def api_logout():
+        """Rota de logout"""
+        session.clear()
+        return jsonify({'success': True, 'message': 'Logout realizado!'}), 200
+    
+    
+    @app.route('/api/user', methods=['GET'])
+    def get_user():
+        """Retorna dados do usuário logado"""
+        user_id = session.get('user_id')
+        username = session.get('username')
+        
+        if user_id:
+            return jsonify({
+                'logged_in': True,
+                'user_id': user_id,
+                'username': username
+            }), 200
+        
+        return jsonify({'logged_in': False}), 200
