@@ -20,7 +20,7 @@ body {
 .hero {
     min-height: 100vh;
     position: relative;
-    /* overflow: hidden; */
+    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
