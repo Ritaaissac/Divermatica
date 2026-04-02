@@ -1,3 +1,5 @@
+
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
@@ -6,18 +8,22 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  overflow-x: hidden;
 
 }
 
 .container {
   background: white;
-  padding: 40px 30px;
+  padding: 30px 30px;
   border-radius: 20px;
   text-align: center;
   box-shadow: 0 15px 30px rgba(0,0,0,0.2);
   width: 320px;
-  animation: aparecer 0.6s ease;
-  justify-content: center;
+  
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 
@@ -52,15 +58,20 @@ h2 {
   color: white;
   transition: 0.3s;
   font-weight: bold;
+  font-family: 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
+  font-size: 18px;
+  
 }
 
 /* cores diferentes */
 .contas {
   background: #42a5f5;
+  box-shadow: 1px 1px 10px rgba(66,165,245,0.4);
 }
 
 .contexto {
   background: #ff7b9c;
+  box-shadow: 1px 1px 10px rgba(255,123,156,0.4);
 }
 
 /* hover */
