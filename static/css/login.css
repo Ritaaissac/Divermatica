@@ -28,7 +28,7 @@ body {
 }
 
 .logo img {
-    width: 80px;
+    width: 200px;
     height: auto;
     object-fit: contain;
 }
@@ -162,8 +162,46 @@ body {
 
 /* Mascote */
 .mascote {
-    width: 280px;
-    height: 280px;
+    width: 350px;
     object-fit: contain;
     user-select: none;
+    position: relative;
+    top: 60px;
+}
+
+.favobaixo {
+    position: absolute;
+    bottom: 0;
+    left: -50px;
+    width: 200px;
+}
+
+.favocima {
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    width: 200px;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 6s ease-in-out infinite;
+}
+
+.circle-left {
+    width: 400px;
+    height: 400px;
+    top: -30px;
+    left: -200px;
+    background-color: #0d8ba8;
+}
+
+.circle-right {
+    width: 400px;
+    height: 400px;
+    bottom: 0;
+    right: -200px;
+    background-color: #0d8ba8;
 }

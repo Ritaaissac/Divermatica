@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="static/css/cadastro.css">
 </head>
 <body>
+    <div>
+        <div class="circle circle-left"></div>
+        <div class="circle circle-right"></div>
+
+        <img src="{{ url_for('static', filename='index/favo_de_baixo.png') }}" alt="favo" class="favobaixo">
+        <img src="{{ url_for('static', filename='index/favo_de_cima.png') }}" alt="favo" class="favocima">
+    </div>
     <div class="logo">
-        <img src="static/logo.png" alt="Logo">
+       <a href="{{ url_for('index') }}"><img src="static/logo.png" alt="Logo"></a> 
     </div>
     <div class="area-cadastro">
         <h2>Cadastro</h2>
