@@ -6,13 +6,15 @@
     box-sizing: border-box;
     font-family: 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
     
-    
 }
 
+
 body {
-    background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
+    /* background: radial-gradient(ellipse 120% 80% at 60% 110%,#5DE8FF 0%, #00A8CE 45%, #00C8F0 100%); */
+    background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 60%, #5DE8FF 90%);
     overflow-x: hidden;
     min-height: 100vh;
+    
 }
 
 
@@ -20,7 +22,6 @@ body {
 .hero {
     min-height: 100vh;
     position: relative;
-    
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -87,6 +88,7 @@ body {
     left: 0;
     z-index: 4;
     object-fit: contain;
+
 }
 
 /* Container que alinha badges ao redor do círculo do mascote (externo ao círculo) */
@@ -167,6 +169,7 @@ body {
     font-weight: 900;
     font-size: clamp(32px, 6vw, 80px);
     font-family: 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .text-line {
@@ -214,6 +217,7 @@ body {
     gap: 6px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 /* ===== BOTÃO JOGAR ===== */
@@ -335,6 +339,7 @@ body {
     background: transparent;
     z-index: 10;
     min-height: 50vh;
+    overflow: hidden;
 }
 
 
