@@ -222,15 +222,16 @@ body {
 
 /* ===== BOTÃO JOGAR ===== */
 .jogar-button {
+    width: 500px;
     position: absolute;
     left: 40px;
-    top: 500px;
+    top: 550px;
     z-index: 10;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 20px;
 
     padding: 28px 80px;
     background: linear-gradient(135deg, #FF6B9D 0%, #FF4FA3 100%);
