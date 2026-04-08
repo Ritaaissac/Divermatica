@@ -8,10 +8,6 @@ def init_app(app):
         return render_template('index.html')
     app.add_url_rule('/', endpoint='index', view_func=index, methods=['GET'])
 
-    def login():
-        return render_template('login.html')
-    app.add_url_rule('/login', endpoint='login', view_func=login, methods=['GET'])
-
     def sobre():
         return render_template('sobre.html')
     app.add_url_rule('/sobre', endpoint='sobre', view_func=sobre, methods=['GET'])
@@ -20,12 +16,6 @@ def init_app(app):
         return render_template('quiz.html')
     app.add_url_rule('/quiz', endpoint='quiz', view_func=quiz, methods=['GET'])
 
-    def perfil():
-        # Se não estiver logado, redireciona para login
-        if 'user_id' not in session:
-            return redirect(url_for('login'))
-        return render_template('perfil.html')
-    app.add_url_rule('/perfil', endpoint='perfil', view_func=perfil, methods=['GET'])
 
     # Jogos list (placeholder)
     

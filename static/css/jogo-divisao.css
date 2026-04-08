@@ -425,10 +425,7 @@ font-size:40px;
 text-align:center;
 }
 
-#bucket-count{
-font-size:14px;
-font-weight:bold;
-}
+
 
 
 
@@ -504,9 +501,9 @@ font-weight:bold;
 #bucket-count{
   font-size: 1.6rem;
   font-weight: 800;
-  color: #074b63;
   margin-top:6px;
   text-align:center;
+  color: white;
 }
 
 /* peixes de fundo (decorativos) nadando para a direita */
