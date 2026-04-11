@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: auto;
 }
 
 /* ===== HEADER E NAVEGAÇÃO ===== */
@@ -304,6 +304,49 @@ form button:hover {
 
 .texto-apresentacao h2 {
     color: #1342a8;
+
+/* Media Queries for responsiveness */
+
+@media (max-width: 768px) {
+    .header-nav {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        align-items: center;
+    }
+    .logo-img {
+        width: 150px;
+        margin-bottom: 10px;
+    }
+    .nav-links {
+        flex-direction: row;
+        justify-content: center;
+        gap: 15px;
+    }
+    .texto-apresentacao {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+        max-width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-nav {
+        padding: 5px;
+    }
+    .logo-img {
+        width: 120px;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .texto-apresentacao {
+        padding: 15px;
+    }
+}
     font-size: 2em;
     margin-bottom: 15px;
 }

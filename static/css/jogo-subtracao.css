@@ -16,6 +16,39 @@
   display:block;
   font-size:20px;
   font-weight:bold;
+
+/* Media Queries for responsiveness */
+
+@media (max-width: 768px) {
+    .butterflies {
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .butterfly {
+        font-size: 40px;
+    }
+    
+    .butterfly span {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .butterflies {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 15px;
+    }
+    
+    .butterfly {
+        font-size: 30px;
+    }
+    
+    .butterfly span {
+        font-size: 14px;
+    }
+}
 }
 
 .butterfly:hover{

@@ -127,6 +127,60 @@ h2 {
     width: 200px;
     height: auto;
     z-index: -1;
+
+/* Media Queries for responsiveness */
+
+@media (max-width: 768px) {
+    .quiz-container {
+        padding: 20px;
+    }
+    
+    .pergunta {
+        font-size: 1.5rem;
+    }
+    
+    .opcoes {
+        gap: 10px;
+    }
+    
+    .opcao {
+        padding: 10px;
+        font-size: 1rem;
+    }
+    
+    .circle {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .circle {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .quiz-container {
+        padding: 10px;
+    }
+    
+    .pergunta {
+        font-size: 1.2rem;
+    }
+    
+    .opcoes {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .opcao {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .circle {
+        display: none;
+    }
+}
 }
 
 .favo-de-baixo {

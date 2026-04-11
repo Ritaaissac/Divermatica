@@ -83,6 +83,47 @@ body{
 50%{transform:translateX(10px)}
 75%{transform:translateX(-10px)}
 100%{transform:translateX(0)}
+
+/* Media Queries for responsiveness */
+
+@media (max-width: 768px) {
+    .jogo-container {
+        padding: 20px;
+    }
+    
+    .titulo-jogo {
+        font-size: 1.5rem;
+    }
+    
+    .opcoes {
+        gap: 10px;
+    }
+    
+    .opcao {
+        padding: 10px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .jogo-container {
+        padding: 10px;
+    }
+    
+    .titulo-jogo {
+        font-size: 1.2rem;
+    }
+    
+    .opcoes {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .opcao {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+}
 }
 
 button{

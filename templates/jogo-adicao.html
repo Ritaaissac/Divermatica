@@ -6,10 +6,14 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-adicao.css') }}">
 <script src="{{ url_for('static', filename='js/jogo-adicao.js') }}" defer></script>
 
+<img src="{{ url_for('static', filename='index/favo_de_baixo.png') }}" alt="favo" class="favobaixo">
+<img src="{{ url_for('static', filename='index/favo_de_cima.png') }}" alt="favo" class="favocima">
+<img src="{{ url_for('static', filename='Abelha adição.png') }}" alt="Mascote Abelha" class="mascote_abelha">
+<div class="circle circle-left"></div>
+<div class="circle circle-bottom"></div>
+
 <div class="jogo-area">
     <h1 class="titulo-jogo">Arraste o número certo para completar a soma</h1>
-    <!-- butterfly mascot from homepage -->
-    <img class="borboleta" src="{{ url_for('static', filename='mascote.png') }}" alt="Borboleta">
     <div class="operacao">
         <span id="num1"></span> + <span id="num2"></span> = <div class="resposta-drop" id="dropzone">?</div>
     </div>
