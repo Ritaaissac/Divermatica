@@ -5,31 +5,25 @@
 {% block content %}
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
-<body>
-      <div class="imagens">
-            <div class="circle circle-left"></div>
-            <div class="circle circle-right"></div>
 
-            <img src="{{ url_for('static', filename='images-jogomemoria/mascote_pensando.png') }}" alt="Mascote" class="mascote_pensando">
-            <img src="{{ url_for('static', filename='index/favo_de_baixo.png') }}" alt="Favo de Baixo" class="favo-de-baixo">
-            <img src="{{ url_for('static', filename='index/favo_de_cima.png') }}" alt="Favo de Cima" class="favo-de-cima">
-        </div>
-       
-        <h2>Escolha seu Quiz</h2>
-       
-      
-        <div class="container">
-          <a style="text-decoration: none;" href="{{url_for('quiz_contas')}}">
+<div class="quiz-page">
+    <h2>Escolha seu Quiz</h2>
+    
+    <div class="buttons-container">
+        <a style="text-decoration: none;" href="{{url_for('quiz_contas')}}">
             <button class="quiz-btn contas">
-              Quiz de Contas
+                Quiz de Contas
             </button>
-          </a>
+        </a>
 
-          <a style="text-decoration: none;" href="{{url_for('quiz_contexto')}}">
+        <a style="text-decoration: none;" href="{{url_for('quiz_contexto')}}">
             <button class="quiz-btn contexto">
-              Quiz Contextualizado
+                Quiz Contextualizado
             </button>
-          </a>
-        </div>
+        </a>
+    </div>
+    
+    <img src="{{ url_for('static', filename='images-jogomemoria/mascote_pensando.png') }}" alt="Mascote" class="mascote_pensando">
+</div>
 
 {% endblock %}

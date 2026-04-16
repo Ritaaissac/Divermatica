@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800;900&display=swap');
-
+/*corrigido*/
 /* ===== ESTILOS GERAIS ===== */
 body {
     background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
-    font-family:'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
+    font-family:'Baloo 2', Arial, sans-serif;
     margin: 0;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
+    contain: paint;
+    overflow: clip;
 }
 
 /* ===== HEADER E NAVEGAÇÃO ===== */
@@ -105,40 +104,6 @@ footer {
     
 }
 
-/* ===== PÁGINA INICIAL ===== */
-.nuvens{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    z-index: -1;
-}
-.logo-img-index {
-    width: 500px;
-    height: auto;
-    margin-bottom: -250px;
-    cursor: default;
-    position: relative;
-    top: 0;
-}
-
-.botoes-box {
-    background: #fff;
-    border: 2px solid #e0e0e0;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 20px;
-    margin: 10px auto 0 auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
-    position: relative;
-    bottom: -400px;
-    width: 400px;
-    height: 200px;
-}
-
 .botoes-box .btn1,
 .botoes-box .btn2 {
     width: 300px;
@@ -152,41 +117,16 @@ footer {
 }
 
 
-
-/* ===== FORMULÁRIOS ===== */
-form input {
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 250px;
-}
-
-form button {
-    background: #4a4c7a;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-form button:hover {
-    background: #6563FF;
-}
-
 /* ===== MENU DE JOGOS ===== */
 
 
 .mascote_voando {
     position: absolute;
-    top: 360px;
-    right: 0;
-    width: 400px;
+    top: clamp(260px, 35vh, 460px);
+    right: clamp(30px, -12vw, -50px);
+    width: clamp(200px, 35vw, 400px);
     height: auto;
     z-index: 1;
-
 }
 
 .circle {
@@ -196,39 +136,37 @@ form button:hover {
  
 }
 .circle-left {
-  width: 400px;
-  height: 400px;
-  top: -30px;
-  left: -200px;
+  width: clamp(80px, 20vw, 25vw);
+  height: clamp(80px, 20vw, 25vw);
+  top: -5vw;
+  left: clamp(-8vw, -15%, -5vw);
   border-radius: 50%;
-
 }
 
 .circle-right {
-  width: 400px;
-  height: 400px;
-  right: -250px;
-  top: 400px;
+  width: clamp(80px, 20vw, 25vw);
+  height: clamp(80px, 20vw, 25vw);
+  right: clamp(-8vw, -15%, -5vw);
+  top: 50%;
   transform: translateY(-50%);
   border-radius: 50%;
- 
 }
 
 
 .favo-de-cima {
     position: absolute;
-    top: 110px;
-    right: 100px;
-    width: 200px;
+    top: clamp(60px, 8vh, 120px);
+    right: max(20px, clamp(20px, 8vw, 100px));
+    width: clamp(100px, 15vw, 200px);
     height: auto;
     z-index: -1;
 }
 
 .favo-de-baixo {
     position: absolute;
-    bottom: -45px;
-    left: -25px;
-    width: clamp(80px, 15vw, 200px);
+    bottom: max(0px, 2px);
+    left: clamp(0px, -25px + 3vw, 20px);
+    width: clamp(60px, 12vw, 150px);
     height: auto;
     z-index: 1;
 }
@@ -253,11 +191,11 @@ form button:hover {
 
 .jogos-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    max-width: 60%;
+    max-width: 900px;
     margin: 0 auto;
-    padding: 10px 0;
+    padding: 10px;
 }
 
 .jogo-card {
@@ -291,65 +229,7 @@ form button:hover {
 
 
 /* ===== PÁGINA INICIAL - ESTILOS ADICIONAIS ===== */
-.texto-apresentacao {
-    position: absolute;
-    left: 445px;
-    top: 64%;
-    transform: translateY(-50%);
-    text-align: left;
-    max-width: 500px;
-    padding: 30px;
 
-}
-
-.texto-apresentacao h2 {
-    color: #1342a8;
-
-/* Media Queries for responsiveness */
-
-@media (max-width: 768px) {
-    .header-nav {
-        flex-direction: column;
-        height: auto;
-        padding: 10px;
-        align-items: center;
-    }
-    .logo-img {
-        width: 150px;
-        margin-bottom: 10px;
-    }
-    .nav-links {
-        flex-direction: row;
-        justify-content: center;
-        gap: 15px;
-    }
-    .texto-apresentacao {
-        position: static;
-        margin-top: 20px;
-        text-align: center;
-        max-width: 100%;
-        padding: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .header-nav {
-        padding: 5px;
-    }
-    .logo-img {
-        width: 120px;
-    }
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .texto-apresentacao {
-        padding: 15px;
-    }
-}
-    font-size: 2em;
-    margin-bottom: 15px;
-}
 
 .texto-apresentacao p {
 
@@ -387,10 +267,10 @@ form button:hover {
 
 .btn-video-invisivel {
     position: absolute;
-    right: 415px;
-    top: 530px;
-    width: 250px;
-    height:250px;
+    right: clamp(10px, 20vw, 415px);
+    top: clamp(300px, 50vh, 530px);
+    width: clamp(150px, 25vw, 250px);
+    height: clamp(150px, 25vw, 250px);
     cursor: pointer;
     z-index: 5;
     border-radius: 100%;
