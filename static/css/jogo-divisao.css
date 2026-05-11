@@ -16,6 +16,7 @@ html,body{  height:100%; margin:0; }
 
 
 .container{
+  width: 100%;
   height: 650px;
   max-width: 900px; /* largura controlada */
   margin: 20px auto;

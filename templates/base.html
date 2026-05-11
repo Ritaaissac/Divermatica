@@ -94,34 +94,35 @@
 
     </style>
    <header class="nav-area">
-        <div class="nav-container">
+    <div class="nav-container">
 
-            <!-- LOGO -->
-            <a href="{{ url_for('index') }}" class="nav-logo">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Divermatica">
+        <!-- LOGO -->
+        <a href="{{ url_for('index') }}" class="nav-logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Divermatica">
+        </a>
+
+        <!-- LINKS -->
+        <nav class="nav-menu">
+            <a class="nav-item active" href="{{ url_for('jogos_index') }}">
+                <img src="{{ url_for('static', filename='icons/estrela_jogos_icon.png') }}">
+                Jogos
             </a>
 
-            <!-- LINKS -->
-            <nav class="nav-menu">
-                <a class="nav-item active" href="{{ url_for('jogos_index') }}">
-                    <img src="{{ url_for('static', filename='icons/estrela_jogos_icon.png') }}">
-                    Jogos
-                </a>
+            <a class="nav-item active" href="{{ url_for('sobre') }}">
+                <img src="{{ url_for('static', filename='icons/sobre_icon.png') }}">
+                Sobre
+            </a>
 
-                <a class="nav-item active" href="{{ url_for('sobre') }}">
-                    <img src="{{ url_for('static', filename='icons/sobre_icon.png') }}">
-                    Sobre
-                </a>
+            <a class="nav-item active" href="{{ url_for('quiz') }}">
+                <img src="{{ url_for('static', filename='icons/quiz_icon.png') }}">
+                Quiz
+            </a>
 
-                <a class="nav-item active" href="{{ url_for('quiz') }}">
-                    <img src="{{ url_for('static', filename='icons/quiz_icon.png') }}">
-                    Quiz
-                </a>
+        </nav>
 
-            </nav>
+    </div>
+</header>
 
-        </div>
-    </header>
 
     <main>
         {% block content %}{% endblock %}
