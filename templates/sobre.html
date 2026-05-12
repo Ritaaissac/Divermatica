@@ -3,73 +3,13 @@
 {% block title %}Sobre - Divermatica{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/sobre.css') }}">
 
-<div class="sobre-page">
-    <section class="sobre-hero">
-        <div class="hero-copy">
-            <h1>Divermatica transforma matemática em brincadeira.</h1>
-            <p>Aqui, cada soma, multiplicação e desafio vira um jogo pensado para crianças e famílias aprenderem com confiança, alegria e facilidade.</p>
-
-            <div class="hero-list">
-                <div>
-                    <strong>Jogos educativos</strong>
-                    <p>Adição, subtração, multiplicação, divisão e memória em atividades divertidas.</p>
-                </div>
-                <div>
-                    <strong>Aprendizado leve</strong>
-                    <p>Conteúdo colorido, simples e acessível para alunos de 6 a 12 anos.</p>
-                </div>
-            </div>
-
-            <div class="hero-actions">
-                <a class="hero-button" href="{{ url_for('jogos_index') }}">Ver todos os jogos</a>
-                <span class="hero-chip">Educação com carinho</span>
-            </div>
+<section class="sobre-hero">
+    <div class="hero-image-panel">
+        <div class="hero-image-card">
+            <img src="{{ url_for('static', filename='fundosobre.png') }}" alt="Mascote Divermatica">
         </div>
-
-        <div class="hero-image-panel">
-            <div class="hero-image-card">
-                <img src="{{ url_for('static', filename='mascote_acenando.png') }}" alt="Mascote Divermatica">
-            </div>
-        </div>
-    </section>
-
-    <section class="sobre-sections">
-        <article class="section-card section-card-primary">
-            <h2>Missão</h2>
-            <p>Fazer da matemática uma experiência divertida, acolhedora e cheia de descobertas para cada criança.</p>
-        </article>
-        <article class="section-card section-card-secondary">
-            <h2>Visão</h2>
-            <p>Ser a plataforma que inspira famílias e escolas a usar a criatividade como combustível do raciocínio.</p>
-        </article>
-        <article class="section-card section-card-tertiary">
-            <h2>Valores</h2>
-            <p>Respeito, alegria, prática e confiança — sempre com conteúdo pensado para quem está aprendendo.</p>
-        </article>
-    </section>
-
-    <section class="sobre-info">
-        <div class="info-column">
-            <h2>O que fazemos</h2>
-            <p>Na Divermatica, criamos jogos educativos feitos para estimular o pensamento, o ritmo do aluno e a vontade de acertar. Cada atividade é desenvolvida para ser clara, colorida e fácil de usar.</p>
-        </div>
-        <div class="info-list">
-            <div class="info-item">
-                <strong>Recursos interativos</strong>
-                <p>Desafios que combinam teoria e prática de forma leve.</p>
-            </div>
-            <div class="info-item">
-                <strong>Conteúdo lúdico</strong>
-                <p>Exercícios em forma de jogo que ajudam a concretizar conceitos.</p>
-            </div>
-            <div class="info-item">
-                <strong>Para toda a família</strong>
-                <p>Ferramentas pensadas para professores, pais e alunos aprenderem juntos.</p>
-            </div>
-        </div>
-    </section>
-</div>
+    </div>
+</section>
 
 {% endblock %}
