@@ -6,14 +6,15 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-adicao.css') }}">
 <script src="{{ url_for('static', filename='js/jogo-adicao.js') }}" defer></script>
 
-<img src="{{ url_for('static', filename='index/favo_de_baixo.png') }}" alt="favo" class="favobaixo">
-<img src="{{ url_for('static', filename='index/favo_de_cima.png') }}" alt="favo" class="favocima">
-<img src="{{ url_for('static', filename='Abelha adição.png') }}" alt="Mascote Abelha" class="mascote_abelha">
-<div class="circle circle-left"></div>
-<div class="circle circle-bottom"></div>
+<div class="jogo-page">
+    <img src="{{ url_for('static', filename='index/favo_de_baixo.png') }}" alt="favo" class="favobaixo">
+    <img src="{{ url_for('static', filename='index/favo_de_cima.png') }}" alt="favo" class="favocima">
+    <img src="{{ url_for('static', filename='Abelha adição.png') }}" alt="Mascote Abelha" class="mascote_abelha">
+    <div class="circle circle-left"></div>
+    <div class="circle circle-bottom"></div>
 
-<div class="jogo-area">
-    <h1 class="titulo-jogo">Arraste o número certo para completar a soma</h1>
+    <div class="jogo-area">
+        <h1 class="titulo-jogo">Arraste o número certo para completar a soma</h1>
     <div class="operacao">
         <span id="num1"></span> + <span id="num2"></span> = <div class="resposta-drop" id="dropzone">?</div>
     </div>
@@ -23,6 +24,7 @@
     <div class="controles">
         <button id="novo-jogo">Novo Jogo</button>
         <div class="pontuacao">Pontuação: <span id="score">0</span></div>
+    </div>
     </div>
 </div>
 {% endblock %}

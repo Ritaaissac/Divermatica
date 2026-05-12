@@ -1,37 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
+from pathlib import Path
+css = '''@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&display=swap');
 
 html, body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
     font-family: 'Poppins', 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top left, #f8efff 0%, #ffffff 55%);
     overflow-x: hidden;
-    background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
 }
 
 body {
     width: 100%;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0 40px;
-}
-
-.jogo-page {
-    position: relative;
-    width: min(95%, 1080px);
-    margin: 0 auto;
-    padding: 35px 20px 40px;
-    background: transparent;
-    border-radius: 36px;
-    box-shadow: none;
-}
-
 .jogo-area {
-    margin: 0 auto;
-    max-width: 760px;
     position: relative;
     background: #ffffff;
     padding: 40px 32px 32px;
@@ -45,25 +31,25 @@ main {
 
 .circle {
     position: absolute;
-    background-color: #0d8ba8;
-    z-index: 0;
     border-radius: 50%;
+    z-index: 0;
+    opacity: 0.45;
 }
 
 .circle-left {
-    width: clamp(180px, 22vw, 260px);
-    height: clamp(180px, 22vw, 260px);
-    top: 40px;
-    left: 0px;
-    background-color: #0d8ba8;
+    width: 240px;
+    height: 240px;
+    top: -90px;
+    left: -80px;
+    background: #f7e3ff;
 }
 
 .circle-bottom {
-    width: clamp(160px, 18vw, 240px);
-    height: clamp(160px, 18vw, 240px);
-    bottom: -60px;
-    right: -60px;
-    background-color: #0d8ba8;
+    width: 260px;
+    height: 260px;
+    bottom: -90px;
+    right: -100px;
+    background: #e9f1ff;
 }
 
 .favocima,
@@ -75,24 +61,22 @@ main {
 }
 
 .favocima {
-    top: -26px;
+    top: 18px;
     right: 18px;
-    width: clamp(100px, 14vw, 160px);
 }
 
 .favobaixo {
-    bottom: -52px;
-    left: 12px;
-    width: clamp(90px, 15vw, 170px);
+    bottom: -18px;
+    left: -12px;
 }
 
 .mascote_abelha {
     position: absolute;
-    bottom: 4px;
-    right: -12px;
-    width: clamp(200px, 28vw, 280px);
+    top: 24px;
+    right: 24px;
+    width: clamp(170px, 22vw, 240px);
     height: auto;
-    z-index: 3;
+    z-index: 0;
 }
 
 .titulo-jogo {
@@ -115,24 +99,23 @@ main {
     color: #7b41d3;
 }
 
-
 .resposta-drop {
-    width: 80px;
-    height: 80px;
-    border: 3px dashed #a259ff; /* lilac border */
-    border-radius: 15px;
+    width: 90px;
+    height: 90px;
+    border: 3px dashed #a259ff;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 2rem;
-    background: #e0c3fc; /* light lilac */
-    transition: all 0.3s ease;
+    background: #e7d5ff;
+    transition: all 0.25s ease;
 }
 
 .resposta-drop.drag-over {
     background: #e3f2fd;
     border-color: #2196f3;
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 .numeros-container {
@@ -146,14 +129,14 @@ main {
 .numero-draggable {
     width: 80px;
     height: 80px;
-    background: linear-gradient(180deg, #d0e8ff 0%, #7cb8ff 100%);
+    background: linear-gradient(180deg, #d7ffd8 0%, #a8ffb0 100%);
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
     font-weight: 800;
-    color: #10294c;
+    color: #2a2a2a;
     cursor: grab;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -161,37 +144,8 @@ main {
     user-select: none;
 }
 
-.numero-draggable::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    right: 5px;
-    bottom: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    z-index: -1;
-}
-
-.numero-draggable::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.05);
-    border-radius: 15px;
-    z-index: -1;
-}
-
 .numero-draggable:hover {
-    background: linear-gradient(180deg, #8bb7ff 0%, #6a8de4 100%);
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 
-        0 12px 25px rgba(0, 0, 0, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px) scale(1.03);
 }
 
 .numero-draggable:active {
@@ -230,18 +184,6 @@ main {
     box-shadow: 0 8px 18px rgba(153, 50, 204, 0.28);
 }
 
-.resposta-drop.acertou {
-    background: #9ce59a;
-    border-color: #1a8b20;
-    color: #0f4420;
-}
-
-.resposta-drop.errou {
-    background: #ff9a9a;
-    border-color: #d72626;
-    color: #7c1d1d;
-}
-
 #novo-jogo:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 24px rgba(153, 50, 204, 0.35);
@@ -249,6 +191,16 @@ main {
 
 #novo-jogo:active {
     transform: translateY(0);
+}
+
+.resposta-drop.acertou {
+    background: #c4ffd9;
+    border-color: #2eb82e;
+}
+
+.resposta-drop.errou {
+    background: #ffcccb;
+    border-color: #e63946;
 }
 
 .pontuacao {
@@ -261,9 +213,9 @@ main {
     color: #5b6cf7;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     body {
+        align-items: flex-start;
         padding: 28px 0;
     }
 
@@ -318,3 +270,5 @@ main {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+'''
+Path('static/css/jogo-adicao.css').write_text(css, encoding='utf-8')

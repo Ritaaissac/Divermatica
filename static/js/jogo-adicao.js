@@ -190,6 +190,7 @@ class JogoArraste {
     }
 
     mostrarFeedback(tipo) {
+        this.dropzone.classList.remove('acertou', 'errou');
         this.dropzone.classList.add(tipo);
         setTimeout(() => {
             this.dropzone.classList.remove(tipo);
