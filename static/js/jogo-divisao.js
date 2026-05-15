@@ -18,7 +18,7 @@
   let timeLeft = 30;
   let timerId = null;
   let correctAnswer = null;
-
+  
   let combo = 0;
   let level = 1;
   let correctCount = 0;

@@ -11,114 +11,15 @@
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto;
 }
 
-*{ box-sizing:border-box; }
-html,body{  height:100%; margin:0; }
-
-
-.container{
-  width: 100%;
-  height: 650px;
-  max-width: 900px; /* largura controlada */
-  margin: 20px auto;
-
-  background: var(--card);
-  border-radius: 20px;
-  position: relative;
-
-  padding: 14px; /* ↓ menos altura interna */
-  box-shadow: var(--shadow);
-  animation: fadeIn .6s ease;
-
-  max-height: 600px; /* ↓ diminui altura */
-  overflow: hidden; /* evita crescer */
-}
-
-@keyframes fadeIn{
-  from{ opacity:0; transform:translateY(20px); }
-  to{ opacity:1; transform:translateY(0); }
-}
-
-
-.hud{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  font-weight:700;
-}
-
-.hud .low-time{
-  color:var(--danger);
-}
-
-.question-box{
-  background:rgba(0,0,0,0.04);
-  border-radius:14px;
-  padding:20px;
-  text-align:center;
-  margin-bottom:20px;
-  animation: pulseQuestion 1.4s infinite ease;
-}
-
 @keyframes pulseQuestion{
   0%,100%{ transform:scale(1); }
   50%{ transform:scale(1.01); }
-}
-
-.question{
-  font-size:1.7rem;
-  font-weight:700;
-}
-
-.ducks{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-
-.duck{
-  background:white;
-  border-radius:14px;
-  padding:16px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  flex-direction:column;
-  cursor:pointer;
-  user-select:none;
-  box-shadow:0 8px 14px rgba(0,0,0,0.08);
-  transition: all .2s ease;
-}
-
-.duck:hover{
-  transform:translateY(-2px);
-  box-shadow:0 12px 20px rgba(0,0,0,0.12);
-}
-
-.duck:active{
-  transform:translateY(2px);
-}
-
-.duck .duck-emoji{
-  font-size:48px;
-}
-
-.duck.correct{
-  border:3px solid var(--success);
-  background:#e8ffe9;
-  animation: correctPop .4s ease;
 }
 
 @keyframes correctPop{
   0%{ transform:scale(1); }
   60%{ transform:scale(1.12); }
   100%{ transform:scale(1); }
-}
-
-.duck.wrong{
-  border:3px solid var(--danger);
-  background:#ffe8e8;
-  animation: shake .45s ease;
 }
 
 @keyframes shake{
@@ -128,45 +29,9 @@ html,body{  height:100%; margin:0; }
   80%{ transform:translateX(5px); }
 }
 
-.overlay{
-  text-align:center;
-  padding:30px;
-}
-
-.big{
-  background:var(--accent);
-  color:white;
-  border:none;
-  padding:14px 22px;
-  border-radius:12px;
-  font-size:1.05rem;
-  cursor:pointer;
-  margin-top:12px;
-  transition:.2s ease;
-  box-shadow:0 6px 14px rgba(27,154,170,0.2);
-}
-
-.big:hover{
-  background:#10707d;
-}
-
-.hidden{ display:none; }
-
-footer{
-  text-align:center;
-  margin-top:20px;
-  color:#4b5b63;
-  font-size:.9rem;
-}
-
-@media(max-width:520px){
-  .ducks{ grid-template-columns:1fr; }
-  header{ flex-direction:column; }
-}
 
 /* ===== RESET ===== */
 * {
-  color: #000000;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -193,17 +58,12 @@ footer{
   to { opacity: 1; transform: translateY(0); }
 }
 
-header {
-  background: linear-gradient(180deg, #4a9edd 0%, #1e5a7a 100%);
-  padding: 20px;
-  border-radius: 22px 22px 0 0;
-  margin: -20px -28px 0 -28px;
-}
 
-h1 {
+h1, h2, p {
   color: #ffffff !important;
   margin: 0;
 }
+
 
 .hud {
   display: flex;
@@ -275,18 +135,6 @@ h1 {
   animation: shake 0.4s ease;
 }
 
-@keyframes correctPop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.12); }
-  100% { transform: scale(1); }
-}
-
-@keyframes shake {
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-3px); }
-  100% { transform: translateX(0); }
-}
 
 /* ===== BUTTONS ===== */
 .big {
@@ -426,46 +274,12 @@ font-size:40px;
 text-align:center;
 }
 
-
-
-
-
-/* ===== JOGO DIVISAO ===== */
-.duck.correct{
-  border:3px solid #4CAF50;
-  background:#e9ffe9;
-}
-
-.duck.wrong{
-  border:3px solid #e63946;
-  background:#ffe8e8;
-}
-
-.borboleta {
-  position: absolute;
-  /* posicionar levemente acima do canto superior direito do container */
-  top: -8px;
-  right: 14px;
-  width: 124px; /* um pouco maior */
-  max-width: 22%;
-  pointer-events: none;
-  z-index: 1200;
-  transform-origin: 50% 90%;
-  animation: flutter 3.6s infinite ease-in-out;
-  will-change: transform, opacity;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.12));
-}
-
 @keyframes flutter {
   0% { transform: translateY(0) rotate(0deg); }
   25% { transform: translateY(-6px) rotate(-3deg); }
   50% { transform: translateY(0) rotate(0deg); }
   75% { transform: translateY(-4px) rotate(3deg); }
   100% { transform: translateY(0) rotate(0deg); }
-}
-
-@media (max-width: 640px) {
-  .borboleta { width: 84px; right: 10px; top: -6px; }
 }
 
 /* ===== PEIXE CAINDO NO BALDE ===== */
