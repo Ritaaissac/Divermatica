@@ -41,12 +41,16 @@ Por meio de jogos, desafios e elementos de gamificação, o sistema torna o apre
 ## 📁 **Estrutura do Repositório**
 
 ```
-📦 divermatica
+📦 Divermatica
+├── 📂 controllers/  # Lógica e rotas
 ├── 📂 docs/         # Documentos do projeto
 ├── 📂 static/       # Imagens, ícones, mídias e códigos dos jogos
-├── 📂 templates/    # Páginas html 
+├── 📂 templates/    # Páginas html
+├── .gitignore        # Ignora arquivos no Git
+├── LICENSE           # Licença da projeto
+├── README.md         # Explicação do projeto
 ├── app.py           # Código-fonte da plataforma
-└── README.md
+└── requirements.txt # Depedências python
 ```
 
 ---
@@ -61,7 +65,7 @@ git clone https://github.com/raiwyzs/divermatica.git
 cd divermatica
 
 # Crie e ative um ambiente virtual
-python -m venv venv ou python -m venv env
+python -m venv env
 env\Scripts\activate       # Windows
 source env/bin/activate    # Linux/Mac
 
@@ -76,14 +80,14 @@ python app.py
 
 ## 👩‍🏫 **Equipe de Desenvolvimento**
 
-| Nomes                                         | 
+| Integrantes                                  | 
 | -------------------------------------------- | 
-| Ezaelly Clara Lopes Feitosa de Morais       | 
+| Ezaelly Clara Lopes Feitosa de Morais        | 
 | Isabelle Vitória Fernandes de Medeiros Silva | 
 | Raissa Kelly Brito de Araújo                 | 
 | Rita de Cássia Saldanha Bezerra              | 
 
-**Orientador:** Prof. *Joaildo Maia*
+**Orientador:** Prof. *Joaildo Maia*,
 **Coorientador:** Prof. *Hugo Wendell Maia*
 
 ---
