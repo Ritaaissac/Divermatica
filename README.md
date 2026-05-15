@@ -32,7 +32,6 @@ Por meio de jogos, desafios e elementos de gamificação, o sistema torna o apre
 
 * 🎮 **Jogos educativos interativos**
 * ➗ **Quatro operações matemáticas**
-* 📊 **Progressão por níveis**
 * 📝 **Histórico de pontuação**
 * 👦 **Layout projetado para crianças de 6 a 10 anos**
 
