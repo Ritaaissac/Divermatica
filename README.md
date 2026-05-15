@@ -1,6 +1,6 @@
 
 
-# <img src="https://github.com/raiwyzs/Divermatica/static/logo.png" width="40"/> **DIVERMÁTICA**
+# <img src="https://github.com/raiwyzs/Divermatica/blob/main/static/logo.png" width="40"/> **DIVERMÁTICA**
 
 ### **Uma Plataforma Lúdica e Interativa para o Ensino de Matemática**
 
