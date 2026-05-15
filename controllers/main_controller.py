@@ -1,5 +1,5 @@
 
-from flask import render_template, redirect, url_for, session
+from flask import render_template
 
 
 def init_app(app):
