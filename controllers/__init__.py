@@ -1,5 +1,5 @@
 """Controllers package."""
 
-from . import user_controller, product_controller, main_controller
+from . import product_controller, main_controller
 
-__all__ = ["user_controller", "product_controller", "main_controller"]
+__all__ = ["product_controller", "main_controller"]

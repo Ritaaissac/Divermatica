@@ -1,26 +1,16 @@
 import os
 from flask import Flask
-from config import Config
-from extensions import init_app, db
 
 from controllers import main_controller, product_controller
-from auth import routes as auth_routes
 
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object(Config)
-
-    init_app(app)
 
     # Registra rotas de autenticação
-    auth_routes.init_app(app)
     main_controller.init_app(app)
     product_controller.init_app(app)
 
-    if not os.path.exists('usuarios.db'):
-        with app.app_context():
-            db.create_all()
 
     return app
 
