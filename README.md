@@ -45,11 +45,11 @@ Por meio de jogos, desafios e elementos de gamificação, o sistema torna o apre
 ├── 📂 docs/         # Documentos do projeto
 ├── 📂 static/       # Imagens, ícones, mídias e códigos dos jogos
 ├── 📂 templates/    # Páginas html
-├── .gitignore        # Ignora arquivos no Git
-├── LICENSE           # Licença da projeto
-├── README.md         # Explicação do projeto
-├── app.py           # Código-fonte da plataforma
-└── requirements.txt # Depedências python
+├── 📄 .gitignore    # Ignora arquivos no Git
+├── 📄 LICENSE       # Licença da projeto
+├── 📄 README.md     # Explicação do projeto
+├── 📄 app.py        # Código-fonte da plataforma
+└── 📄 requirements.txt # Depedências python
 ```
 
 ---
