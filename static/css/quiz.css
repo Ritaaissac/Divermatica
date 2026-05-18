@@ -84,12 +84,6 @@ h2 {
   box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
-/* ===== MASCOT ===== */
-.mascote_pensando {
-  width: clamp(150px, 40vw, 350px);
-  height: auto;
-  max-width: 100%;
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {

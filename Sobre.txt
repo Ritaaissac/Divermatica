@@ -1,0 +1,51 @@
+<!-- Seção de Boas-vindas -->
+    <section class="welcome-section">
+        <h2 class="boas-vindas">Bem-vindo à DiverMática!</h2>
+        <div class="card">
+            <p>Aqui, aprender matemática vira uma verdadeira aventura! Nossa plataforma foi criada especialmente para tornar os estudos mais divertidos, interativos e cheios de descobertas. Por meio de jogos, desafios e atividades criativas, você vai desenvolver seu raciocínio lógico enquanto se diverte.</p>
+        </div>
+        <img class="mascote-welcome" src="static/mascote_maos.png" alt="Mascote mãos" >
+        <div class="circle circle-bottom-rigth"></div>
+    </section>
+
+/* Seção de Boas-vindas */
+.welcome-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    background: transparent;
+    z-index: 10;
+    min-height: 50vh;
+    overflow: hidden;
+}
+
+/* Card de Boas-vindas */
+.card {
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card p {
+    color: white;
+    font-size: clamp(16px, 2.5vw, 22px);
+    line-height: 1.8;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}

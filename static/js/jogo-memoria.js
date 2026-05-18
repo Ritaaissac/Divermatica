@@ -48,7 +48,7 @@ function shuffleCard() {
     cards.forEach((card, i) => {
         card.classList.remove("flip");
         let imgTag = card.querySelector(".back-view img");
-        imgTag.src = `/static/images-jogomemoria/img-${arr[i]}.png`;
+        imgTag.src = `/static/images/images-jogomemoria/img-${arr[i]}.png`;
         card.addEventListener("click", flipCard);
     });
 }

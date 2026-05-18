@@ -8,63 +8,33 @@
 </head>
 <body>
     <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <img class="logo" src="static/images/logo.png" alt="Logo DiverMática">
 
-        <!-- Círculos decorativos de fundo -->
-        <div class="circle circle-bottom-left"></div>
-        <div class="circle circle-right"></div>
-        <div class="circle-mascote">
-            <img class="mascote" src="static/mascote_acenando.png" alt="Mascote">
+                <div class="hero-text">
+                    <div class="text-line text-gold">APRENDA</div>
+                    <div class="text-line text-pink">BRINCANDO</div>
+                </div>
+
+                <a href="{{ url_for('jogos_index') }}" class="jogar-link">
+                    <div class="jogar-button">
+                        <span class="play-icon">
+                            <svg width="22" height="20" viewBox="0 0 14 16" fill="white"><path d="M2 1.5 L13 8 L2 14.5 Z"/></svg>
+                        </span>
+                        Jogar
+                    </div>
+                </a>
+            </div>
+
+        <!--    <div class="hero-mascote">
+                <img class="mascote" src="static/images/mascote_acenando.png" alt="Mascote">
+            </div>
+        -->
         </div>
-
-        <!-- Badges PNG ao redor do círculo do mascote (posicionados externamente) -->
-        <div class="badges-around" aria-hidden="true">
-            <img class="badge-img num4" src="static/index/num4.png" alt="4">
-            <img class="badge-img num2-amarelo" src="static/index/num2amarelo.png" alt="2 amarelo">
-            <img class="badge-img numtres" src="static/index/numtres.png" alt="3">
-            <img class="badge-img nuvemverde" src="static/index/nuvemverde.png" alt="verde">
-            <img class="badge-img nuvemazul" src="static/index/nuvemazul.png" alt="azul">
-            <img class="badge-img estrela" src="static/index/estrela.png" alt="estrela">
-        </div>
-
-        <!-- Favos decorativos - topo central -->
-        <img class="favo favo-top" src="static/index/favo_de_cima.png" alt="">
-
-        <!-- Favos decorativos - inferior esquerdo -->
-        <img class="favo favo-bottom" src="static/index/favo_de_baixo.png" alt="">
-
-
-        <!-- Logo -->
-        <img class="logo" src="static/logo.png" alt="Logo DiverMática">
-
-        <!-- Texto principal -->
-        <div class="hero-text">
-            <div class="text-line text-gold">APRENDA</div>
-            <div class="text-line text-pink">BRINCANDO</div>
-        </div>
-
-        <div class="badges">
-            <span  class="badge">🎮 Mini-jogos</span>
-            <span class="badge">⭐ Desafios</span>
-        </div>
-
-        <!-- Botão Jogar -->
-        <a href="{{ url_for('jogos_index') }}"><button class="jogar-button">
-            <span class="play-icon">
-                <svg width="22" height="20" viewBox="0 0 14 16" fill="white"><path d="M2 1.5 L13 8 L2 14.5 Z"/></svg>
-            </span>Jogar
-        </button></a>
-
     </section>
 
-    <!-- Seção de Boas-vindas -->
-    <section class="welcome-section">
-        <h2 class="boas-vindas">Bem-vindo à DiverMática!</h2>
-        <div class="card">
-            <p>Aqui, aprender matemática vira uma verdadeira aventura! Nossa plataforma foi criada especialmente para tornar os estudos mais divertidos, interativos e cheios de descobertas. Por meio de jogos, desafios e atividades criativas, você vai desenvolver seu raciocínio lógico enquanto se diverte.</p>
-        </div>
-        <img class="mascote-welcome" src="static/mascote_maos.png" alt="Mascote mãos" >
-        <div class="circle circle-bottom-rigth"></div>
-    </section>
+    
 
     
 
