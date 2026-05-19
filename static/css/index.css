@@ -10,13 +10,14 @@
 
 
 body {
-    background: radial-gradient(
-        ellipse 140% 90% at 50% 20%,
-        #8EEBFF 0%,
-        #63DFFF 35%,
-        #42CFF3 65%,
-        #27B8E6 100%
-    );
+    background: url('../images/index/grama.png') bottom center / 100% auto no-repeat,
+                radial-gradient(
+                    ellipse 140% 90% at 50% 20%,
+                    #8EEBFF 0%,
+                    #63DFFF 35%,
+                    #42CFF3 65%,
+                    #27B8E6 100%
+                );
     min-height: 100vh;
 }
 
@@ -32,6 +33,7 @@ body {
 }
 
 .hero-inner {
+    position: relative;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -52,7 +54,7 @@ body {
 }
 
 .logo {
-    width: clamp(220px, 18vw, 300px);
+    width: clamp(260px, 20vw, 360px);
     object-fit: contain;
     margin: 0 auto;
 }
@@ -166,6 +168,9 @@ body {
 
 /* Mascote */
 .hero-mascote {
+    position: absolute;
+    top: 0;
+    right: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,4 +182,6 @@ body {
     max-width: 360px;
     height: auto;
     object-fit: contain;
+    margin-right: -500px;
+    margin-top: 300px;
 }
