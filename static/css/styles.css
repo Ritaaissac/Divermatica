@@ -2,13 +2,15 @@
 /*corrigido*/
 /* ===== ESTILOS GERAIS ===== */
 body {
-    background: radial-gradient(ellipse 120% 80% at 60% 110%, #00A8CE 0%, #00C8F0 45%, #5DE8FF 100%);
+    background: radial-gradient(ellipse 140% 90% at 50% 20%, #8EEBFF 0%, #63DFFF 35%,  #42CFF3 65%,  #27B8E6 100%);
     font-family:'Baloo 2', Arial, sans-serif;
     margin: 0;
     min-height: 100vh;
     contain: paint;
     overflow: clip;
 }
+
+                    
 
 /* HEADER GERAL NÃO MEXER EM HIPOTESE ALGUMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA*/
        main{
