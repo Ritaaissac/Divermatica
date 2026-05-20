@@ -212,7 +212,7 @@ footer {
 
 .favo-de-baixo {
     position: absolute;
-    bottom: max(0px, 2px);
+    bottom: -10px;
     left: clamp(0px, -25px + 3vw, 20px);
     width: clamp(60px, 12vw, 150px);
     height: auto;

@@ -43,7 +43,7 @@
   width: 100%;
   max-width: 1100px; /* aumentar largura consistente */
   margin: 24px auto; /* reduzir margem vertical */
-  background: linear-gradient(180deg, #4a9edd 0%, #1e5a7a 100%);
+  background-color: deepskyblue;
   padding: 20px 28px; /* reduzir padding para diminuir altura */
   position: relative; /* permitir posicionamento absoluto de elementos filhos (abelha) */
   border-radius: 22px;
