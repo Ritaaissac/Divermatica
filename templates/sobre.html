@@ -3,6 +3,15 @@
 {% block title %}Sobre - Divermatica{% endblock %}
 
 {% block content %}
-
+<link rel="stylesheet" href="{{ url_for('static', filename='css/sobre.css') }}">
+<section class="welcome-section">
+    <div class="card">
+        <p>Aqui, aprender matemática vira uma verdadeira aventura! Nossa plataforma foi criada especialmente para tornar
+            os estudos mais divertidos, interativos e cheios de descobertas. Por meio de jogos, desafios e atividades
+            criativas, você vai desenvolver seu raciocínio lógico enquanto se diverte.</p>
+    </div>
+    <img class="mascote-welcome" src="static/images/icons/mascote_maos.png" alt="Mascote mãos">
+    <div class="circle circle-bottom-rigth"></div>
+</section>
 
 {% endblock %}

@@ -1,26 +1,82 @@
-.sobre-hero {
-    background-size: fit;
-    padding: 0;
-    margin: 0;
-}
-
-main {
-    padding: 0;
-    margin: 0;
-}
-
-.hero-image-panel {
-    padding: 0;
-    margin: 0;
-}
-
-.hero-image-card {
-    margin: 0;
-    padding: 0;
-}
-
-.hero-image-card img {
+/* Seção de Boas-vindas */
+.welcome-section {
+    position: relative;
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 40px;
+    background: transparent;
+    z-index: 10;
+    min-height: 50vh;
+    overflow: hidden;
 }
+
+/* Card de Boas-vindas */
+.card {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card p {
+    color: white;
+    font-size: clamp(16px, 2.5vw, 22px);
+    line-height: 1.8;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Mascote: fixa na lateral em desktop, estática e centralizada em mobile */
+.mascote-welcome {
+    position: fixed;         /* não afeta o fluxo do layout nem empurra o card */
+    right: 24px;             /* distância da borda da viewport */
+    top: 50%;
+    transform: translateY(-50%);
+    width: clamp(120px, 18vw, 260px);
+    max-width: 320px;
+    z-index: 999;            /* acima do conteúdo, sem cortar */
+    pointer-events: none;
+    max-height: 80vh;        /* evita ultrapassar a altura da tela */
+    object-fit: contain;
+}
+
+/* Em telas pequenas, colocar a mascote abaixo do card para não sobrepor */
+@media (max-width: 900px) {
+    .mascote-welcome {
+        position: static;            /* volta ao fluxo para não sair da viewport */
+        display: block;
+        margin: 20px auto 0;        /* centraliza abaixo do card */
+        transform: none;
+        width: clamp(100px, 30vw, 140px); /* garante que caiba na tela */
+        max-width: 40%;
+        max-height: none;
+    }
+}
+
+/* Ajuste extra para telas muito pequenas */
+@media (max-width: 480px) {
+    .mascote-welcome {
+        width: 120px;
+        margin-top: 12px;
+    }
+
+    .welcome-section {
+        padding-right: 16px; /* garante espaço interno suficiente à direita */
+    }
+}
+
