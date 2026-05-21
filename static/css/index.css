@@ -18,9 +18,9 @@ body {
                     #42CFF3 65%,
                     #27B8E6 100%
                 );
+    background-attachment: scroll, scroll;
     min-height: 100vh;
 }
-
 
 /* ===== HERO SECTION ===== */
 .hero {
@@ -165,20 +165,62 @@ body {
 
 /* Mascote */
 .hero-mascote {
-    position: absolute;
-    top: 0;
-    right: 0;
+    position: fixed;
+    bottom: 0;
+    right: 5vw;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    width: min(360px, 35vw);
+    width: min(320px, 30vw);
+    pointer-events: none;
+    z-index: 10;
 }
 
 .mascote {
     width: 100%;
-    max-width: 360px;
     height: auto;
     object-fit: contain;
-    margin-right: -400px;
-    margin-top: 300px;
+    display: block;
+}
+
+/* Grama e mascote maiores conforme a tela diminui */
+@media (max-width: 900px) {
+    body {
+        background-size: 130% auto, auto;
+    }
+    .hero-mascote {
+        width: min(280px, 35vw);
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        background-size: 160% auto, auto;
+    }
+    .hero-mascote {
+        width: min(240px, 38vw);
+    }
+}
+
+@media (max-width: 550px) {
+    body {
+        background-size: 200% auto, auto;
+    }
+    .hero-mascote {
+        position: fixed;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);
+        width: clamp(140px, 48vw, 220px);
+    }
+}
+
+@media (max-width: 380px) {
+    body {
+        background-size: 240% auto, auto;
+    }
+    .hero-mascote {
+        width: 150px;
+        height: auto;
+    }
 }
