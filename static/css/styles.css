@@ -166,9 +166,6 @@ footer {
     font-weight: normal;
 }
 
-
-/* ===== MENU DE JOGOS ===== */
-
 .favo-de-cima {
     position: absolute;
     top: clamp(60px, 8vh, 120px);
@@ -185,4 +182,196 @@ footer {
     width: clamp(60px, 12vw, 150px);
     height: auto;
     z-index: 1;
+}
+
+@media (max-width: 550px){
+    .nav-area {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+    }   
+
+    .nav-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-container {
+        gap: 20px;
+        padding: 0 24px;
+    }
+
+    .nav-logo img {
+        height: 95px;
+    }
+
+    .nav-item {
+        padding: 8px 16px;
+        font-size: 1.05em;
+    }
+
+    .nav-item img {
+        width: 32px;
+        height: 26px;
+    }
+
+    .favo-de-cima {
+        width: clamp(80px, 12vw, 150px);
+    }
+
+    .botoes-box .btn1,
+    .botoes-box .btn2 {
+        width: 240px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    .mascote {
+        width: 220px !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-container {
+        gap: 12px;
+        padding: 0 20px;
+    }
+
+    .nav-logo img {
+        height: 80px;
+    }
+
+    .nav-menu {
+        gap: 12px;
+    }
+
+    .nav-item {
+        padding: 8px 14px;
+        font-size: 0.95em;
+    }
+
+    .nav-item img {
+        width: 28px;
+        height: 22px;
+    }
+
+    .favo-de-cima {
+        width: clamp(70px, 10vw, 120px);
+        top: clamp(40px, 6vh, 90px);
+    }
+
+    .favo-de-baixo {
+        width: clamp(50px, 10vw, 100px);
+    }
+
+    .botoes-box .btn1,
+    .botoes-box .btn2 {
+        width: 200px;
+        height: 55px;
+        font-size: 24px;
+    }
+
+    .mascote {
+        width: 180px !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 550px) {
+    .nav-logo img {
+        height: 70px;
+    }
+
+    .nav-menu {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-item {
+        padding: 7px 12px;
+        font-size: 0.9em;
+    }
+
+    .nav-item img {
+        width: 24px;
+        height: 20px;
+    }
+
+    .favo-de-cima {
+        display: none;
+    }
+
+    .favo-de-baixo {
+        width: clamp(45px, 9vw, 80px);
+    }
+
+    .botoes-box .btn1,
+    .botoes-box .btn2 {
+        width: 180px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .mascote {
+        width: 140px !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 12px;
+    }
+
+    .nav-logo img {
+        height: 60px;
+    }
+
+    .nav-menu {
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-item {
+        padding: 6px 10px;
+        font-size: 0.82em;
+        gap: 5px;
+    }
+
+    .nav-item img {
+        width: 20px;
+        height: 16px;
+    }
+
+    .favo-de-cima {
+        display: none;
+    }
+
+    .favo-de-baixo {
+        display: none;
+    }
+
+    .botoes-box .btn1,
+    .botoes-box .btn2 {
+        width: 90%;
+        height: 48px;
+        font-size: 18px;
+    }
+
+    .mascote {
+        width: 100px !important;
+        height: auto !important;
+    }
 }
