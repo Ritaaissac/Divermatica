@@ -110,7 +110,7 @@ button {
 
 .circle {
   position: absolute;
-  background-color: #0d8ba8;
+  background: rgba(255,255,255,0.30);
   z-index: -1;
  
 }

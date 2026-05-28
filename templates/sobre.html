@@ -3,15 +3,73 @@
 {% block title %}Sobre - Divermatica{% endblock %}
 
 {% block content %}
+
 <link rel="stylesheet" href="{{ url_for('static', filename='css/sobre.css') }}">
+
 <section class="welcome-section">
+
+    <!-- Bolhas decorativas -->
+    <div class="bubble bubble1"></div>
+    <div class="bubble bubble2"></div>
+    <div class="bubble bubble3"></div>
+
+    <!-- Card principal -->
     <div class="card">
-        <p>Aqui, aprender matemática vira uma verdadeira aventura! Nossa plataforma foi criada especialmente para tornar
-            os estudos mais divertidos, interativos e cheios de descobertas. Por meio de jogos, desafios e atividades
-            criativas, você vai desenvolver seu raciocínio lógico enquanto se diverte.</p>
+
+        <h1>
+            Aprender matemática pode ser divertido! 
+        </h1>
+
+        <p>
+            Aqui, aprender matemática vira uma verdadeira aventura!
+            Nossa plataforma foi criada especialmente para tornar os estudos
+            mais divertidos, interativos e cheios de descobertas.
+            Por meio de jogos, desafios e atividades criativas,
+            você vai desenvolver seu raciocínio lógico enquanto se diverte.
+        </p>
+
     </div>
-    <img class="mascote-welcome" src="static/images/icons/mascote_maos.png" alt="Mascote mãos">
-    <div class="circle circle-bottom-rigth"></div>
+
+    <!-- Mascote -->
+
+    <!-- Cards inferiores -->
+    <section class="features">
+
+        <div class="feature-card">
+
+            <div class="emoji">🎮</div>
+
+            <h2>Jogos</h2>
+
+            <p>
+                Aprenda matemática brincando de forma divertida.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="emoji">🧠</div>
+
+            <h2>Quiz</h2>
+
+            <p>
+                Teste seus conhecimentos com desafios interativos.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <div class="emoji">🎯</div>
+
+                <h2>Aprendizado</h2>
+                <p>Desenvolva habilidades de forma divertida.</p>
+
+        </div>
+
+    </section>
+
 </section>
 
 {% endblock %}
