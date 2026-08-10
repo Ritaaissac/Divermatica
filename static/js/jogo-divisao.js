@@ -85,9 +85,10 @@
   }
 
   function generateDivision() {
-    // Limitar à tabuada até 10 (quotient e divisor entre 1 e 10)
-    const quotient = Math.floor(Math.random() * 10) + 1; // 1..10
-    const divisor = Math.floor(Math.random() * 10) + 1;  // 1..10
+    const config = window.dificuldadePorAno.obterConfiguracao('divisao');
+    const maxValor = config.maxQuociente || 10;
+    const quotient = Math.floor(Math.random() * maxValor) + 1;
+    const divisor = Math.floor(Math.random() * (config.maxDivisor || maxValor)) + 1;
     return { dividend: quotient * divisor, divisor, quotient };
   }
 

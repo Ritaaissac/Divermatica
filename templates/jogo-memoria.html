@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block title %}Jogo da Memória - Divermatica{% endblock %}
 {% block content %}
+<a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
+
 <div style="text-align: center; padding: 20px;">
     <h1>Jogo da Memória</h1>
     <p>Encontre os pares correspondentes!</p>

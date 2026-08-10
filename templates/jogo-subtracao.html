@@ -2,6 +2,7 @@
 {% block title %}Jogo da Subtração - Divermatica{% endblock %}
 
 {% block content %}
+<a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
 
 <div class="jogo-page">
   <img src="{{ url_for('static', filename='images/icons/favo_de_baixo.png') }}" alt="favo" class="favobaixo">
@@ -52,6 +53,7 @@
 </div>
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-subtracao.css') }}">
+<script src="{{ url_for('static', filename='js/dificuldade-por-ano.js') }}"></script>
 <script src="{{ url_for('static', filename='/js/jogo-subtracao.js') }}"></script>
 
 {% endblock %}

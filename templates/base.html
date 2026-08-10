@@ -34,6 +34,11 @@
                 Quiz
             </a>
 
+            <button type="button" class="nav-item nav-logout" id="sair-button">
+                <img src="{{ url_for('static', filename='images/icons/sobre_icon.png') }}">
+                Sair
+            </button>
+
         </nav>
 
     </div>
@@ -44,6 +49,18 @@
         {% block content %}{% endblock %}
     </main>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sairButton = document.getElementById('sair-button');
+
+            if (sairButton) {
+                sairButton.addEventListener('click', function () {
+                    sessionStorage.removeItem('ano_escolar');
+                    window.location.href = '{{ url_for("index") }}';
+                });
+            }
+        });
+    </script>
 
 </body>
 </html>

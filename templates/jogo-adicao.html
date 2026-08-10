@@ -3,7 +3,10 @@
 {% block title %}Jogo de Adição - Divermatica{% endblock %}
 
 {% block content %}
+<a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
+
 <link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-adicao.css') }}">
+<script src="{{ url_for('static', filename='js/dificuldade-por-ano.js') }}" defer></script>
 <script src="{{ url_for('static', filename='js/jogo-adicao.js') }}" defer></script>
 
 <div class="jogo-page">

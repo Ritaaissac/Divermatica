@@ -24,8 +24,10 @@ function criarConta() {
   if (!jogoIniciado) return;
   if (contas.length >= LIMITE_CONTAS) return;
 
-  let num1 = Math.floor(Math.random() * 10);
-  let num2 = Math.floor(Math.random() * 10);
+  const config = window.dificuldadePorAno.obterConfiguracao('multiplicacao');
+  const maxNumero = config.maxNumero || 10;
+  let num1 = Math.floor(Math.random() * maxNumero);
+  let num2 = Math.floor(Math.random() * maxNumero);
   let resposta = num1 * num2;
 
   let conta = document.createElement("div");

@@ -2,6 +2,7 @@
 {% block title %}Jogo da Divisão - Divermatica{% endblock %}
 
 {% block content %}
+<a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
 
 <main class="container">
 
@@ -63,6 +64,7 @@
 </main>
 
 <link rel="stylesheet" href="{{ url_for('static', filename='/css/jogo-divisao.css') }}">
+<script src="{{ url_for('static', filename='js/dificuldade-por-ano.js') }}"></script>
 <script src="{{ url_for('static', filename='/js/jogo-divisao.js') }}"></script>
 
 {% endblock %}

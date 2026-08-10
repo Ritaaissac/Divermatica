@@ -38,8 +38,9 @@ function gerarPergunta(){
     timeLeft = TEMPO_PERGUNTA
     atualizarHUD()
 
-    let num1 = Math.floor(Math.random()*20)+5 // número 1 da equação
-    let num2 = Math.floor(Math.random()*10) // número 2 da equação
+    const config = window.dificuldadePorAno.obterConfiguracao('subtracao');
+    let num1 = Math.floor(Math.random() * ((config.maxPrimeiro || 20) - (config.minPrimeiro || 5) + 1)) + (config.minPrimeiro || 5)
+    let num2 = Math.floor(Math.random() * ((config.maxSegundo || 10) - (config.minSegundo || 1) + 1)) + (config.minSegundo || 1)
     let resposta = num1 - num2 // resposta correta da equação
     document.getElementById("question").innerHTML = num1 + " - " + num2 + " = ?"
 
@@ -48,8 +49,8 @@ function gerarPergunta(){
     
     let opcoes = [resposta]
     while(opcoes.length < 3){
-        let falso = resposta + Math.floor(Math.random()*5)-2
-        if (!opcoes.includes(falso) && falso >= 0){
+        let falso = resposta + Math.floor(Math.random() * ((config.falsoAmplitude || 5) * 2 + 1))) - ((config.falsoAmplitude || 5) + 1)
+        if (!opcoes.includes(falso) && falso >= (config.resultadoMin || 0)){
             opcoes.push(falso)}}
 
     opcoes.sort(()=>Math.random()-0.5)

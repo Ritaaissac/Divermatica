@@ -92,6 +92,13 @@ body {
             height: 32px;
         }
 
+        .nav-logout {
+            border: none;
+            font: inherit;
+            padding: 10px 22px;
+            cursor: pointer;
+        }
+
         /* ITEM ATIVO (JOGOS) — amarelo igual ao da foto */
         .nav-item.active:hover {
             background: linear-gradient(#ffe36a, #ffbe2f);
@@ -152,6 +159,31 @@ footer {
 .btn2:hover {
     background: #ffcd50;
     
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+    align-self: flex-start;
+    margin: 12px 0 0 20px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffe36a, #ffbe2f);
+    color: #804b00;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    border: 3px solid #ffd966;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 5;
+}
+
+.back-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
 .botoes-box .btn1,

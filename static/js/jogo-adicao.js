@@ -39,9 +39,10 @@ class JogoArraste {
 
     gerarNovaConta() {
         this.numerosContainer.innerHTML = '';
-        
-        const num1 = Math.floor(Math.random() * 10) + 1;
-        const num2 = Math.floor(Math.random() * 10) + 1;
+
+        const config = window.dificuldadePorAno.obterConfiguracao('adicao');
+        const num1 = Math.floor(Math.random() * (config.maxPrimeiro || 10)) + 1;
+        const num2 = Math.floor(Math.random() * (config.maxSegundo || 10)) + 1;
         this.correctAnswer = num1 + num2;
         
         this.num1El.textContent = num1;
@@ -54,7 +55,9 @@ class JogoArraste {
         opcoes.add(this.correctAnswer);
         
         while (opcoes.size < 6) {
-            const randomNum = Math.floor(Math.random() * 20) + 1;
+            const maxOpcao = config.maxOpcao || 20;
+            const minOpcao = config.minOpcao || 1;
+            const randomNum = Math.floor(Math.random() * (maxOpcao - minOpcao + 1)) + minOpcao;
             if (randomNum !== this.correctAnswer) {
                 opcoes.add(randomNum);
             }

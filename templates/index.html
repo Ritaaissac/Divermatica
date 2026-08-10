@@ -21,23 +21,81 @@
                     <div class="text-line text-pink">BRINCANDO</div>
                 </div>
 
-                <a href="{{ url_for('jogos_index') }}" class="jogar-link">
-                    <div class="jogar-button">
+                <div class="jogar-link">
+                    <button type="button" class="jogar-button" id="play-button">
                         <span class="play-icon">
                             <svg width="22" height="20" viewBox="0 0 14 16" fill="white"><path d="M2 1.5 L13 8 L2 14.5 Z"/></svg>
                         </span>
                         Jogar
-                    </div>
-                </a>
+                    </button>
+                </div>
             </div>
 
             
         </div>
     </section>
 
-    
+    <div class="modal-overlay" id="ano-modal" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <button type="button" class="modal-close" id="close-modal" aria-label="Fechar">×</button>
+            <h2 id="modal-title">🌟 Em qual ano você está?</h2>
+            <p>Escolha seu ano para deixarmos os jogos do jeitinho certo para você!</p>
+            <div class="year-options">
+                <button type="button" class="year-button" data-ano="1º ano">1º ano</button>
+                <button type="button" class="year-button" data-ano="2º ano">2º ano</button>
+                <button type="button" class="year-button" data-ano="3º ano">3º ano</button>
+                <button type="button" class="year-button" data-ano="4º ano">4º ano</button>
+                <button type="button" class="year-button" data-ano="5º ano">5º ano</button>
+            </div>
+        </div>
+    </div>
 
-    
+    <script>
+        const playButton = document.getElementById('play-button');
+        const anoModal = document.getElementById('ano-modal');
+        const closeModalButton = document.getElementById('close-modal');
+        const yearButtons = document.querySelectorAll('.year-button');
+        const jogosUrl = {{ url_for('jogos_index')|tojson }};
+        const storageKey = 'ano_escolar';
+
+        function openModal() {
+            anoModal.classList.add('is-visible');
+            anoModal.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeModal() {
+            anoModal.classList.remove('is-visible');
+            anoModal.setAttribute('aria-hidden', 'true');
+        }
+
+        playButton.addEventListener('click', function () {
+            const anoSalvo = sessionStorage.getItem(storageKey);
+
+            if (anoSalvo) {
+                window.location.href = jogosUrl;
+                return;
+            }
+
+            openModal();
+        });
+
+        closeModalButton.addEventListener('click', closeModal);
+
+        anoModal.addEventListener('click', function (event) {
+            if (event.target === anoModal) {
+                closeModal();
+            }
+        });
+
+        yearButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                const anoEscolhido = button.getAttribute('data-ano');
+                sessionStorage.setItem(storageKey, anoEscolhido);
+                closeModal();
+                window.location.href = jogosUrl;
+            });
+        });
+    </script>
 
 </body>
 </html>

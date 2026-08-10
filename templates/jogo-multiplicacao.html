@@ -3,6 +3,7 @@
 {% block title %}Chuva de Contas - Divermatica{% endblock %}
 
 {% block content %}
+<a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
 
 <link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-multiplicacao.css') }}">
 
@@ -83,6 +84,7 @@
   </div>
 </div>
 
+<script src="{{ url_for('static', filename='js/dificuldade-por-ano.js') }}"></script>
 <script src="{{ url_for('static', filename='js/jogo-multiplicacao.js') }}"></script>
 
 {% endblock %}
