@@ -1,15 +1,14 @@
 /* ===== JOGO DA MEMÓRIA ===== */
-/*corrigido*/
 body {
-  margin: 0;
-  width: 100%;
-  
+    margin: 0;
+    width: 100%;
 }
+
 .wrapper {
     padding: 25px;
-    border-radius: 12px;
-    background: #F8F8F8;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.12); /* sombra mais suave e elegante */
+    border-radius: 16px;
+    background: #fdfdfd;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
     margin: 20px auto;
     width: 560px;
     height: 500px;
@@ -19,28 +18,30 @@ body {
     padding-left: 10px;
 }
 
-/* ===== TIPOGRAFIA MELHORADA ===== */
+/* ===== TIPOGRAFIA ===== */
 h1 {
     font-size: clamp(40px, 6vw, 60px);
     font-weight: 800;
     letter-spacing: 1px;
     color: #ffffff;
-    text-shadow: 1px 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
     margin: 0;
+    font-family: 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
 }
 
 p {
     font-size: 1.5rem;
     color: #ffffff;
-    text-shadow: 1px 2px 4px rgba(0,0,0,0.1);
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
     margin: 0;
+    font-family: 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
 }
 
-/* ===== GRID ===== */
+/* ===== GRELHA & CARTAS ===== */
 .cards, .card, .view {
     display: flex;
     align-items: center;
-    justify-content: center;;
+    justify-content: center;
 }
 
 .cards {
@@ -49,9 +50,10 @@ p {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
-/* ===== CARTAS ===== */
 .cards .card {
     cursor: pointer;
     list-style: none;
@@ -62,20 +64,17 @@ p {
     height: calc(100% / 4 - 10px);
     width: calc(100% / 4 - 10px);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    justify-content: center;
 }
 
-/* hover leve (sem mudar tamanho) */
 .cards .card:hover {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
-/* clique */
 .cards .card:active {
-    transform: scale(0.97);
+    transform: scale(0.96);
 }
 
-/* ===== ERRO (shake já tinha, só deixei mais fluido) */
+/* ===== ANIMAÇÃO DE ERRO ===== */
 .card.shake {
     animation: shake 0.35s ease-in-out;
 }
@@ -88,53 +87,62 @@ p {
     80% { transform: translateX(6px); }
 }
 
-/* ===== FACE DAS CARTAS ===== */
+/* ===== FACES DAS CARTAS ===== */
 .card .view {
     width: 100%;
     height: 100%;
     position: absolute;
-    border-radius: 10px;
-    background: #fff;
+    border-radius: 12px;
+    background: #ffffff;
     pointer-events: none;
     backface-visibility: hidden;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
-    transition: transform 0.4s ease, box-shadow 0.2s ease;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
 }
 
-/* brilho leve ao passar */
 .card:hover .view {
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
 }
 
-/* imagens */
+/* Logótipo frontal */
 .card .front-view img {
-    width: 70px;
+    width: 65px;
+    height: auto;
 }
 
+/* Formas geométricas traseiras */
 .card .back-view img {
-    max-width: 45px;
+    width: 68px;
+    height: 68px;
+    object-fit: contain;
+    transition: transform 0.25s ease;
 }
 
-/* ===== FLIP MAIS BONITO ===== */
+/* Efeito de relevo e pop ao virar */
+.card.flip .back-view img {
+    transform: scale(1.06);
+}
+
+/* ===== FLIP 3D ===== */
 .card .back-view {
     transform: rotateY(-180deg);
 }
 
 .card.flip .back-view {
-    transform: rotateY(0);
+    transform: rotateY(0deg);
 }
 
 .card.flip .front-view {
     transform: rotateY(180deg);
 }
 
-/* ===== ACERTO (nova melhoria) ===== */
+/* ===== ACERTO / PAR ENCONTRADO ===== */
 .card.match .view {
-    background: #d4f8d4; /* verde suave */
-    box-shadow: 0 0 12px rgba(0, 200, 0, 0.4);
+    background: #e8fbe8;
+    box-shadow: 0 0 14px rgba(46, 204, 113, 0.6);
 }
 
-/* ===== DECORAÇÃO (menos distração) ===== */
+/* ===== ELEMENTOS DECORATIVOS ===== */
 .mascote_pensando {
     position: absolute;
     top: 380px;
@@ -145,79 +153,27 @@ p {
 }
 
 .circle {
-  position: absolute;
-  background-color: #0d8ba8;
-  z-index: -1;
- 
+    position: absolute;
+    background-color: #0d8ba8;
+    z-index: -1;
 }
-.circle-left {
-  width: 400px;
-  height: 400px;
-  top: -30px;
-  left: -200px;
-  border-radius: 50%;
 
+.circle-left {
+    width: 400px;
+    height: 400px;
+    top: -30px;
+    left: -200px;
+    border-radius: 50%;
 }
 
 .circle-right {
-  width: 400px;
-  height: 400px;
-  right: -250px;
-  top: 400px;
-  transform: translateY(-50%);
-  border-radius: 50%;
-
-/* Media Queries for responsiveness */
-
-@media (max-width: 768px) {
-    .jogo-area {
-        padding: 20px;
-        margin: 20px;
-    }
-    
-    .titulo-jogo {
-        font-size: 1.5rem;
-    }
-    
-    .card {
-        width: 60px;
-        height: 60px;
-        font-size: 1.2rem;
-    }
-    
-    .grid {
-        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
-        gap: 10px;
-    }
-    
-    .circle {
-        display: none;
-    }
+    width: 400px;
+    height: 400px;
+    right: -250px;
+    top: 400px;
+    transform: translateY(-50%);
+    border-radius: 50%;
 }
-
-@media (max-width: 480px) {
-    .jogo-area {
-        padding: 10px;
-        margin: 10px;
-    }
-    
-    .titulo-jogo {
-        font-size: 1.2rem;
-    }
-    
-    .card {
-        width: 50px;
-        height: 50px;
-        font-size: 1rem;
-    }
-    
-    .circle {
-        display: none;
-    }
-}
- 
-}
-
 
 .favocima {
     position: absolute;
@@ -237,269 +193,238 @@ p {
     z-index: 1;
 }
 
-/* ===== FONTE ===== */
-h1, p {
-    font-family:'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
-}
-
-/* ===== MEDIA QUERIES — JOGO DA MEMÓRIA ===== */
-
-
-/* ── Mascote: evita sobrepor os cards entre 700px e 1205px ── */
+/* ===== MEDIA QUERIES (RESPONSIVIDADE) ===== */
 @media (max-width: 1205px) {
     .mascote_pensando {
-      width: 260px;
-      top: auto;
-      bottom: -80px;   /* vai para baixo do wrapper */
-      right: 10px;
-      z-index: 0;      /* fica atrás se ainda tocar algo */
+        width: 260px;
+        top: auto;
+        bottom: -80px;
+        right: 10px;
+        z-index: 0;
     }
-  }
-  
-  @media (max-width: 900px) {
-    .mascote_pensando {
-      width: 200px;
-      bottom: -60px;
-      right: 6px;
-    }
-  }
-  
-  @media (max-width: 700px) {
-    .mascote_pensando {
-      display: none;
-    }
-  }
+}
 
 @media (max-width: 900px) {
     .wrapper {
-      width: 460px;
-      height: 460px;
-      padding: 20px;
-      padding-left: 10px;
-      margin: 10px auto;
+        width: 460px;
+        height: 460px;
+        padding: 20px;
+        padding-left: 10px;
+        margin: 10px auto;
     }
-  
+
     .cards {
-      width: 420px;
-      height: 420px;
+        width: 420px;
+        height: 420px;
     }
-  
+
     .card .front-view img {
-      width: 58px;
+        width: 55px;
     }
-  
+
     .card .back-view img {
-      max-width: 36px;
+        width: 56px;
+        height: 56px;
     }
-  
+
     .mascote_pensando {
-      width: 280px;
-      top: 340px;
-      right: 4px;
+        width: 200px;
+        bottom: -60px;
+        right: 6px;
     }
-  
+
     .favocima {
-      width: 160px;
-      top: 90px;
-      right: 70px;
+        width: 160px;
+        top: 90px;
+        right: 70px;
     }
-  
+
     .circle-left {
-      width: 320px;
-      height: 320px;
-      left: -160px;
+        width: 320px;
+        height: 320px;
+        left: -160px;
     }
-  
+
     .circle-right {
-      width: 320px;
-      height: 320px;
-      right: -170px;
+        width: 320px;
+        height: 320px;
+        right: -170px;
     }
-  }
-  
-  /* ── 700px: tablet portrait ── */
-  @media (max-width: 700px) {
+}
+
+@media (max-width: 700px) {
     .wrapper {
-      width: 360px;
-      height: 400px;
-      padding: 14px;
-      padding-left: 8px;
-      margin: 10px auto;
+        width: 360px;
+        height: 400px;
+        padding: 14px;
+        padding-left: 8px;
+        margin: 10px auto;
     }
-  
+
     .cards {
-      width: 336px;
-      height: 336px;
+        width: 336px;
+        height: 336px;
     }
-  
+
     .cards .card {
-      height: calc(100% / 4 - 8px);
-      width: calc(100% / 4 - 8px);
+        height: calc(100% / 4 - 8px);
+        width: calc(100% / 4 - 8px);
     }
-  
+
     .card .front-view img {
-      width: 46px;
+        width: 42px;
     }
-  
+
     .card .back-view img {
-      max-width: 30px;
+        width: 44px;
+        height: 44px;
     }
-  
+
     h1 {
-      font-size: 32px;
+        font-size: 32px;
     }
-  
+
     p {
-      font-size: 1.1rem;
+        font-size: 1.1rem;
     }
-  
-    /* mascote-container: posicionamento relativo à tela */
+
     .mascote_pensando {
-      width: 200px;
-      top: auto;
-      bottom: -50px;
-      right: 0;
+        display: none;
     }
-  
+
     .favocima {
-      width: 130px;
-      top: 60px;
-      right: 40px;
+        width: 130px;
+        top: 60px;
+        right: 40px;
     }
-  
+
     .circle-left {
-      width: 250px;
-      height: 250px;
-      left: -125px;
+        width: 250px;
+        height: 250px;
+        left: -125px;
     }
-  
+
     .circle-right {
-      width: 250px;
-      height: 250px;
-      right: -130px;
+        width: 250px;
+        height: 250px;
+        right: -130px;
     }
-  }
-  
-  /* ── 550px: mobile grande ── */
-  @media (max-width: 550px) {
+}
+
+@media (max-width: 550px) {
     .wrapper {
-      width: calc(100% - 24px);
-      max-width: 320px;
-      height: auto;
-      padding: 12px;
-      padding-left: 6px;
-      margin: 8px auto;
+        width: calc(100% - 24px);
+        max-width: 320px;
+        height: auto;
+        padding: 12px;
+        padding-left: 6px;
+        margin: 8px auto;
     }
-  
+
     .cards {
-      width: 100%;
-      max-width: 300px;
-      height: 300px;
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
     }
-  
+
     .cards .card {
-      height: calc(100% / 4 - 7px);
-      width: calc(100% / 4 - 7px);
+        height: calc(100% / 4 - 7px);
+        width: calc(100% / 4 - 7px);
     }
-  
+
     .card .front-view img {
-      width: 38px;
+        width: 34px;
     }
-  
+
     .card .back-view img {
-      max-width: 25px;
+        width: 36px;
+        height: 36px;
     }
-  
+
     h1 {
-      font-size: 26px;
-      padding: 0 12px;
+        font-size: 26px;
+        padding: 0 12px;
     }
-  
+
     p {
-      font-size: 0.95rem;
+        font-size: 0.95rem;
     }
-  
-    /* decorações: somem para não sobrepor as cartas */
-    .mascote_pensando {
-      display: none;
-    }
-  
+
     .favocima {
-      display: none;
+        display: none;
     }
-  
+
     .favobaixo {
-      width: 75px;
-      bottom: -28px;
-      left: -8px;
+        width: 75px;
+        bottom: -28px;
+        left: -8px;
     }
-  
+
     .circle-left {
-      width: 180px;
-      height: 180px;
-      left: -90px;
-      top: -15px;
+        width: 180px;
+        height: 180px;
+        left: -90px;
+        top: -15px;
     }
-  
+
     .circle-right {
-      width: 180px;
-      height: 180px;
-      right: -90px;
+        width: 180px;
+        height: 180px;
+        right: -90px;
     }
-  }
-  
-  /* ── 380px: mobile pequeno ── */
-  @media (max-width: 380px) {
+}
+
+@media (max-width: 380px) {
     .wrapper {
-      width: calc(100% - 16px);
-      max-width: 290px;
-      padding: 8px;
-      padding-left: 4px;
-      margin: 6px auto;
-      border-radius: 8px;
+        width: calc(100% - 16px);
+        max-width: 290px;
+        padding: 8px;
+        padding-left: 4px;
+        margin: 6px auto;
+        border-radius: 8px;
     }
-  
+
     .cards {
-      max-width: 272px;
-      height: 272px;
+        max-width: 272px;
+        height: 272px;
     }
-  
+
     .cards .card {
-      height: calc(100% / 4 - 6px);
-      width: calc(100% / 4 - 6px);
-      border-radius: 7px;
+        height: calc(100% / 4 - 6px);
+        width: calc(100% / 4 - 6px);
+        border-radius: 7px;
     }
-  
+
     .card .view {
-      border-radius: 7px;
+        border-radius: 7px;
     }
-  
+
     .card .front-view img {
-      width: 32px;
+        width: 28px;
     }
-  
+
     .card .back-view img {
-      max-width: 20px;
+        width: 28px;
+        height: 28px;
     }
-  
+
     h1 {
-      font-size: 20px;
-      padding: 0 8px;
+        font-size: 20px;
+        padding: 0 8px;
     }
-  
+
     p {
-      font-size: 0.82rem;
+        font-size: 0.82rem;
     }
-  
-    /* círculos removidos: muito pesados em tela pequena */
+
     .circle-left,
     .circle-right {
-      display: none;
+        display: none;
     }
-  
+
     .favobaixo {
-      width: 55px;
-      bottom: -18px;
-      left: -6px;
+        width: 55px;
+        bottom: -18px;
+        left: -6px;
     }
-  }
+}

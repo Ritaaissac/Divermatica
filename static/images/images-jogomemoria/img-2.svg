@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="triGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff6b6b" />
+      <stop offset="100%" stop-color="#ee0979" />
+    </linearGradient>
+    <filter id="shadowTri">
+      <feDropShadow dx="0" dy="6" stdDeviation="3" flood-color="#800538" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <path d="M 44 14 Q 50 4 56 14 L 88 74 Q 94 85 82 85 L 18 85 Q 6 85 12 74 Z" fill="url(#triGrad)" filter="url(#shadowTri)"/>
+  <ellipse cx="50" cy="30" rx="14" ry="7" fill="#ffffff" opacity="0.4" />
+  <circle cx="42" cy="58" r="3.5" fill="#ffffff"/>
+  <circle cx="58" cy="58" r="3.5" fill="#ffffff"/>
+  <path d="M 46 68 Q 50 73 54 68" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+</svg>

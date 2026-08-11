@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="crossGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff758c" />
+      <stop offset="100%" stop-color="#ff7eb3" />
+    </linearGradient>
+    <filter id="shadowCross">
+      <feDropShadow dx="0" dy="6" stdDeviation="3" flood-color="#80103e" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <path d="M 36 12 Q 36 8 40 8 L 60 8 Q 64 8 64 12 L 64 36 L 88 36 Q 92 36 92 40 L 92 60 Q 92 64 88 64 L 64 64 L 64 88 Q 64 92 60 92 L 40 92 Q 36 92 36 88 L 36 64 L 12 64 Q 8 64 8 60 L 8 40 Q 8 36 12 36 L 36 36 Z" fill="url(#crossGrad)" filter="url(#shadowCross)"/>
+  <ellipse cx="50" cy="20" rx="8" ry="4" fill="#ffffff" opacity="0.5" />
+  <circle cx="43" cy="48" r="3.5" fill="#ffffff"/>
+  <circle cx="57" cy="48" r="3.5" fill="#ffffff"/>
+  <path d="M 46 56 Q 50 61 54 56" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+</svg>

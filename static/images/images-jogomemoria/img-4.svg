@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe259" />
+      <stop offset="100%" stop-color="#ffa751" />
+    </linearGradient>
+    <filter id="shadowStar">
+      <feDropShadow dx="0" dy="5" stdDeviation="3" flood-color="#b86000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <path d="M 50 8 Q 52 14 56 26 Q 60 38 72 39 Q 86 40 88 47 Q 90 53 79 62 Q 68 70 71 83 Q 73 95 65 96 Q 59 97 50 89 Q 41 97 35 96 Q 27 95 29 83 Q 32 70 21 62 Q 10 53 12 47 Q 14 40 28 39 Q 40 38 44 26 Z" fill="url(#starGrad)" filter="url(#shadowStar)"/>
+  <ellipse cx="50" cy="28" rx="8" ry="4" fill="#ffffff" opacity="0.6"/>
+  <circle cx="40" cy="54" r="3.5" fill="#7a3e00"/>
+  <circle cx="60" cy="54" r="3.5" fill="#7a3e00"/>
+  <circle cx="34" cy="58" r="3" fill="#ff7675" opacity="0.6"/>
+  <circle cx="66" cy="58" r="3" fill="#ff7675" opacity="0.6"/>
+  <path d="M 46 62 Q 50 67 54 62" stroke="#7a3e00" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+</svg>

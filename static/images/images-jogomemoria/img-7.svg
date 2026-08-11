@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="pentGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe" />
+      <stop offset="100%" stop-color="#4facfe" />
+    </linearGradient>
+    <filter id="shadowPent">
+      <feDropShadow dx="0" dy="6" stdDeviation="3" flood-color="#004e80" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <path d="M 45 12 Q 50 7 55 12 L 88 36 Q 93 40 91 46 L 79 80 Q 77 86 70 86 L 30 86 Q 23 86 21 80 L 9 46 Q 7 40 12 36 Z" fill="url(#pentGrad)" filter="url(#shadowPent)"/>
+  <ellipse cx="50" cy="26" rx="15" ry="6" fill="#ffffff" opacity="0.45" />
+  <circle cx="38" cy="52" r="3.5" fill="#ffffff"/>
+  <circle cx="62" cy="52" r="3.5" fill="#ffffff"/>
+  <path d="M 45 62 Q 50 67 55 62" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+</svg>

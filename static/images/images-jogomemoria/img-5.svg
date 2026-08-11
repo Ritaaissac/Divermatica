@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="diaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#da22ff" />
+      <stop offset="100%" stop-color="#9733ee" />
+    </linearGradient>
+    <filter id="shadowDia">
+      <feDropShadow dx="0" dy="6" stdDeviation="3" flood-color="#48057a" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <path d="M 44 12 Q 50 4 56 12 L 88 44 Q 96 50 88 56 L 56 88 Q 50 96 44 88 L 12 56 Q 4 50 12 44 Z" fill="url(#diaGrad)" filter="url(#shadowDia)"/>
+  <ellipse cx="50" cy="26" rx="14" ry="6" fill="#ffffff" opacity="0.45" />
+  <circle cx="40" cy="50" r="3.5" fill="#ffffff"/>
+  <circle cx="60" cy="50" r="3.5" fill="#ffffff"/>
+  <path d="M 45 58 Q 50 63 55 58" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+</svg>
