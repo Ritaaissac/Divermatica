@@ -1,11 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Jogo da Memória - Divermática{% endblock %}
 {% block content %}
-<a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
-
-<div style="text-align: center; padding: 20px;">
+<div class="jogo-header">
     <h1>Jogo da Memória</h1>
-    <p>Encontra os pares correspondentes!</p>
+    <p>Encontra todos os pares de formas geométricas!</p>
 </div>
 
 <div class="mascote-container">
@@ -17,146 +15,161 @@
     <img src="{{ url_for('static', filename='images/icons/favo_de_cima.png') }}" alt="Favo superior" class="favocima">
 </div>
 
-<div class="wrapper">
-    <ul class="cards">
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-1.svg') }}" alt="Quadrado">
-            </div>
-        </li>
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-1.svg') }}" alt="Quadrado">
-            </div>
-        </li>
+<div class="jogo-centralizador">
+    <div class="wrapper">
+        <ul class="cards">
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-1.svg') }}" alt="Quadrado">
+                </div>
+            </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-1.svg') }}" alt="Quadrado">
+                </div>
+            </li>
 
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-2.svg') }}" alt="Triângulo">
-            </div>
-        </li>
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-2.svg') }}" alt="Triângulo">
-            </div>
-        </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-2.svg') }}" alt="Triângulo">
+                </div>
+            </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-2.svg') }}" alt="Triângulo">
+                </div>
+            </li>
 
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-3.svg') }}" alt="Círculo">
-            </div>
-        </li>
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-3.svg') }}" alt="Círculo">
-            </div>
-        </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-3.svg') }}" alt="Círculo">
+                </div>
+            </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-3.svg') }}" alt="Círculo">
+                </div>
+            </li>
 
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-4.svg') }}" alt="Estrela">
-            </div>
-        </li>
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-4.svg') }}" alt="Estrela">
-            </div>
-        </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-4.svg') }}" alt="Estrela">
+                </div>
+            </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-4.svg') }}" alt="Estrela">
+                </div>
+            </li>
 
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-5.svg') }}" alt="Losango">
-            </div>
-        </li>
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-5.svg') }}" alt="Losango">
-            </div>
-        </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-5.svg') }}" alt="Losango">
+                </div>
+            </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-5.svg') }}" alt="Losango">
+                </div>
+            </li>
 
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-6.svg') }}" alt="Hexágono">
-            </div>
-        </li>
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-6.svg') }}" alt="Hexágono">
-            </div>
-        </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-6.svg') }}" alt="Hexágono">
+                </div>
+            </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-6.svg') }}" alt="Hexágono">
+                </div>
+            </li>
 
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-7.svg') }}" alt="Pentágono">
-            </div>
-        </li>
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-7.svg') }}" alt="Pentágono">
-            </div>
-        </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-7.svg') }}" alt="Pentágono">
+                </div>
+            </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-7.svg') }}" alt="Pentágono">
+                </div>
+            </li>
 
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-8.svg') }}" alt="Cruz">
-            </div>
-        </li>
-        <li class="card">
-            <div class="view front-view">
-                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Verso da Carta">
-            </div>
-            <div class="view back-view">
-                <img src="{{ url_for('static', filename='images/images-jogomemoria/img-8.svg') }}" alt="Cruz">
-            </div>
-        </li>
-    </ul>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-8.svg') }}" alt="Cruz">
+                </div>
+            </li>
+            <li class="card">
+                <div class="view front-view">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+                </div>
+                <div class="view back-view">
+                    <img src="{{ url_for('static', filename='images/images-jogomemoria/img-8.svg') }}" alt="Cruz">
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
 
-<link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-memoria.css') }}">
+<div class="voltar-container">
+    <a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
+</div>
+
+<div class="mensagem-parabens-overlay" id="modalParabens">
+    <div class="caixa-parabens">
+        <img src="{{ url_for('static', filename='images/images-jogomemoria/mascote_pensando.png') }}" alt="Mascote" class="mascote-parabens">
+        <h2>Parabéns!</h2>
+        <p>Você encontrou todos os pares de formas geométricas com sucesso!</p>
+        <button id="btnJogarNovamente" class="btn-jogar-novamente">Jogar Novamente</button>
+    </div>
+</div>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-memoria.css') }}?v=5">
 <script src="{{ url_for('static', filename='js/jogo-memoria.js') }}"></script>
 {% endblock %}
