@@ -12,35 +12,41 @@
             <div class="bubble bubble1"></div>
             <div class="bubble bubble2"></div>
             <div class="bubble bubble3"></div>
-            <img src="{{ url_for('static', filename='images/mascote_voando.png') }}" alt="Mascote" class="mascote_voando">
-            <img src="{{ url_for('static', filename='images/icons/favo_de_baixo.png') }}" alt="Favo de Baixo" class="favo-de-baixo">
+            <img src="{{url_for('static', filename='images/nuvem.png')}}" alt="Nuvem" class="nuvem">
+            <img src="{{ url_for('static', filename='images/nuvem.png') }}" alt="Nuvem" class="nuvem2">
+            <img src="{{ url_for('static', filename='images/mascote1.png') }}" alt="Mascote" class="mascote_voando">
+            <img src="{{ url_for('static', filename='images/arbusto.png') }}" alt="Arbusto" class="arbusto">
             <img src="{{ url_for('static', filename='images/icons/favo_de_cima.png') }}" alt="Favo de Cima" class="favo-de-cima">
        
         
-        <div class="texto_jogos">Escolha um Jogo</div>
+        <div class="texto_jogos">Escolha seu jogo!</div>
+        <div class="texto-subtitulo">
+            <img src="{{ url_for('static', filename='images/icons/faixaazul.png') }}" alt="Aprenda brincando!" class="faixa">
+            <p class="texto-subtitulo">Aprenda brincando!</p>
+        </div>
         <div class="jogos-grid">
             <a href="{{ url_for('jogo_memoria') }}" class="jogo-card">
-                <img class="jogo-icon" src="{{ url_for('static', filename='images/icons/jogo_memoria_icon.png') }}" alt="Jogo da Memória">
+                <img class="imagem1" src="{{ url_for('static', filename='images/icons/imagem1.png') }}" alt="Jogo da Memória">
                 <h3>Jogo da Memória</h3>
                 <p>Teste sua memória com este jogo clássico</p>
             </a>
             <a href="{{ url_for('jogo_divisao') }}" class="jogo-card">
-                <img class="jogo-icon" src="{{ url_for('static', filename='images/icons/jogo_divisao_icon.png') }}" alt="Jogo da Divisão">
+                <img class="imagem2" src="{{ url_for('static', filename='images/icons/imagem2.png') }}" alt="Jogo da Divisão">
                 <h3>Jogo da Divisão</h3>
                 <p>Pratique divisão de forma divertida</p>
             </a>
             <a href="{{ url_for('jogo_multiplicacao') }}" class="jogo-card">
-                <img class="jogo-icon" src="{{ url_for('static', filename='images/icons/jogo_multiplicacao_icon.png') }}" alt="Jogo da Multiplicação">
+                <img class="imagem3" src="{{ url_for('static', filename='images/icons/imagem3.png') }}" alt="Jogo da Multiplicação">
                 <h3>Jogo da Multiplicação</h3>
                 <p>Pratique Multiplicação de forma divertida</p>
             </a>
             <a href="{{ url_for('jogo_adicao') }}" class="jogo-card">
-                <img class="jogo-icon" src="{{ url_for('static', filename='images/icons/jogo_adicao_icon.png') }}" alt="Jogo de Adição">
+                <img class="imagem4" src="{{ url_for('static', filename='images/icons/imagem4.png') }}" alt="Jogo de Adição">
                 <h3>Jogo de Adição</h3>
                 <p>Pratique adição arrastando o número correto</p>
             </a>
             <a href="{{ url_for('jogo_subtracao') }}" class="jogo-card">
-                <img class="jogo-icon" src="{{ url_for('static', filename='images/icons/jogo_subtracao_icon.png') }}" alt="Jogo de Subtração">
+                <img class="imagem5" src="{{ url_for('static', filename='images/icons/imagem5.png') }}" alt="Jogo da Subtração">
                 <h3>Jogo de Subtração</h3>
                 <p>Pratique subtração arrastando o número correto</p>
             </a>
