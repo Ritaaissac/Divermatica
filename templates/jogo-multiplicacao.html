@@ -3,24 +3,16 @@
 {% block title %}Chuva de Contas - Divermatica{% endblock %}
 
 {% block content %}
-<a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
-
 <link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-multiplicacao.css') }}">
 
-<!-- TELA INICIAL -->
 <div id="tela-inicial">
-  <!-- Círculos decorativos de fundo -->
   <div class="circle circle-bottom-left"></div>
   <div class="circle circle-right"></div>
   <div class="circle circle-bottom"></div>
 
-  <!-- Favos decorativos - topo central -->
   <img class="favo favo-top" src="{{ url_for('static', filename='images/icons/favo_de_cima.png') }}" alt="Favo de Cima">
 
-  <!-- Favos decorativos - inferior esquerdo -->
   <img class="favo favo-bottom" src="{{ url_for('static', filename='images/icons/favo_de_baixo.png') }}" alt="Favo de Baixo">
-
-  <!-- Imagens decorativas adicionais -->
 
   <img class="decor nuvem-topo" src="{{ url_for('static', filename='images/images-jogomultiplicacao/nuvemazul.png') }}" alt="Nuvem Azul">
   <img class="decor num4-direita" src="{{ url_for('static', filename='images/images-jogomultiplicacao/num4.png') }}" alt="4">
@@ -41,9 +33,7 @@
   </div>
 </div>
 
-<!-- Imagens decorativas que aparecem durante o jogo -->
 <div id="decoracoes-jogo">
-  <!-- Círculos decorativos de fundo -->
   <div class="circle circle-bottom-left"></div>
   <div class="circle circle-right"></div>
   <div class="circle circle-bottom"></div>
@@ -74,7 +64,6 @@
   </div>
 </div>
 
-<!-- GAME OVER -->
 <div id="game-over">
   <div class="game-over-box">
     <h2 style="color: red;">Game Over!</h2>
@@ -82,6 +71,10 @@
     <button onclick="reiniciarJogo()">Jogar novamente</button>
     <button onclick="window.location.href='/jogos'">Voltar para página de jogos</button>
   </div>
+</div>
+
+<div class="voltar-container">
+    <a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
 </div>
 
 <script src="{{ url_for('static', filename='js/dificuldade-por-ano.js') }}"></script>

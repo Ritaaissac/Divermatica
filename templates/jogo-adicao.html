@@ -3,8 +3,6 @@
 {% block title %}Jogo de Adição - Divermatica{% endblock %}
 
 {% block content %}
-<a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
-
 <link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-adicao.css') }}">
 <script src="{{ url_for('static', filename='js/dificuldade-por-ano.js') }}" defer></script>
 <script src="{{ url_for('static', filename='js/jogo-adicao.js') }}" defer></script>
@@ -18,16 +16,20 @@
 
     <div class="jogo-area">
         <h1 class="titulo-jogo">Arraste o número certo para completar a soma</h1>
-    <div class="operacao">
-        <span id="num1"></span> + <span id="num2"></span> = <div class="resposta-drop" id="dropzone">?</div>
+        <div class="operacao">
+            <span id="num1"></span> + <span id="num2"></span> = <div class="resposta-drop" id="dropzone">?</div>
+        </div>
+        
+        <div class="numeros-container" id="numeros"></div>
+        
+        <div class="controles">
+            <button id="novo-jogo">Novo Jogo</button>
+            <div class="pontuacao">Pontuação: <span id="score">0</span></div>
+        </div>
     </div>
-    
-    <div class="numeros-container" id="numeros"></div>
-    
-    <div class="controles">
-        <button id="novo-jogo">Novo Jogo</button>
-        <div class="pontuacao">Pontuação: <span id="score">0</span></div>
-    </div>
+
+    <div class="voltar-container">
+        <a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
     </div>
 </div>
 {% endblock %}

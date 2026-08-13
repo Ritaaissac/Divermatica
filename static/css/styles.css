@@ -160,32 +160,61 @@ footer {
     background: #ffcd50;
     
 }
+/* ========================================
+   BOTÃO VOLTAR - PADRÃO DO JOGO DA MEMÓRIA
+   ======================================== */
+
+.voltar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
 
 .back-link {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    position: relative;
-    align-self: flex-start;
-    margin: 12px 0 0 20px;
-    padding: 10px 14px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #ffe36a, #ffbe2f);
-    color: #804b00;
-    font-weight: 800;
+    gap: 8px;
+
+    background: #ffffff;
+    color: #0d8ba8;
+
     text-decoration: none;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-    border: 3px solid #ffd966;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    z-index: 5;
+
+    font-family: 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+
+    padding: 10px 30px;
+
+    border-radius: 50px;
+    border: 3px solid #0d8ba8;
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+
+    z-index: 10;
 }
 
 .back-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    background: #0d8ba8;
+    color: #ffffff;
+
+    transform: translateY(-3px) scale(1.05);
+
+    box-shadow: 0 10px 22px rgba(13, 139, 168, 0.4);
 }
 
+.back-link:active {
+    transform: scale(0.96);
+}
 .botoes-box .btn1,
 .botoes-box .btn2 {
     width: 300px;
