@@ -266,10 +266,10 @@ main,
 }
 
 .imagem5 {
-    width: 100px;
-    height: 62px;
+    width: 140px;
 
-    margin: 0 0 12px;
+
+    margin: -7px 0 5px;
 
     object-fit: contain;
 
@@ -439,23 +439,6 @@ main,
     );
 }
 
-
-/* =========================================
-   FAVO SUPERIOR
-========================================= */
-
-.favo-de-cima {
-    position: absolute;
-
-    width: 140px;
-
-    right: 0;
-    top: -10px;
-
-    z-index: 1;
-
-    pointer-events: none;
-}
 
 .arbusto {
     position: absolute;
