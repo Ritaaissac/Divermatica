@@ -10,14 +10,12 @@
 
 
 body {
-    background: url('../images/index/grama.png') bottom center / 100% auto no-repeat,
-                radial-gradient(
-                    ellipse 140% 90% at 50% 20%,
-                    #8EEBFF 0%,
-                    #63DFFF 35%,
-                    #42CFF3 65%,
-                    #27B8E6 100%
-                );
+    background: linear-gradient(
+        180deg,
+        #25c5ed 0%,
+        #7de1f8 50%,
+        #b7e3ec 100%
+    );
     background-attachment: scroll, scroll;
     min-height: 100vh;
 }

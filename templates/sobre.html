@@ -12,6 +12,10 @@
     <div class="bubble bubble1"></div>
     <div class="bubble bubble2"></div>
     <div class="bubble bubble3"></div>
+    <img src="{{url_for('static', filename='images/nuvem.png')}}" alt="Nuvem" class="nuvem">
+    <img src="{{ url_for('static', filename='images/nuvem.png') }}" alt="Nuvem" class="nuvem2">
+    <img src="{{ url_for('static', filename='images/mascote1.png') }}" alt="Mascote" class="mascote_voando">
+    <img src="{{ url_for('static', filename='images/arbusto.png') }}" alt="Arbusto" class="arbusto">
 
     <!-- Card principal -->
     <div class="card">
@@ -49,7 +53,7 @@
 
         <div class="feature-card">
 
-            <div class="emoji">🧠</div>
+            <img class="imagem1" src="{{ url_for('static', filename='images/icons/imagem1.png') }}" alt="Jogo da Memória">
 
             <h2>Quiz</h2>
 
