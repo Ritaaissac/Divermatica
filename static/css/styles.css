@@ -32,7 +32,11 @@ body {
 
         .nav-area {
             width: 100%;
-            background: #7dd9f8;           
+            background: linear-gradient(
+                180deg,
+                #25c5ed 0%,
+                #7de1f8 50%,
+            );          
             border-bottom: 4px solid #4cbbe6;
             padding: 20px 0;
             display: flex;
