@@ -1,3 +1,27 @@
+// ===== Configuração de dificuldade =====
+// Se você já tem o arquivo dificuldade-por-ano.js real, remova este bloco
+// e inclua o script dele antes deste arquivo no HTML.
+window.dificuldadePorAno = window.dificuldadePorAno || {
+  obterConfiguracao(materia){
+    return { maxQuociente: 10, maxDivisor: 10 };
+  }
+};
+
+// ===== IMAGENS DOS PEIXES =====
+// Troque os caminhos abaixo pelos arquivos reais das suas imagens de peixe.
+const FISH_IMAGES = [
+  "SUBSTITUA_PELO_CAMINHO/peixe-roxo.png",
+  "SUBSTITUA_PELO_CAMINHO/peixe-amarelo.png",
+  "SUBSTITUA_PELO_CAMINHO/peixe-verde.png",
+  "SUBSTITUA_PELO_CAMINHO/peixe-laranja.png",
+  "SUBSTITUA_PELO_CAMINHO/peixe-azul.png",
+  "SUBSTITUA_PELO_CAMINHO/peixe-rosa.png"
+];
+
+function randomFishImage(){
+  return FISH_IMAGES[Math.floor(Math.random() * FISH_IMAGES.length)];
+}
+
 (() => {
   // ELEMENTOS
   const startBtn = document.getElementById('start-btn');
@@ -18,7 +42,7 @@
   let timeLeft = 30;
   let timerId = null;
   let correctAnswer = null;
-  
+
   let combo = 0;
   let level = 1;
   let correctCount = 0;
@@ -131,11 +155,12 @@
       btn.className = 'duck';
       btn.dataset.value = num;
       btn.innerHTML = `
+        <img class="fish-img" src="${randomFishImage()}" alt="peixe">
         <div class="num">${num}</div>
       `;
       btn.addEventListener('click', onDuckClick);
       btn.style.top = Math.random()*240 + 40 + "px";
-      btn.style.left = Math.random()*600 + 20 + "px";
+      btn.style.left = Math.random()*(ducksEl.clientWidth ? ducksEl.clientWidth - 130 : 500) + 10 + "px";
 
       ducksEl.appendChild(btn);
     });
@@ -166,7 +191,7 @@
 
   const fish = document.createElement("div");
   fish.className = "falling-fish";
-  fish.textContent = "🐟";
+  fish.innerHTML = `<img src="${randomFishImage()}" alt="peixe">`;
 
   const originRect = originEl.getBoundingClientRect();
   const bucketRect = bucket.getBoundingClientRect();
@@ -218,7 +243,7 @@
     for (let i = 0; i < count; i++) {
       const bf = document.createElement('div');
       bf.className = 'bg-fish';
-      bf.textContent = '🐟';
+      bf.innerHTML = `<img src="${randomFishImage()}" alt="peixe">`;
 
       // posição vertical aleatória dentro da lagoa
       const topPct = 8 + Math.random() * 76; // evita bordas
