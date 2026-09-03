@@ -32,16 +32,24 @@ body {
 
         .nav-area {
             width: 100%;
-            background: linear-gradient(
+            background-color: #7dd3f5; 
+            
+            /* 
+            linear-gradient(
                 180deg,
                 #25c5ed 0%,
                 #7de1f8 50%,
-            );          
+            ); 
+            
+            */
+
             border-bottom: 4px solid #4cbbe6;
             padding: 20px 0;
             display: flex;
             justify-content: center;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
         }
 
         .nav-container {
@@ -51,6 +59,7 @@ body {
             gap: 30px; /* espaço entre logo e menu */
             width: 100%;
             padding: 0 40px;
+            position: relative;
         }
 
         .nav-logo {

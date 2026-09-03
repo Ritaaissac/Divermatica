@@ -53,7 +53,7 @@ body {
   width: 100%;
   max-width: 980px;
   margin: 24px auto 0;
-  background: rgba(223, 247, 255, 0.92);
+  background-color: rgba(223, 247, 255, 0.92);
   padding: 22px 30px 30px;
   position: relative;
   border-radius: 26px;
