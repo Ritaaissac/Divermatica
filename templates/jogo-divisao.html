@@ -4,14 +4,14 @@
 {% block content %}
 <main class="container">
 
-<header>
+<div class="game-header">
   <h1>🎣 Pesca da Divisão</h1>
   <div class="hud">
     <div id="score">Pontuação: 0 | Combo x0</div>
     <div id="lives">Vidas: ❤️❤️❤️</div>
     <div id="timer">Tempo: 30s</div>
   </div>
-</header>
+</div>
 
 <section id="start-screen" class="overlay">
   <h2>Hora de pescar respostas!</h2>
@@ -26,7 +26,6 @@
   </div>
 
   <div class="lake">
-
     <div class="rod"> 
       🎣 
       <div class="line"></div> 
@@ -59,7 +58,7 @@
       <a href="{{ url_for('jogos_index') }}" class="back-link">← Voltar</a>
   </div>
 
-</main> <link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-divisao.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/jogo-divisao.css') }}">
 <script src="{{ url_for('static', filename='js/dificuldade-por-ano.js') }}"></script>
 <script src="{{ url_for('static', filename='js/jogo-divisao.js') }}"></script>
 

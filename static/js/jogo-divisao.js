@@ -10,12 +10,10 @@ window.dificuldadePorAno = window.dificuldadePorAno || {
 // ===== IMAGENS DOS PEIXES =====
 // Troque os caminhos abaixo pelos arquivos reais das suas imagens de peixe.
 const FISH_IMAGES = [
-  "SUBSTITUA_PELO_CAMINHO/peixe-roxo.png",
-  "SUBSTITUA_PELO_CAMINHO/peixe-amarelo.png",
-  "SUBSTITUA_PELO_CAMINHO/peixe-verde.png",
-  "SUBSTITUA_PELO_CAMINHO/peixe-laranja.png",
-  "SUBSTITUA_PELO_CAMINHO/peixe-azul.png",
-  "SUBSTITUA_PELO_CAMINHO/peixe-rosa.png"
+  "/static/images/images-jogodivisao/peixe_roxo.png",
+  "/static/images/images-jogodivisao/peixe_amarelo.png",
+  "/static/images/images-jogodivisao/peixe_verde.png",
+  "/static/images/images-jogodivisao/peixe_laranja.png"
 ];
 
 function randomFishImage(){
