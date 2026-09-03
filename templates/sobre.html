@@ -8,20 +8,62 @@
 
 <section class="welcome-section">
 
-    <!-- Bolhas decorativas -->
+    <!-- =========================================
+         BOLHAS DECORATIVAS
+    ========================================== -->
+
     <div class="bubble bubble1"></div>
     <div class="bubble bubble2"></div>
     <div class="bubble bubble3"></div>
-    <img src="{{url_for('static', filename='images/nuvem.png')}}" alt="Nuvem" class="nuvem">
-    <img src="{{ url_for('static', filename='images/nuvem.png') }}" alt="Nuvem" class="nuvem2">
-    <img src="{{ url_for('static', filename='images/mascote1.png') }}" alt="Mascote" class="mascote_voando">
-    <img src="{{ url_for('static', filename='images/arbusto.png') }}" alt="Arbusto" class="arbusto">
 
-    <!-- Card principal -->
+
+    <!-- =========================================
+         NUVENS
+    ========================================== -->
+
+    <img
+        src="{{ url_for('static', filename='images/nuvem.png') }}"
+        alt="Nuvem"
+        class="nuvem"
+    >
+
+    <img
+        src="{{ url_for('static', filename='images/nuvem.png') }}"
+        alt="Nuvem"
+        class="nuvem2"
+    >
+
+
+    <!-- =========================================
+         MASCOTE
+    ========================================== -->
+
+    <img
+        src="{{ url_for('static', filename='images/mascote1.png') }}"
+        alt="Mascote"
+        class="mascote_voando"
+    >
+
+
+    <!-- =========================================
+         ARBUSTO
+    ========================================== -->
+
+    <img
+        src="{{ url_for('static', filename='images/arbusto.png') }}"
+        alt="Arbusto"
+        class="arbusto"
+    >
+
+
+    <!-- =========================================
+         CARD PRINCIPAL
+    ========================================== -->
+
     <div class="card">
 
         <h1>
-            Aprender matemática pode ser divertido! 
+            Aprender matemática pode ser divertido!
         </h1>
 
         <p>
@@ -34,43 +76,79 @@
 
     </div>
 
-    <!-- Mascote -->
 
-    <!-- Cards inferiores -->
+    <!-- =========================================
+         CARDS DE FUNCIONALIDADES
+    ========================================== -->
+
     <section class="features">
 
+
+        <!-- JOGOS -->
+
         <div class="feature-card">
 
-            <div class="emoji">🎮</div>
+            <img
+                class="imagem6"
+                src="{{ url_for('static', filename='images/icons/imagem6.png') }}"
+                alt="Jogos"
+            >
 
-            <h2>Jogos</h2>
+            <h2>
+                Jogos
+            </h2>
 
             <p>
-                Aprenda matemática brincando de forma divertida.
+                Aprenda matemática
+                brincando de forma
+                divertida.
             </p>
 
         </div>
 
+
+        <!-- QUIZ -->
+
         <div class="feature-card">
 
-            <img class="imagem1" src="{{ url_for('static', filename='images/icons/imagem1.png') }}" alt="Jogo da Memória">
+            <img
+                class="imagem1"
+                src="{{ url_for('static', filename='images/icons/imagem1.png') }}"
+                alt="Quiz"
+            >
 
-            <h2>Quiz</h2>
+            <h2>
+                Quiz
+            </h2>
 
             <p>
-                Teste seus conhecimentos com desafios interativos.
+                Teste seus conhecimentos
+                com desafios interativos.
             </p>
 
         </div>
 
+
+        <!-- APRENDIZADO -->
+
         <div class="feature-card">
 
-            <div class="emoji">🎯</div>
+            <img
+                class="imagem7"
+                src="{{ url_for('static', filename='images/icons/imagem7.png') }}"
+                alt="Aprendizado">
 
-                <h2>Aprendizado</h2>
-                <p>Desenvolva habilidades de forma divertida.</p>
+            <h2>
+                Aprendizado
+            </h2>
+
+            <p>
+                Desenvolva habilidades
+                de forma divertida.
+            </p>
 
         </div>
+
 
     </section>
 
