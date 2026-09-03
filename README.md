@@ -83,7 +83,7 @@ python app.py
 | -------------------------------------------- | 
 | Ezaelly Clara Lopes Feitosa de Morais        | 
 | Isabelle Vitória Fernandes de Medeiros Silva | 
-| Jacioneide Michelle Bolsonaro Andrade Araújo | 
+| Jacioneide Michelle Alves de Araújo          | 
 | Raissa Kelly Brito de Araújo                 | 
 | Rita de Cássia Saldanha Bezerra              | 
 
