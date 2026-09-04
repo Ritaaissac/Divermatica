@@ -3,12 +3,15 @@
 
 body {
     width: 100%;
+    min-height: 100vh;
+    background: url('../images/images-jogoadicao/fundo-jogo.png') center center / cover no-repeat fixed;
 }
 
 main {
     display: flex;
     justify-content: center;
     padding: 20px 0 40px;
+    background: transparent;
 }
 
 .jogo-page {
@@ -19,6 +22,17 @@ main {
     background: transparent;
     border-radius: 36px;
     box-shadow: none;
+}
+
+.circle,
+.favocima,
+.favobaixo {
+    display: none;
+}
+
+.mascote_abelha {
+    display: block;
+    opacity: 1;
 }
 
 .jogo-area {
